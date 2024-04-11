@@ -57,8 +57,7 @@ SPAM_AUDIO_WINDOW_SECONDS = 30
 BANNED_USERS = []
 
 @app.on_message(filters.command(["تحميل","يوتيوب","يوت","yt","فيديو","video"], prefixes=["/", "!", "%", ",", "", ".", "@", "#"]) & ~BANNED_USERS)
-@language
-async def song_commad_group(client, message: Message, _):
+async def ytmusic(client, message: Message):
     upl = InlineKeyboardMarkup(
         [
             [
