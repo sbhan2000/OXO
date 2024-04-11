@@ -45,7 +45,7 @@ async def activevc(_, message: Message):
                 text += f"<b>{j + 1}.</b> <a href=https://t.me/{user}>{unidecode(title).upper()}</a> [<code>{x}</code>]\n"
             else:
                 text += f"<b>{j + 1}.</b> {unidecode(title).upper()} [<code>{x}</code>]\n"
-            button_text = f"اشترك{ordinal(j + 1)} "
+            button_text = f"{ordinal(j + 1)}"
             buttons.append([InlineKeyboardButton(button_text, url=invite_link)])
             j += 1
         except:
@@ -81,7 +81,7 @@ async def activevi_(_, message: Message):
                 text += f"<b>{j + 1}.</b> <a href=https://t.me/{user}>{unidecode(title).upper()}</a> [<code>{x}</code>]\n"
             else:
                 text += f"<b>{j + 1}.</b> {unidecode(title).upper()} [<code>{x}</code>]\n"
-            button_text = f"اشترك {ordinal(j + 1)}"
+            button_text = f"{ordinal(j + 1)}"
             buttons.append([InlineKeyboardButton(button_text, url=invite_link)])
             j += 1
         except:
@@ -98,4 +98,4 @@ async def activevi_(_, message: Message):
 async def start(client: Client, message: Message):
     ac_audio = str(len(await get_active_chats()))
     ac_video = str(len(await get_active_video_chats()))
-    await message.reply_text(f"🥤| <b><u>المكالمات النشطة الان</u></b> :\n\n🥤| الصوتيه : {ac_audio}\n🥤| المرئيه  : {ac_video}", reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton('✯ ᴄʟᴏsᴇ ✯', callback_data=f"close")]]))
+    await message.reply_text(f"🥤| <b><u>المكالمات النشطة الان</u></b> :\n\n**🥤| الصوتيه :** {ac_audio}\n**🥤| المرئيه  :** {ac_video}", reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton('◍ اغلاق 🌐', callback_data=f"close")]]))
