@@ -57,7 +57,7 @@
         "value": "",
         "required": false
       },
-      "LOG_GROUP_ID": {
+      "LOGGER_ID": {
         "description": "ايـدي الگروب😑",
         "value": "",
         "required": true
