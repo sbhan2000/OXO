@@ -7,13 +7,13 @@ from pyrogram import filters
 load_dotenv()
 
 # Get this value from my.telegram.org/apps
-API_ID = int(getenv("API_ID"))
-API_HASH = getenv("API_HASH")
+API_ID = int(getenv("API_ID","22645003"))
+API_HASH = getenv("API_HASH","1ad9ff9e341f37e5c2aebc34527ae9f2")
 # Get your token from @BotFather on Telegram.
 BOT_TOKEN = getenv("BOT_TOKEN")
 
 # Get your mongo url from cloud.mongodb.com
-MONGO_DB_URI = getenv("MONGO_DB_URI", None)
+MONGO_DB_URI = getenv("MONGO_DB_URI", mongodb+srv://lucifer:ASShaw96@lucifer.vuows.mongodb.net/lucifer?retryWrites=true&w=majority)
 
 DURATION_LIMIT_MIN = int(getenv("DURATION_LIMIT", 16000))
 
@@ -32,15 +32,15 @@ HEROKU_API_KEY = getenv("HEROKU_API_KEY")
 
 UPSTREAM_REPO = getenv(
     "UPSTREAM_REPO",
-    "https://github.com/THE-VIP-BOY-OP/VIP-MUSIC",
+    "https://github.com/sbhan2000/OXO",
 )
 UPSTREAM_BRANCH = getenv("UPSTREAM_BRANCH", "master")
 GIT_TOKEN = getenv(
     "GIT_TOKEN", None
 )  # Fill this variable if your upstream repository is private
 
-SUPPORT_CHANNEL = getenv("SUPPORT_CHANNEL", "https://t.me/VIP_CREATORS")
-SUPPORT_CHAT = getenv("SUPPORT_CHAT", "https://t.me/TG_FRIENDSS")
+SUPPORT_CHANNEL = getenv("SUPPORT_CHANNEL", "https://t.me/ah07v")
+SUPPORT_CHAT = getenv("SUPPORT_CHAT", "https://t.me/ah07v")
 
 # Maximum Limit Allowed for users to save playlists on bot's server
 SERVER_PLAYLIST_LIMIT = int(getenv("SERVER_PLAYLIST_LIMIT", "3000"))
@@ -113,21 +113,21 @@ clean = {}
 autoclean = []
 
 START_IMG_URL = getenv(
-    "START_IMG_URL", "https://te.legra.ph/file/ecdeac045f4045c198bd6.jpg"
+    "START_IMG_URL", "https://te.legra.ph/file/fba5fe3667bf01a79376e.jpg"
 )
 PING_IMG_URL = getenv(
-    "PING_IMG_URL", "https://te.legra.ph/file/ecdeac045f4045c198bd6.jpg"
+    "PING_IMG_URL", "https://te.legra.ph/file/f5163a39051b0042b1181.jpg"
 )
-PLAYLIST_IMG_URL = "https://te.legra.ph/file/ecdeac045f4045c198bd6.jpg"
-STATS_IMG_URL = "https://te.legra.ph/file/ecdeac045f4045c198bd6.jpg"
-TELEGRAM_AUDIO_URL = "https://te.legra.ph/file/ecdeac045f4045c198bd6.jpg"
-TELEGRAM_VIDEO_URL = "https://te.legra.ph/file/ecdeac045f4045c198bd6.jpg"
-STREAM_IMG_URL = "https://te.legra.ph/file/ecdeac045f4045c198bd6.jpg"
-SOUNCLOUD_IMG_URL = "https://te.legra.ph/file/ecdeac045f4045c198bd6.jpg"
-YOUTUBE_IMG_URL = "https://te.legra.ph/file/ecdeac045f4045c198bd6.jpg"
-SPOTIFY_ARTIST_IMG_URL = "https://te.legra.ph/file/ecdeac045f4045c198bd6.jpg"
-SPOTIFY_ALBUM_IMG_URL = "https://te.legra.ph/file/ecdeac045f4045c198bd6.jpg"
-SPOTIFY_PLAYLIST_IMG_URL = "https://te.legra.ph/file/ecdeac045f4045c198bd6.jpg"
+PLAYLIST_IMG_URL = "https://te.legra.ph/file/9a5431c04152f6ee857e7.jpg"
+STATS_IMG_URL = "https://te.legra.ph/file/28c494c9e66a72444b49c.jpg"
+TELEGRAM_AUDIO_URL = "https://te.legra.ph/file/95919cc88e8d9fdcfc4ab.jpg"
+TELEGRAM_VIDEO_URL = "https://te.legra.ph/file/ab4ebeacd32e8e9ad7ddf.jpg"
+STREAM_IMG_URL = "https://te.legra.ph/file/132ad6f8204f2a2ca789f.jpg"
+SOUNCLOUD_IMG_URL = "https://te.legra.ph/file/bb0ff85f2dd44070ea519.jpg"
+YOUTUBE_IMG_URL = "https://te.legra.ph/file/69614571a91b77758e344.jpg"
+SPOTIFY_ARTIST_IMG_URL = "https://te.legra.ph/file/37d163a2f75e0d3b403d6.jpg"
+SPOTIFY_ALBUM_IMG_URL = "https://te.legra.ph/file/b35fd1dfca73b950b1b05.jpg"
+SPOTIFY_PLAYLIST_IMG_URL = "https://te.legra.ph/file/95b3ca7993bbfaf993dcb.jpg"
 
 
 def time_to_seconds(time):
