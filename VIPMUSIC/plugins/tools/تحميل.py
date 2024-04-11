@@ -59,8 +59,7 @@ BANNED_USERS = []
 
 
 
-@app.on_message(filters.command(["تحميل","يوتيوب","يوت","yt","فيديو","video"], prefixes=["/", "!", "%", ",", "", ".", "@", "#"]) & ~BANNED_USERS)
-@language
+@app.on_message(filters.command(["تحميل","يوتيوب","يوت","yt","فيديو","video"], prefixes=["/", "!", "%", ",", "", ".", "@", "#"]) & ~BANNED_USERS
 async def song_commad_group(client, message: Message, _):
     upl = InlineKeyboardMarkup(
         [
