@@ -1,18 +1,15 @@
-import asyncio
 import os
-import random
 import re
+import random
 import textwrap
 import aiofiles
 import aiohttp
-from PIL import (Image, ImageDraw, ImageEnhance, ImageFilter,
-                 ImageFont, ImageOps)
-from youtubesearchpython.__future__ import VideosSearch
-import numpy as np
-from config import YOUTUBE_IMG_URL
 
-def make_col():
-    return (random.randint(0,255),random.randint(0,255),random.randint(0,255))
+from PIL import Image, ImageDraw, ImageEnhance, ImageFilter, ImageFont, ImageOps
+from youtubesearchpython.__future__ import VideosSearch
+
+from VIPMUSIC import app
+from config import YOUTUBE_IMG_URL
 
 
 def changeImageSize(maxWidth, maxHeight, image):
@@ -23,19 +20,15 @@ def changeImageSize(maxWidth, maxHeight, image):
     newImage = image.resize((newWidth, newHeight))
     return newImage
 
-def truncate(text):
-    list = text.split(" ")
-    text1 = ""
-    text2 = ""    
-    for i in list:
-        if len(text1) + len(i) < 30:        
-            text1 += " " + i
-        elif len(text2) + len(i) < 30:       
-            text2 += " " + i
 
-    text1 = text1.strip()
-    text2 = text2.strip()     
-    return [text1,text2]
+def clear(text):
+    words = text.split(" ")
+    title = ""
+    for word in words:
+        if len(title) + len(word) < 60:
+            title += " " + word
+    return title.strip()
+
 
 async def get_thumb(videoid):
     try:
@@ -66,7 +59,7 @@ async def get_thumb(videoid):
                 except:
                     channel = "Unknown Channel"
 
-            async with aiohttp.ClientSession() as session:
+        async with aiohttp.ClientSession() as session:
             async with session.get(thumbnail) as resp:
                 if resp.status == 200:
                     f = await aiofiles.open(f"cache/thumb{videoid}.png", mode="wb")
@@ -176,3 +169,5 @@ async def get_thumb(videoid):
     except Exception as e:
         print(e)
         return YOUTUBE_IMG_URL
+
+
