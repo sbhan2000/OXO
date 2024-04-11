@@ -1,91 +1,88 @@
+from telegraph import upload_file
+from pyrogram import filters
+import base64
+import httpx
 import os
-from datetime import datetime
-from telethon import Button
+from PIL import Image, ImageEnhance
+from VIPMUSIC import app
+from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 
-from PIL import Image
-from telegraph import Telegraph, exceptions, upload_file
+@app.on_message(filters.reply & filters.command(["tgm", "telegraph","تلجراف","جراف"], prefixes=["/", "!", "%", ",", "", ".", "@", "#"]))  
+async def create_telegraph_link(client, message):
+    try:
+        if not message.reply_to_message:
+            await message.reply_text("**🥤| من فضلك اعمل رد على الصوره او الفيديو لصنع رابط تلجراف...** ")
+            return
 
-from VIPMUSIC import telethn as tbot
-from VIPMUSIC.utils.events import register
+        sent_message = await message.reply_text("**🥤| انتظر قليلا...**")
 
-VIP = "Vip"
-TMP_DOWNLOAD_DIRECTORY = "./"
-telegraph = Telegraph(domain="graph.org")
-r = telegraph.create_account(short_name=VIP)
-auth_url = r["auth_url"]
-
-
-@register(pattern="^/tg(m|t) ?(.*)")
-async def _(event):
-    if event.fwd_from:
-        return
-    optional_title = event.pattern_match.group(2)
-    if event.reply_to_msg_id:
-        start = datetime.now()
-        r_message = await event.get_reply_message()
-        input_str = event.pattern_match.group(1)
-        if input_str == "m":
-            downloaded_file_name = await tbot.download_media(
-                r_message, TMP_DOWNLOAD_DIRECTORY
-            )
-            end = datetime.now()
-            ms = (end - start).seconds
-            h = await event.reply(
-                "Downloaded to {} in {} seconds.".format(downloaded_file_name, ms)
-            )
-            if downloaded_file_name.endswith((".webp")):
-                resize_image(downloaded_file_name)
-            try:
-                start = datetime.now()
-                media_urls = upload_file(downloaded_file_name)
-            except exceptions.TelegraphException as exc:
-                await h.edit("ERROR: " + str(exc))
-                os.remove(downloaded_file_name)
+        if message.reply_to_message.photo:
+            media = message.reply_to_message.photo
+        elif message.reply_to_message.sticker:
+            sticker_file_id = message.reply_to_message.sticker.file_id
+            sticker_file = await client.download_media(sticker_file_id)
+            # Convert sticker to image or video depending on if it's animated
+            if message.reply_to_message.sticker.is_animated:
+                await message.reply_to_message.download("animated_sticker.webp")
+                await convert_animated_sticker_to_video("animated_sticker.webp", "animated_sticker.mp4")
+                media = "animated_sticker.mp4"
             else:
-                end = datetime.now()
-                (end - start).seconds
-                os.remove(downloaded_file_name)
-                button = Button.url("ᴛᴇʟᴇɢʀᴀᴘʜ", f"https://graph.org{media_urls[0]}")
-                await h.edit(
-                    "ᴜᴘʟᴏᴀᴅᴇᴅ ᴛᴏ [ᴛᴇʟᴇɢʀᴀᴘʜ](https://graph.org{})".format(
-                        media_urls[0]
-                    ),
-                    link_preview=True,
-                    buttons=button,
-                )
+                sticker_image = Image.open(sticker_file)
+                sticker_image.save("sticker_as_image.png")
+                media = "sticker_as_image.png"
+        else:
+            await message.reply_text("**🥤| قم بالرد على صوره او فيديو ...**")
+            return
 
-        elif input_str == "t":
-            user_object = await tbot.get_entity(r_message.sender_id)
-            title_of_page = user_object.first_name
-            if optional_title:
-                title_of_page = optional_title
-            page_content = r_message.message
-            if r_message.media:
-                if page_content != "":
-                    title_of_page = page_content
-                downloaded_file_name = await tbot.download_media(
-                    r_message, TMP_DOWNLOAD_DIRECTORY
-                )
-                m_list = None
-                with open(downloaded_file_name, "rb") as fd:
-                    m_list = fd.readlines()
-                for m in m_list:
-                    page_content += m.decode("UTF-8") + "\n"
-                os.remove(downloaded_file_name)
-            page_content = page_content.replace("\n", "<br>")
-            response = telegraph.create_page(title_of_page, html_content=page_content)
-            end = datetime.now()
-            ms = (end - start).seconds
-            await event.reply(
-                "ᴘᴀsᴛᴇᴅ ᴛᴏ https://graph.org/{} ɪɴ {} sᴇᴄᴏɴᴅs".format(
-                    response["path"], ms
-                ),
-                link_preview=True,
-            )
-    else:
-        await event.reply("Rᴇᴘʟʏ ᴛᴏ ᴀ ᴍᴇssᴀɢᴇ ᴛᴏ ɢᴇᴛ ᴀ ᴘᴇʀᴍᴀɴᴇɴᴛ ᴛᴇʟᴇɢʀᴀᴘʜ ʟɪɴᴋ.")
+        # Increase brightness
+        if isinstance(media, str):  # Check if media is an image or video file path
+            if media.endswith(".mp4"):
+                brightened_video_path = await increase_brightness_video(media)
+                telegraph_url = upload_file(brightened_video_path)[0]
+            else:
+                image = Image.open(media)
+                enhancer = ImageEnhance.Brightness(image)
+                brightened_image = enhancer.enhance(1.1)  # Increase brightness by 50%
+                # Save the brightened image
+                brightened_file_path = "brightened_image.png"
+                brightened_image.save(brightened_file_path)
+                telegraph_url = upload_file(brightened_file_path)[0]
+        else:  # Media is a photo object
+            image = Image.open(await client.download_media(media))
+            enhancer = ImageEnhance.Brightness(image)
+            brightened_image = enhancer.enhance(1.1)  # Increase brightness by 50%
+            # Save the brightened image
+            brightened_file_path = "brightened_image.png"
+            brightened_image.save(brightened_file_path)
+            telegraph_url = upload_file(brightened_file_path)[0]
 
+        # Create caption with the Telegraph link as a button
+        button_text = "Open in Telegraph"
+        button_url = "https://telegra.ph" + telegraph_url
+        reply_markup = InlineKeyboardMarkup(
+            [[InlineKeyboardButton(button_text, url=button_url)]]
+        )
 
-def resize_image(image):
-    im = Image.open(image)
-    im.save(image, "PNG")
+        await client.send_photo(
+            message.chat.id,
+            photo=brightened_file_path,
+            caption=f"**🥤| تم صنع الرابط بنجاح:\n\n🥤| الرابط : {button_url}\n\n🥤| بواسطة بوت** @{app.username}",
+            reply_markup=reply_markup,
+        )
+
+        # Delete the "Processing..." message after sending the results
+        await sent_message.delete()
+
+    except Exception as e:
+        print(f"🥤| فشل في صنع رابط تلجراف: {e}")
+        await message.reply_text("**🥤| فشل في صنع رابط تلجراف حاول مره اخرى**")
+
+async def convert_animated_sticker_to_video(input_file, output_file):
+    command = f"ffmpeg -i {input_file} -vf 'fps=25,scale=320:-1:flags=lanczos' -c:v libx264 -crf 20 -pix_fmt yuv420p {output_file}"
+    os.system(command)
+
+async def increase_brightness_video(video_path):
+    brightened_video_path = "brightened_video.mp4"
+    command = f"ffmpeg -i {video_path} -vf 'eq=brightness=0.5' -c:a copy {brightened_video_path}"
+    os.system(command)
+    return brightened_video_path
