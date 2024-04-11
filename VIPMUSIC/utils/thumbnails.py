@@ -67,82 +67,112 @@ async def get_thumb(videoid):
                     channel = "Unknown Channel"
 
             async with aiohttp.ClientSession() as session:
-                async with session.get(f"http://img.youtube.com/vi/{videoid}/maxresdefault.jpg") as resp:
-                    if resp.status == 200:
-                        f = await aiofiles.open(
-                            f"cache/thumb{videoid}.jpg", mode="wb"
-                        )
-                        await f.write(await resp.read())
-                        await f.close()
+            async with session.get(thumbnail) as resp:
+                if resp.status == 200:
+                    f = await aiofiles.open(f"cache/thumb{videoid}.png", mode="wb")
+                    await f.write(await resp.read())
+                    await f.close()
 
-            youtube = Image.open(f"cache/thumb{videoid}.jpg")
-            image1 = changeImageSize(1280, 720, youtube)
-            image2 = image1.convert("RGBA")
-            background = image2.filter(filter=ImageFilter.BoxBlur(30))
+        youtube = Image.open(f"cache/thumb{videoid}.png")
+        image1 = changeImageSize(1280, 720, youtube)
+        image2 = image1.convert("RGBA")
+        
+        # Check if the 'filter' attribute is available in the Image module
+        if hasattr(Image, 'filter'):
+            background = image2.filter(filter=ImageFilter.BoxBlur(50))
             enhancer = ImageEnhance.Brightness(background)
-            background = enhancer.enhance(0.6)
-            image2 = background
-                                                                                            
-            circle = Image.open("VIPMUSIC/assets/circle.png")
+            background = enhancer.enhance(0.9)
+        else:
+            # If 'filter' attribute is not available, use a different approach for blurring
+            background = image2.filter(ImageFilter.BoxBlur(50))
+            enhancer = ImageEnhance.Brightness(background)
+            background = enhancer.enhance(0.9)
+        
+        Xcenter = youtube.width / 2
+        Ycenter = youtube.height / 2
+        x1 = Xcenter - 250
+        y1 = Ycenter - 250
+        x2 = Xcenter + 250
+        y2 = Ycenter + 250
+        logo = youtube.crop((x1, y1, x2, y2))
+        logo.thumbnail((520, 520), Image.ANTIALIAS)
+        logo = ImageOps.expand(logo, border=17, fill="pink")
+        background.paste(logo, (50, 100))
+        draw = ImageDraw.Draw(background)
+        
+        # Adjust the font size here
+        font_size = 40
+        font = ImageFont.truetype("VIPMUSIC/assets/font2.ttf", font_size)
+        font2_size = 70
+        font2 = ImageFont.truetype("VIPMUSIC/assets/font2.ttf", font2_size)
+        arial = ImageFont.truetype("VIPMUSIC/assets/font2.ttf", 30)
+        name_font = ImageFont.truetype("VIPMUSIC/assets/font.ttf", 40)
+        
+        para = textwrap.wrap(clear(title), width=32) 
+        j = 0
+        draw.text(
+            (6, 6), f"ahmed", fill="Yellow", font=name_font
+        )
+        draw.text(
+            (600, 200),
+            f"NOW PLAYING",
+            fill="white",
+            stroke_width=2,
+            stroke_fill="yellow",
+            font=font2,
+        )
+        for line in para:
+            if j == 1:
+                j += 1
+                draw.text(
+                    (600, 390),
+                    f"Tɪᴛʟᴇ : {line}",
+                    fill="white",
+                    stroke_width=1,
+                    stroke_fill="white",
+                    font=font,
+                )
+            if j == 0:
+                j += 1
+                draw.text(
+                    (600, 330),
+                    f"{line}",
+                    fill="white",
+                    stroke_width=1,
+                    stroke_fill="white",
+                    font=font,
+                )
 
-            # changing circle color
-            im = circle
-            im = im.convert('RGBA')
-            color = make_col()
-
-            data = np.array(im)
-            red, green, blue, alpha = data.T
-
-            white_areas = (red == 255) & (blue == 255) & (green == 255)
-            data[..., :-1][white_areas.T] = color
-
-            im2 = Image.fromarray(data)
-            circle = im2
-            # done
-
-            image3 = image1.crop((280,0,1000,720))
-            lum_img = Image.new('L', [720,720] , 0)
-            draw = ImageDraw.Draw(lum_img)
-            draw.pieslice([(0,0), (720,720)], 0, 360, fill = 255, outline = "white")
-            img_arr = np.array(image3)
-            lum_img_arr = np.array(lum_img)
-            final_img_arr = np.dstack((img_arr,lum_img_arr))
-            image3 = Image.fromarray(final_img_arr)
-            image3 = image3.resize((600,600))
-            
-
-            image2.paste(image3, (50,70), mask = image3)
-            image2.paste(circle, (0,0), mask = circle)
-
-            # fonts
-            font1 = ImageFont.truetype('VIPMUSIC/assets/font.ttf', 30)
-            font2 = ImageFont.truetype('VIPMUSIC/assets/font2.ttf', 70)
-            font3 = ImageFont.truetype('VIPMUSIC/assets/font2.ttf', 40)
-            font4 = ImageFont.truetype('VIPMUSIC/assets/font2.ttf', 35)
-
-            image4 = ImageDraw.Draw(image2)
-            image4.text((10, 10), "dev ➛ @ah_2_v", fill="white", font = font1, align ="left") 
-            image4.text((670, 150), "NOW PLAYING", fill="white", font = font2, stroke_width=2, stroke_fill="white", align ="left") 
-
-            # title
-            title1 = truncate(title)
-            image4.text((670, 300), text=title1[0], fill="white", stroke_width=1, stroke_fill="white",font = font3, align ="left") 
-            image4.text((670, 350), text=title1[1], fill="white", stroke_width=1, stroke_fill="white", font = font3, align ="left") 
-
-            # description
-            views = f"Views : {views}"
-            duration = f"Duration : {duration} Mins"
-            channel = f"Channel : {channel}"
-
-            image4.text((670, 450), text=views, fill="white", font = font4, align ="left") 
-            image4.text((670, 500), text=duration, fill="white", font = font4, align ="left") 
-            image4.text((670, 550), text=channel, fill="white", font = font4, align ="left")
-            
-            image2 = ImageOps.expand(image2,border=20,fill=make_col())
-            image2 = image2.convert('RGB')
-            image2.save(f"cache/{videoid}.jpg")
-            file = f"cache/{videoid}.jpg"
-            return file
+        draw.text(
+            (600, 450),
+            f"Views : {views[:23]}",
+            fill="white",
+            stroke_width=1,
+            stroke_fill="white",
+            font=font,
+        )
+        draw.text(
+            (600, 500),
+            f"Duration : {duration[:23]} Mins",
+            fill="white",
+            stroke_width=1,
+            stroke_fill="white",
+            font=font,
+        )
+        draw.text(
+            (600, 550),
+            f"Channel : {channel}",
+            fill="white",
+            stroke_width=1,
+            stroke_fill="white",
+            font=font,
+        )
+        try:
+            os.remove(f"cache/thumb{videoid}.png")
+        except:
+            pass
+        background.save(f"cache/{videoid}.png")
+        return f"cache/{videoid}.png"
     except Exception as e:
         print(e)
         return YOUTUBE_IMG_URL
