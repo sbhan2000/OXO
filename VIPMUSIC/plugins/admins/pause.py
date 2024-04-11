@@ -24,5 +24,5 @@ async def pause_admin(cli, message: Message, _, chat_id):
     ]
     
     await message.reply_text(
-        _["admin_2"].format(message.from_user.mention), reply_markup=InlineKeyboardMarkup(buttons)
+        _["admin_2"].format(user_mention), reply_markup=InlineKeyboardMarkup(buttons)
     )
