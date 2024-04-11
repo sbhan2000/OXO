@@ -4,7 +4,7 @@ from youtubesearchpython.__future__ import VideosSearch
 from VIPMUSIC import app
 
 # Command handler for /getthumbnail
-@app.on_message(filters.command("getthumb", prefixes="/"))
+@app.on_message(filters.command("صورة", prefixes=""))
 async def get_thumbnail_command(client, message):
     try:
         # Extract video ID from the command
