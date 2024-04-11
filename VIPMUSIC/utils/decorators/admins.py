@@ -41,18 +41,6 @@ def AdminRightsCheck(mystic):
             _ = get_string(language)
         except:
             _ = get_string("en")
-        if message.sender_chat:
-            upl = InlineKeyboardMarkup(
-                [
-                    [
-                        InlineKeyboardButton(
-                            text="ʜᴏᴡ ᴛᴏ ғɪx ?",
-                            callback_data="VIPmousAdmin",
-                        ),
-                    ]
-                ]
-            )
-            return await message.reply_text(_["general_3"], reply_markup=upl)
         if message.command[0][0] == "c":
             chat_id = await get_cmode(message.chat.id)
             if chat_id is None:
@@ -91,7 +79,7 @@ def AdminRightsCheck(mystic):
                                 [
                                     [
                                         InlineKeyboardButton(
-                                            text="ᴠᴏᴛᴇ",
+                                            text="تصويت",
                                             callback_data=f"ADMIN  UpVote|{chat_id}_{MODE}",
                                         ),
                                     ]
@@ -137,18 +125,6 @@ def AdminActual(mystic):
             _ = get_string(language)
         except:
             _ = get_string("en")
-        if message.sender_chat:
-            upl = InlineKeyboardMarkup(
-                [
-                    [
-                        InlineKeyboardButton(
-                            text="ʜᴏᴡ ᴛᴏ ғɪx ?",
-                            callback_data="VIPmousAdmin",
-                        ),
-                    ]
-                ]
-            )
-            return await message.reply_text(_["general_3"], reply_markup=upl)
         if message.from_user.id not in SUDOERS:
             try:
                 member = (
