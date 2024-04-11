@@ -37,11 +37,11 @@ from time import time
 from VIPMUSIC.utils.extraction import extract_user
 from urllib.parse import urlparse
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
-from pyrogram import filters
-from youtubesearchpython import SearchVideos
-from yt_dlp import YoutubeDL
-from VIPMUSIC import app
-import wget
+import time
+from pyrogram.types import Message
+from time import time
+from pykeyboard import InlineKeyboard
+
 
 # Define a dictionary to track the last query timestamp for each user
 user_last_CallbackQuery_time = {}
