@@ -35,5 +35,5 @@ async def resume_com(cli, message: Message, _, chat_id):
         ]
     ]
     await message.reply_text(
-        _["admin_4"].format(message.from_user.mention), reply_markup=InlineKeyboardMarkup(buttons_resume)
+        _["admin_4"].format(user_mention), reply_markup=InlineKeyboardMarkup(buttons_resume)
     )
