@@ -67,8 +67,7 @@ async def ytmusic(client, message: Message):
                 callback_data=f"downloadvideo {videoid}"),
                 InlineKeyboardButton(
                 text= "‹ تـحميل صـوت ›",
-                callback_data=f"downloadaudio {videoid}",
-                ),
+                callback_data=f"downloadaudio {videoid}"),
             ]
         ]
     )
