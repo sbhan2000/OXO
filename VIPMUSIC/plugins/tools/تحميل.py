@@ -57,6 +57,8 @@ SPAM_AUDIO_WINDOW_SECONDS = 30
 
 BANNED_USERS = []
 
+
+
 @app.on_message(filters.command(["تحميل","يوتيوب","يوت","yt","فيديو","video"], prefixes=["/", "!", "%", ",", "", ".", "@", "#"]) & ~BANNED_USERS)
 @language
 async def song_commad_group(client, message: Message, _):
@@ -64,16 +66,15 @@ async def song_commad_group(client, message: Message, _):
         [
             [
                 InlineKeyboardButton(
-                text= "‹ تـحميل فـيديو ›",
-                callback_data=f"downloadvideo {videoid}"),
-                InlineKeyboardButton(
-                text= "‹ تـحميل صـوت ›",
-                callback_data=f"downloadaudio {videoid}"),
+                    text=_["SG_B_1"],
+                    url=f"https://t.me/{app.username}?start=song",
+                ),
             ]
         ]
     )
-    await message.reply_text(_["song_3"], reply_markup=upl)
-  
+    await message.reply_text(_["song_1"], reply_markup=upl)
+
+
 
 @app.on_callback_query(filters.regex("downloadvideo") & ~filters.user(BANNED_USERS))
 async def download_video(client, CallbackQuery):
