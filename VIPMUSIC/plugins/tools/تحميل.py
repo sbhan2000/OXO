@@ -16,6 +16,7 @@ from VIPMUSIC import YouTube, app
 from VIPMUSIC.utils.decorators.language import language, languageCB
 from VIPMUSIC.utils.formatters import convert_bytes
 from VIPMUSIC.utils.inline.song import song_markup
+from config import BANNED_USERS
 
 # Command
 
