@@ -28,8 +28,11 @@ async def song_commad_group(client, message: Message, _):
         [
             [
                 InlineKeyboardButton(
-                    text=_["S_B_2"],
-                    url=f"https://t.me/{app.username}?start=song",
+                text= "‹ تـحميل فـيديو ›",
+                callback_data=f"downloadvideo {videoid}"),
+                InlineKeyboardButton(
+                text= "‹ تـحميل صـوت ›",
+                callback_data=f"downloadaudio {videoid}",
                 ),
             ]
         ]
