@@ -137,7 +137,7 @@ async def download_video(client, CallbackQuery):
                 file_stark,
             ),
         )
-        await client.send_message(CallbackQuery.message.chat.id, f"**🥤| مرحباً** {chutiya}\n\n**🥤| تم تنزيل الفيديو بنجاح في خاص البوت**\n**🥤|  [اضغط هنا للذهاب اليه](tg://openmessage?user_id={app.id})**")
+        await client.send_message(CallbackQuery.message.chat.id, f"**🥤| مرحباً** {chutiya}\n\n**🥤| تم تنزيل الفيديو في خاص البوت بنجاح**\n**🥤|  [اضغط هنا للذهاب اليه](tg://openmessage?user_id={app.id})**")
         await pablo.delete()
         for files in (sedlyf, file_stark):
             if files and os.path.exists(files):
@@ -237,7 +237,7 @@ async def download_audio(client, CallbackQuery):
                 file_stark,
             ),
         )
-        await client.send_message(CallbackQuery.message.chat.id, f"**🥤| مرحباً** {chutiya}\n\n**🥤| تم تنزيل الصوت بنجاح في خاص البوت**\n**🥤|  [اضغط هنا للذهاب اليه](tg://openmessage?user_id={app.id})**")
+        await client.send_message(CallbackQuery.message.chat.id, f"**🥤| مرحباً** {chutiya}\n\n**🥤| تم تنزيل الصوت في خاص البوت بنجاح**\n**🥤|  [اضغط هنا للذهاب اليه](tg://openmessage?user_id={app.id})**")
         
         await pablo.delete()
         for files in (sedlyf, file_stark):
@@ -246,5 +246,5 @@ async def download_audio(client, CallbackQuery):
 
     except Exception as e:
         await pablo.delete()
-        return await client.send_message(CallbackQuery.message.chat.id, f"**ʜᴇʏ {chutiya} ᴘʟᴇᴀsᴇ ᴜɴʙʟᴏᴄᴋ ᴍᴇ ғᴏʀ ᴅᴏᴡɴʟᴏᴀᴅ ʏᴏᴜʀ ᴀᴜᴅɪᴏ ʙʏ ᴄʟɪᴄᴋ ʜᴇʀᴇ 👇👇**", reply_markup=InlineKeyboardMarkup([
+        return await client.send_message(CallbackQuery.message.chat.id, f"**🥤| مرحباً {chutiya} يرجى إلغاء الحظر عن البوت. **", reply_markup=InlineKeyboardMarkup([
                 [InlineKeyboardButton(f"‹ الـبوت ›", url=f"https://t.me/{app.username}?start=info_{videoid}")]]))
