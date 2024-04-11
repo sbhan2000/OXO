@@ -41,6 +41,7 @@ import time
 from pyrogram.types import Message
 from time import time
 from pykeyboard import InlineKeyboard
+from pykeyboard import InlineKeyboard
 
 
 # Define a dictionary to track the last query timestamp for each user
@@ -56,7 +57,7 @@ SPAM_AUDIO_WINDOW_SECONDS = 30
 
 BANNED_USERS = []
 
-@app.on_message(filters.command(["تحميل","يوتيوب","يوت","yt","فيديو","video"], prefixes=["/", "!", "%", ",", "", ".", "@", "#"]) & ~BANNED_USERS)
+@app.on_message(filters.command(["تحميل","يوتيوب","يوت","yt","فيديو","video"], prefixes=["/", "!", "%", ",", "", ".", "@", "#"]) & ~BANNED_USERS
 async def ytmusic(client, message: Message):
     upl = InlineKeyboardMarkup(
         [
