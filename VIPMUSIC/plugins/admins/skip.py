@@ -22,7 +22,7 @@ async def skip(cli, message: Message, _, chat_id):
         loop = await get_loop(chat_id)
         if loop != 0:
             return await message.reply_text(_["admin_8"])
-        user_mention = message.from_user.mention if message.from_user else "المشـرف"
+        user_mention = user_mention if message.from_user else "المشـرف"
         state = message.text.split(None, 1)[1].strip()
         if state.isnumeric():
             state = int(state)
@@ -44,7 +44,7 @@ async def skip(cli, message: Message, _, chat_id):
                                 try:
                                     await message.reply_text(
                                         text=_["admin_6"].format(
-                                            message.from_user.mention,
+                                            user_mention,
                                             message.chat.title,
                                         ),
                                         reply_markup=close_markup(_),
@@ -71,7 +71,7 @@ async def skip(cli, message: Message, _, chat_id):
             if not check:
                 await message.reply_text(
                     text=_["admin_6"].format(
-                        message.from_user.mention, message.chat.title
+                        user_mention, message.chat.title
                     ),
                     reply_markup=close_markup(_),
                 )
@@ -83,7 +83,7 @@ async def skip(cli, message: Message, _, chat_id):
             try:
                 await message.reply_text(
                     text=_["admin_6"].format(
-                        message.from_user.mention, message.chat.title
+                        user_mention, message.chat.title
                     ),
                     reply_markup=close_markup(_),
                 )
