@@ -11,7 +11,7 @@ from VIPMUSIC.utils.database import get_client, is_active_chat, is_autoend
 
 async def auto_leave():
     if config.AUTO_LEAVING_ASSISTANT:
-        while not await asyncio.sleep(900):
+        while not await asyncio.sleep(500):
             from VIPMUSIC.core.userbot import assistants
 
             for num in assistants:
@@ -26,8 +26,8 @@ async def auto_leave():
                         ]:
                             if (
                                 i.chat.id != config.LOGGER_ID
-                                and i.chat.id != -1001465277194
-                                and i.chat.id != -1002120144597
+                                and i.chat.id != -1001420714100
+                                and i.chat.id != -1001420714100
                             ):
                                 if left == 20:
                                     continue
