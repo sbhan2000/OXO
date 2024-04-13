@@ -51,7 +51,7 @@ async def start_group_call(c: Client, m: Message):
                 random_id=assistant.rnd_id() // 9000000000,
             )
         )
-        await msg.edit_text("**🥤|تم فتح المكالمه المرئية\n\n🥤| بواسطة :** {name}")
+        await msg.edit_text("")
     except ChatAdminRequired:
       try:    
         await app.promote_chat_member(chat_id, assid, privileges=ChatPrivileges(
@@ -86,7 +86,7 @@ async def start_group_call(c: Client, m: Message):
             can_promote_members=False,
             ),
         )                              
-        await msg.edit_text("**🥤| تم فتح المكالمه المرئية\n\n🥤| بواسطة :** {name}")
+        await msg.edit_text("")
       except:
          await msg.edit_text("**🥤|خلي البوت معاه صلاحية اضافة مشرفين والتحكم ف المحادثه الصوتيه او ارفع الحساب المساعد مشرف**")
 @app.on_message(filters.regex("^تعطيل المكالمه$"))
@@ -107,7 +107,7 @@ async def stop_group_call(c: Client, m: Message):
         ):  
            return
         await assistant.invoke(DiscardGroupCall(call=group_call))
-        await msg.edit_text("**🥤| تم قفل المكالمه المرئية\n\n🥤| بواسطة :** {name}")
+        await msg.edit_text("")
     except Exception as e:
       if "GROUPCALL_FORBIDDEN" in str(e):
        try:    
@@ -140,7 +140,7 @@ async def stop_group_call(c: Client, m: Message):
             can_promote_members=False,
             ),
          )                              
-         await msg.edit_text("**🥤| تم قفل المكالمه المرئية\n\n🥤| بواسطة :** {name}")
+         await msg.edit_text("")
        except:
          await msg.edit_text("**🥤|خلي البوت معاه صلاحية اضافة مشرفين والتحكم ف المحادثه الصوتيه او ارفع الحساب المساعد مشرف**")
 
