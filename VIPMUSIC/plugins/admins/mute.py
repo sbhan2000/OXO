@@ -7,13 +7,9 @@ from VIPMUSIC.core.call import VIP
 from VIPMUSIC.utils.database import is_muted, mute_on
 from VIPMUSIC.utils.decorators import AdminRightsCheck
 
-# Commands
-MUTE_COMMAND = get_command("اسكت","/mute")
 
 
-@app.on_message(
- filters.command(MUTE_COMMAND,"")
-    & ~BANNED_USERS)
+@app.on_message(filters.command(["mute","اسكت"], prefixes=["/", "!", "%", ",", "", ".", "@", "#"]) & ~BANNED_USERS)
 @AdminRightsCheck
 async def mute_admin(cli, message: Message, _, chat_id):
     if not len(message.command) == 1 or message.reply_to_message:
