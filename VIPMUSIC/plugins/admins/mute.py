@@ -15,10 +15,10 @@ async def mute_admin(cli, message: Message, _, chat_id):
     if not len(message.command) == 1 or message.reply_to_message:
         return await message.reply_text(_["general_2"])
     if await is_muted(chat_id):
-        return await message.reply_text(_["admin_5"], disable_web_page_preview=True)
+        return await message.reply_text(_["admin_45"], disable_web_page_preview=True)
     await mute_on(chat_id)
     user_mention = message.from_user.mention if message.from_user else "المشـرف"
     await VIP.mute_stream(chat_id)
     await message.reply_text(
-        _["admin_6"].format(user_mention), disable_web_page_preview=True
+        _["admin_46"].format(user_mention), disable_web_page_preview=True
     )
