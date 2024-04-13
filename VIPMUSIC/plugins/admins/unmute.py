@@ -7,13 +7,9 @@ from VIPMUSIC.core.call import VIP
 from VIPMUSIC.utils.database import is_muted, mute_off
 from VIPMUSIC.utils.decorators import AdminRightsCheck
 
-# Commands
-UNMUTE_COMMAND = get_command("تكلم","/unmute")
 
 
-@app.on_message(
- filters.command(UNMUTE_COMMAND,"")
-    & ~BANNED_USERS)
+@app.on_message(filters.command(["unmute","تكلم"], prefixes=["/", "!", "%", ",", "", ".", "@", "#"]) & ~BANNED_USERS)
 @AdminRightsCheck
 async def unmute_admin(Client, message: Message, _, chat_id):
     if not len(message.command) == 1 or message.reply_to_message:
