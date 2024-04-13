@@ -38,7 +38,7 @@ def get_file_id(msg: Message):
                 return obj
 
 @app.on_message(
-    command(["المبرمج","حمد","مبرمج السورس","الـمبرمج"])
+    filters.command(["المبرمج","حمد","مبرمج السورس","الـمبرمج"])
 )
 async def yas(client, message):
     usr = await client.get_chat("ah_2_v")
@@ -59,7 +59,7 @@ async def yas(client, message):
 
 
 @app.on_message(
-    command(["السورس","سورس","الـسورس"])
+    filters.command(["السورس","سورس","الـسورس"])
 )
 async def yas(client, message):
     usr = await client.get_chat("ah07v")
