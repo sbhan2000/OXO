@@ -7303,7 +7303,7 @@ txt = [
         
 
 
-@app.on_message(command(["كت","تويت","ك","ت"]))
+@app.on_message(filters.command(["كت","تويت","ك","ت"]))
 
 
 async def cutt(client: Client, message: Message):
