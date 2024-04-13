@@ -51,6 +51,7 @@ YUMI_PICS = [
 @app.on_message(filters.command(["start"]) & ~BANNED_USERS)
 @LanguageStart
 async def start_pm(client, message: Message, _):
+    user_mention = message.from_user.mention if message.from_user else "المشـرف"
     await add_served_user(message.from_user.id)
     if len(message.text.split()) > 1:
         name = message.text.split(None, 1)[1]
