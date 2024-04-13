@@ -30,6 +30,9 @@ from VIPMUSIC.utils.database import get_assistant
 from time import time
 import asyncio
 from VIPMUSIC.utils.extraction import extract_user
+import config
+
+from ..logging import LOGGER
 
 # Define a dictionary to track the last message timestamp for each user
 user_last_message_time = {}
