@@ -4,7 +4,7 @@ from config import OWNER_ID
 from pyrogram.types import Message , ReplyKeyboardMarkup , KeyboardButton
 from VIPMUSIC import (Apple, Resso, SoundCloud, Spotify, Telegram, YouTube, app)
 
-@app.on_message(filters.text & (filters.channel | filters.private))            
+@app.on_message(filters.text & (filters.channel))            
 async def hhhki(client: Client, message: Message):
     msg = message.text
     if message.from_user is not None:
