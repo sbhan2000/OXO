@@ -209,25 +209,6 @@ async def ihd(client: Client, message: Message):
 
 
 
-@app.on_message(filters.regex("^كتت$") & filters.group)
-@app.on_edited_message(filters.regex("^كتت$") & filters.group)
-async def game_4(client, message):
-   f = "zczzf"
-   t = message.chat.id
-   d = randint(2,190)
-   await app.copy_message(
-      t,
-      f,
-      d,
-      reply_to_message_id=message.id,
-      reply_markup=InlineKeyboardMarkup(
-      [
-      [
-      InlineKeyboardButton("‹ تـم اختيار كت ›", user_id=8)
-      ]
-      ]
-      )
-   )
 
 
 @app.on_message(filters.regex("^كتاب$") & filters.group)
@@ -250,22 +231,3 @@ async def game_5(client, message):
       )
    )
 
-@app.on_message(filters.regex("^اقتباس$") & filters.group)
-@app.on_edited_message(filters.regex("^اقتباس$") & filters.group)
-async def game_4(client, message):
-   f = "quotes555v"
-   t = message.chat.id
-   d = randint(2,190)
-   await app.copy_message(
-      t,
-      f,
-      d,
-      reply_to_message_id=message.id,
-      reply_markup=InlineKeyboardMarkup(
-      [
-      [
-      InlineKeyboardButton("‹ تـم اختيار اقتباس ›", user_id=8)
-      ]
-      ]
-      )
-   )
