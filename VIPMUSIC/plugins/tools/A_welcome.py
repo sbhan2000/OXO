@@ -106,7 +106,7 @@ def welcomepic(pic, user, chatname, id, uname, brightness_factor=1.3):
     return f"downloads/welcome#{id}.png"
 
 
-@app.on_message(filters.command("ترحيب"], prefixes=["/", "!", "%", ",", "", ".", "@", "#"])  & ~filters.private & ~filters.group)
+@app.on_message(filters.command(["ترحيب"], prefixes=["/", "!", "%", ",", "", ".", "@", "#"])  & ~filters.private & ~filters.group)
 async def auto_state(_, message):
     user_id = message.from_user.id
     current_time = time()
