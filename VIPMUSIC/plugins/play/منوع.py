@@ -94,7 +94,7 @@ async def ihd(client: Client, message: Message):
         )
     )
 
-@app.on_message(filters.command(["‹ اقتباسات ›", "اقتباس","اقتباس"], prefixes=["/", "!", "%", ",", "", ".", "@", "#"]))
+@app.on_message(filters.command(["اقتباس بالصوره","اقتبس"], prefixes=["/", "!", "%", ",", "", ".", "@", "#"]))
 async def ihd(client: Client, message: Message):
     rl = random.randint(2,90)
     url = f"https://t.me/LoreBots9/{rl}"
@@ -243,6 +243,25 @@ async def game_5(client, message):
       [
       [
       InlineKeyboardButton("‹ تـم اختيار كتاب اسلامي ›", user_id=8)
+      ]
+      ]
+      )
+   )
+
+@app.on_message(filters.command(["اقتباس"], prefixes=["/", "!", "%", ",", "", ".", "@", "#"]))
+async def game_5(client, message):
+   f = "quotes555v"
+   t = message.chat.id
+   d = randint(2,190)
+   await app.copy_message(
+      t,
+      f,
+      d,
+      reply_to_message_id=message.id,
+      reply_markup=InlineKeyboardMarkup(
+      [
+      [
+      InlineKeyboardButton("‹ تـم اختيار اقتباس ›", user_id=8)
       ]
       ]
       )
