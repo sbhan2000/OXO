@@ -14,16 +14,16 @@ chat = []
 async def ad3iyar(c, msg):
   if msg.text == "تفعيل الادعيه":
     if msg.chat.id in chat:
-      return await msg.reply_text("↯︙الادعيه متقعله من قبل")
+      return await msg.reply_text("**🥤| تم تفعيل الادعية بالفعل**")
     else:
       chat.append(msg.chat.id)
-      return await msg.reply_text("↯︙تم تفعيل الادعيه")
+      return await msg.reply_text("**🥤| تم تفعيل الادعيه**")
   elif msg.text == "تعطيل الادعيه":
     if msg.chat.id in chat:
       chat.remove(msg.chat.id)
-      return await msg.reply_text("↯︙تم تعطيل الادعيه")
+      return await msg.reply_text("**🥤| تم تعطيل الادعيه**")
     else:
-      return await msg.reply_text("↯︙الادعيه متعطله من قبل")
+      return await msg.reply_text("**🥤| تم تعطيل الادعية بالفعل**")
       
 
 
