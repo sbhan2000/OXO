@@ -95,6 +95,10 @@ async def song(_, message: Message):
 
 @app.on_message(filters.command(["فيديو", "video"], prefixes=["/", "!", "%", ",", "", ".", "@", "#"]))
 async def video_search(client, message):
+    try:
+        await message.delete()
+    except:
+        pass
     ydl_opts = {
         "format": "best",
         "keepvideo": True,
