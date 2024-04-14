@@ -190,7 +190,7 @@ async def ihd(client: Client, message: Message):
     )
 
 
-@app.on_message(filters.command(["كتب","كتاب"], prefixes=["/", "!", "%", ",", "", ".", "@", "#"]))
+@app.on_message(filters.command([""], prefixes=["/", "!", "%", ",", "", ".", "@", "#"]))
 async def ihd(client: Client, message: Message):
     rl = random.randint(2,50)
     url = f"https://t.me/kotobeslameah/{rl}"
@@ -223,3 +223,23 @@ async def ihd(client: Client, message: Message):
     )
 
 
+
+
+@app.on_message(filters.regex("^كتب$") & filters.group)
+@app.on_edited_message(filters.regex("^كتب$") & filters.group)
+async def game_6(client, message):
+   f = "kotobeslameah"
+   t = message.chat.id
+   r = randint(2, 141)
+   a = await app.get_messages("kotobeslameah", r)
+   id = message.from_user.id
+   await message.reply(
+      f"- ‹ {message.from_user.mention} ›\n{a.text}",
+      reply_markup=InlineKeyboardMarkup(
+      [
+      [
+      InlineKeyboardButton("التالي", callback_data=f"cut:{id}")
+      ]
+      ]
+      )
+   )
