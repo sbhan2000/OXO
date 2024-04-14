@@ -26,7 +26,7 @@ async def join_group(client, message):
     chat_id = message.chat.id
     userbot = await get_assistant(message.chat.id)
     userbot_id = userbot.id
-    done = await message.reply("**↯︙انتظر قليلا من فضلك وسوف ينضم الحساب المساعد الى المجموعه...**")
+    done = await message.reply("**🥤| انتظر قليلا من فضلك وسوف ينضم الحساب المساعد الى المجموعه...**")
     await asyncio.sleep(1)
     # Get chat member object
     chat_member = await app.get_chat_member(chat_id, app.id)
