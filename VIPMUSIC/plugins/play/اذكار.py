@@ -14,16 +14,16 @@ chat = []
 async def azkarr(c, msg):
   if msg.text == "تفعيل الاذكار":
     if msg.chat.id in chat:
-      return await msg.reply_text("↯︙الاذكار متقعله من قبل")
+      return await msg.reply_text("**🥤| تم تفعيل الاذكار بالفعل**")
     else:
       chat.append(msg.chat.id)
-      return await msg.reply_text("↯︙تم تفعيل الاذكار")
+      return await msg.reply_text("**🥤| تم تفعيل الاذكار**")
   elif msg.text == "تعطيل الاذكار":
     if msg.chat.id in chat:
       chat.remove(msg.chat.id)
-      return await msg.reply_text("↯︙تم تعطيل الاذكار")
+      return await msg.reply_text("**🥤| تم تعطيل الاذكار**")
     else:
-      return await msg.reply_text("↯︙الاذكار متعطله من قبل")
+      return await msg.reply_text("**🥤| تم تعطيل الاذكار بالفعل**")
       
 
 
