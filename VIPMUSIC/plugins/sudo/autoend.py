@@ -6,7 +6,7 @@ from VIPMUSIC.misc import SUDOERS
 from VIPMUSIC.utils.database import autoend_off, autoend_on
 
 
-@app.on_message(filters.command(["المغادره التلقائيه","المغادرة التلقائية"], prefixes=["/", "!", "%", ",", "", ".", "@", "#"]) & SUDOERS)
+@app.on_message(filters.command(["autoend","المغادره التلقائيه","المغادرة التلقائية"], prefixes=["/", "!", "%", ",", "", ".", "@", "#"]) & SUDOERS)
 async def auto_end_stream(_, message: Message):
     usage = "<b>🥤| مثــال :</b>\n\n🥤| المغادره التلقائيه [تفعيل | تعطيل]"
     if len(message.command) != 2:
