@@ -211,22 +211,23 @@ async def ihd(client: Client, message: Message):
 
 @app.on_message(filters.regex("^كتت$") & filters.group)
 @app.on_edited_message(filters.regex("^كتت$") & filters.group)
-async def game_6(client, message):
+async def game_4(client, message):
    f = "zczzf"
    t = message.chat.id
-   r = randint(2, 141)
-   a = await app.get_messages("zczzf", r)
-   id = message.from_user.id
-   await message.reply(
-      f"- ‹ {message.from_user.mention} ›\n{a.text}",
+   d = randint(2,190)
+   await app.copy_message(
+      t,
+      f,
+      d,
+      reply_to_message_id=message.id,
       reply_markup=InlineKeyboardMarkup(
       [
       [
-      InlineKeyboardButton("التالي", callback_data=f"cut:{id}")
+      InlineKeyboardButton("‹ تـم اختيار كت ›", user_id=8)
       ]
       ]
       )
-    )
+   )
 
 
 @app.on_message(filters.regex("^كتاب$") & filters.group)
