@@ -95,14 +95,14 @@ async def show_quran(c,cq):
     else:
         keyboard.append([ikb("‹ رجوع ›", callback_data = f"play-{number-1}"), ikb("‹ التالي ›", callback_data = f"play-{number+1}")])
     name_suarh = quran[number]["surah"]
-    await cq.edit_message_text(f"↯︙تم اختيار سورة {name_suarh} .\n↯︙قم باختيار الشيخ", reply_markup = ikm(keyboard))
+    await cq.edit_message_text(f"**🥤| تم اختيار سورة {name_suarh} .\n🥤| قم باختيار الشيخ**", reply_markup = ikm(keyboard))
 
 @app.on_callback_query(filters.regex("runq") & ~BANNED_USERS)
 async def show_quran(c,cq):
     data = (cq.data.strip()).split("-")
     number = int(data[1])
     i = int(data[2])
-    quran = json.loads(open("VIPMUSIC/assets/quran.json").read())["s"] # ملف القران الي بستخدمه بتاع @devzaid 
+    quran = json.loads(open("VIPMUSIC/assets/quran.json").read())["s"] 
     name = quran[number]["surah"]
     per_name = quran[number]["sounds"][i]["name"]
     file = requests.get(quran[number]["sounds"][i]["url"]).content
