@@ -2,11 +2,10 @@ import os
 import re
 import requests
 import yt_dlp
-from strings.filters import command
 from pyrogram import filters
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, Message
 from youtube_search import YoutubeSearch
-from AarohiX import app
+from VIPMUSIC import app
 from config import SUPPORT_CHAT
 import os.path
 
@@ -14,7 +13,7 @@ def is_valid_youtube_url(url):
     # Check if the provided URL is a valid YouTube URL
     return url.startswith(("https://www.youtube.com", "http://www.youtube.com", "youtube.com"))
 
-@app.on_message(command(["تحميل"], prefixes=["/", "!", "%", ",", "", ".", "@", "#"]))
+@app.on_message(filters.command(["تحميل"], prefixes=["/", "!", "%", ",", "", ".", "@", "#"]))
 async def song(_, message: Message):
     try:
         await message.delete()
@@ -94,7 +93,7 @@ async def song(_, message: Message):
         error_message = f"**🥤| فشل في حذف الملفات المؤقتة.** \n\n**🥤| السبب :** `{ex}`"
         await m.edit_text(error_message)
 
-@app.on_message(command(["فيديو", "video"], prefixes=["/", "!", "%", ",", "", ".", "@", "#"]))
+@app.on_message(filters.command(["فيديو", "video"], prefixes=["/", "!", "%", ",", "", ".", "@", "#"]))
 async def video_search(client, message):
     ydl_opts = {
         "format": "best",
