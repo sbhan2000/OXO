@@ -124,20 +124,6 @@ async def ihd(client: Client, message: Message):
         )
     )
 
-@app.on_message(filters.command(["صور", " ‹ صور ›"], prefixes=["/", "!", "%", ",", "", ".", "@", "#"]))
-async def ihd(client: Client, message: Message):
-    rl = random.randint(2,90)
-    url = f"https://t.me/vvyuol/{rl}"
-    await client.send_photo(message.chat.id,url,caption="**🥤| تم اختيار صوره اليك**",
-    reply_markup=InlineKeyboardMarkup(
-            [
-                [
-                    InlineKeyboardButton(
-                        message.from_user.first_name, url=f"https://t.me/{message.from_user.username}")
-                ],
-            ]
-        )
-    )
 
 @app.on_message(filters.command(["شباب", "افتار شباب"], prefixes=["/", "!", "%", ",", "", ".", "@", "#"]))
 async def ihd(client: Client, message: Message):
@@ -186,3 +172,54 @@ async def ihd(client: Client, message: Message):
             ]
         )
     )
+
+
+@app.on_message(filters.command(["صور جداريه", "صور جدارية","جداريات"], prefixes=["/", "!", "%", ",", "", ".", "@", "#"]))
+async def ihd(client: Client, message: Message):
+    rl = random.randint(2,50)
+    url = f"https://t.me/bvdvdvdvb/{rl}"
+    await client.send_photo(message.chat.id,url,caption="**🥤| تم اختيار صوره جدارية اليك**",
+    reply_markup=InlineKeyboardMarkup(
+            [
+                [
+                    InlineKeyboardButton(
+                        message.from_user.first_name, url=f"https://t.me/{message.from_user.username}")
+                ],
+            ]
+        )
+    )
+
+
+@app.on_message(filters.command(["كتب","كتاب"], prefixes=["/", "!", "%", ",", "", ".", "@", "#"]))
+async def ihd(client: Client, message: Message):
+    rl = random.randint(2,50)
+    url = f"https://t.me/kotobeslameah/{rl}"
+    await client.send_photo(message.chat.id,url,caption="**🥤| تم اختيار كتاب اليك**",
+    reply_markup=InlineKeyboardMarkup(
+            [
+                [
+                    InlineKeyboardButton(
+                        message.from_user.first_name, url=f"https://t.me/{message.from_user.username}")
+                ],
+            ]
+        )
+    )
+
+
+
+@app.on_message(filters.command(["عيال","افتار عيال"], prefixes=["/", "!", "%", ",", "", ".", "@", "#"]))
+async def ihd(client: Client, message: Message):
+    rl = random.randint(2,50)
+    url = f"https://t.me/foravaboys/{rl}"
+    await client.send_photo(message.chat.id,url,caption="**🥤| تم اختيار افتار عيال اليك**",
+    reply_markup=InlineKeyboardMarkup(
+            [
+                [
+                    InlineKeyboardButton(
+                        message.from_user.first_name, url=f"https://t.me/{message.from_user.username}")
+                ],
+            ]
+        )
+    )
+
+
