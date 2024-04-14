@@ -225,13 +225,13 @@ async def ihd(client: Client, message: Message):
 
 
 
-@app.on_message(filters.regex("^كتب$") & filters.group)
-@app.on_edited_message(filters.regex("^كتب$") & filters.group)
+@app.on_message(filters.regex("^كتت$") & filters.group)
+@app.on_edited_message(filters.regex("^كتت$") & filters.group)
 async def game_6(client, message):
-   f = "kotobeslameah"
+   f = "rancutt"
    t = message.chat.id
    r = randint(2, 141)
-   a = await app.get_messages("kotobeslameah", r)
+   a = await app.get_messages("rancutt", r)
    id = message.from_user.id
    await message.reply(
       f"- ‹ {message.from_user.mention} ›\n{a.text}",
@@ -239,6 +239,27 @@ async def game_6(client, message):
       [
       [
       InlineKeyboardButton("التالي", callback_data=f"cut:{id}")
+      ]
+      ]
+      )
+    )
+
+
+@app.on_message(filters.regex("^كتب$") & filters.group)
+@app.on_edited_message(filters.regex("^كتب$") & filters.group)
+async def game_5(client, message):
+   f = "kotobeslameah"
+   t = message.chat.id
+   d = randint(2,190)
+   await app.copy_message(
+      t,
+      f,
+      d,
+      reply_to_message_id=message.id,
+      reply_markup=InlineKeyboardMarkup(
+      [
+      [
+      InlineKeyboardButton("Dev", user_id=1748768168)
       ]
       ]
       )
