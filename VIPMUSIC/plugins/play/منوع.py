@@ -249,7 +249,7 @@ async def game_5(client, message):
    )
 
 @app.on_message(filters.command(["اقتباس"], prefixes=["/", "!", "%", ",", "", ".", "@", "#"]))
-async def game_5(client, message):
+async def game_4(client, message):
    f = "quotes555v"
    t = message.chat.id
    d = randint(2,190)
