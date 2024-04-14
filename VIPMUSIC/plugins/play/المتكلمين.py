@@ -7,7 +7,7 @@ from VIPMUSIC.core.call import VIP
 from VIPMUSIC.utils.database import *
 from pytgcalls.exceptions import (NoActiveGroupCall,TelegramServerError)
 
-@app.on_message(filters.regex(["المتكلمين"], prefixes=["/", "!", "%", ",", "", ".", "@", "#"]))
+@app.on_message(filters.command(["المتكلمين"], prefixes=["/", "!", "%", ",", "", ".", "@", "#"]))
 async def strcall(client, message):
     assistant = await group_assistant(VIP,message.chat.id)
     try:
