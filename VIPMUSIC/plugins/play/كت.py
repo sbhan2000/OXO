@@ -7303,7 +7303,7 @@ txt = [
         
 
 
-@app.on_message(filters.command(["كت","تويت","ك","ت"]))
+@app.on_message(filters.command(["كت","تويت","ت"], prefixes=["/", "!", "%", ",", "", ".", "@", "#"]))
 
 
 async def cutt(client: Client, message: Message):
