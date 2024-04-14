@@ -31,7 +31,7 @@ async def ihd(client: Client, message: Message):
     )
 
 
-@app.on_message(filters.command(["غنيلي", "‹ غنيلي ›", "غ", ""], prefixes=["/", "!", "%", ",", "", ".", "@", "#"]))
+@app.on_message(filters.command(["غنيلي", "‹ غنيلي ›", "غ"], prefixes=["/", "!", "%", ",", "", ".", "@", "#"]))
 async def ihd(client: Client, message: Message):
     rl = random.randint(2,90)
     url = f"https://t.me/proxMusicl/{rl}"
