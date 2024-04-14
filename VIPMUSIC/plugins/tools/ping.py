@@ -100,7 +100,7 @@ async def ping_com(client, message: Message, _):
                 ],
                 [
                     InlineKeyboardButton(
-                        " الـمطور ", user_id=config.OWNER_ID 
+                        "‹ الـمطور ›", user_id=config.OWNER_ID 
             )
         ],
     ]
