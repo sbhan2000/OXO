@@ -211,8 +211,8 @@ async def ihd(client: Client, message: Message):
 
 
 
-@app.on_message(filters.regex("^كتاب$") & filters.group)
-@app.on_edited_message(filters.regex("^كتاب$") & filters.group)
+@app.on_message(filters.regex("^كتب$") & filters.group)
+@app.on_edited_message(filters.regex("^كتب$") & filters.group)
 async def game_5(client, message):
    f = "kotobeslameah"
    t = message.chat.id
@@ -225,7 +225,7 @@ async def game_5(client, message):
       reply_markup=InlineKeyboardMarkup(
       [
       [
-      InlineKeyboardButton("‹ تـم اختيار كتاب اسلامي ›", user_id=8)
+      InlineKeyboardButton("Dev", user_id=1748768168)
       ]
       ]
       )
