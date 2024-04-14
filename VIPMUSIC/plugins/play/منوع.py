@@ -190,22 +190,6 @@ async def ihd(client: Client, message: Message):
     )
 
 
-@app.on_message(filters.command([""], prefixes=["/", "!", "%", ",", "", ".", "@", "#"]))
-async def ihd(client: Client, message: Message):
-    rl = random.randint(2,50)
-    url = f"https://t.me/kotobeslameah/{rl}"
-    await client.send_photo(message.chat.id,url,caption="**🥤| تم اختيار كتاب اليك**",
-    reply_markup=InlineKeyboardMarkup(
-            [
-                [
-                    InlineKeyboardButton(
-                        message.from_user.first_name, url=f"https://t.me/{message.from_user.username}")
-                ],
-            ]
-        )
-    )
-
-
 
 @app.on_message(filters.command(["عيال","افتار عيال"], prefixes=["/", "!", "%", ",", "", ".", "@", "#"]))
 async def ihd(client: Client, message: Message):
@@ -228,10 +212,10 @@ async def ihd(client: Client, message: Message):
 @app.on_message(filters.regex("^كتت$") & filters.group)
 @app.on_edited_message(filters.regex("^كتت$") & filters.group)
 async def game_6(client, message):
-   f = "rancutt"
+   f = "zczzf"
    t = message.chat.id
    r = randint(2, 141)
-   a = await app.get_messages("rancutt", r)
+   a = await app.get_messages("zczzf", r)
    id = message.from_user.id
    await message.reply(
       f"- ‹ {message.from_user.mention} ›\n{a.text}",
@@ -245,8 +229,7 @@ async def game_6(client, message):
     )
 
 
-@app.on_message(filters.regex("^كتب$") & filters.group)
-@app.on_edited_message(filters.regex("^كتب$") & filters.group)
+@app.on_message(filters.command(["كتب","كتاب","كتاب اسلامي"], prefixes=["/", "!", "%", ",", "", ".", "@", "#"]))
 async def game_5(client, message):
    f = "kotobeslameah"
    t = message.chat.id
@@ -259,7 +242,7 @@ async def game_5(client, message):
       reply_markup=InlineKeyboardMarkup(
       [
       [
-      InlineKeyboardButton("Dev", user_id=1748768168)
+      InlineKeyboardButton("‹ تـم اختيار كتاب اسلامي ›", user_id=8)
       ]
       ]
       )
