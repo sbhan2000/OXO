@@ -43,7 +43,7 @@ SPAM_THRESHOLD = 2
 SPAM_WINDOW_SECONDS = 5
 
 @app.on_message(
-   filters.command(["play", "vplay", "تشغيل", "شغل", "شغلي", "ش", "cvplayforce"], prefixes=["/", "!", "%", "", ".", "@", "#"])
+   filters.command(["play", "vplay","تشغيل", "شغل", "شغلي", "cvplayforce"], prefixes=["/", "!", "%", "", ".", "@", "#"])
             
     & ~BANNED_USERS
 )
