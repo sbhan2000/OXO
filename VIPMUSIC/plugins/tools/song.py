@@ -1,202 +1,148 @@
 import os
-import future
-import asyncio
+import re
 import requests
-import wget
-import time
 import yt_dlp
-from urllib.parse import urlparse
-from youtube_search import YoutubeSearch
-from yt_dlp import YoutubeDL
-
-from VIPMUSIC import app
+from strings.filters import command
 from pyrogram import filters
-from pyrogram import Client, filters
-from pyrogram.types import Message
-from youtubesearchpython import VideosSearch
-from youtubesearchpython import SearchVideos
-from time import time
-import asyncio
-from VIPMUSIC.utils.extraction import extract_user
+from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, Message
+from youtube_search import YoutubeSearch
+from AarohiX import app
+from config import SUPPORT_CHAT
+import os.path
 
-# Define a dictionary to track the last message timestamp for each user
-user_last_message_time = {}
-user_command_count = {}
-# Define the threshold for command spamming (e.g., 20 commands within 60 seconds)
-SPAM_THRESHOLD = 2
-SPAM_WINDOW_SECONDS = 5
-#-------------------
+def is_valid_youtube_url(url):
+    # Check if the provided URL is a valid YouTube URL
+    return url.startswith(("https://www.youtube.com", "http://www.youtube.com", "youtube.com"))
 
+@app.on_message(command(["تحميل"], prefixes=["/", "!", "%", ",", "", ".", "@", "#"]))
+async def song(_, message: Message):
+    try:
+        await message.delete()
+    except:
+        pass
+    m = await message.reply_text("**🥤| يتم البحث الان .**", quote=True)
 
-# ------------------------------------------------------------------------------- 
+    query = " ".join(str(i) for i in message.command[1:])
+    ydl_opts = {"format": "bestaudio[ext=m4a]"}
 
-@app.on_message(filters.command("song"))
-async def download_song(_, message):
-    user_id = message.from_user.id
-    current_time = time()
-    # Update the last message timestamp for the user
-    last_message_time = user_last_message_time.get(user_id, 0)
+    try:
+        if is_valid_youtube_url(query):
+            # If it's a valid YouTube URL, use it directly
+            link = query
+        else:
+            # Otherwise, perform a search using the provided keyword
+            results = YoutubeSearch(query, max_results=5).to_dict()
+            if not results:
+                raise Exception("**🥤| لايوجد بحث .**")
+            
+            link = f"https://youtube.com{results[0]['url_suffix']}"
 
-    if current_time - last_message_time < SPAM_WINDOW_SECONDS:
-        # If less than the spam window time has passed since the last message
-        user_last_message_time[user_id] = current_time
-        user_command_count[user_id] = user_command_count.get(user_id, 0) + 1
-        if user_command_count[user_id] > SPAM_THRESHOLD:
-            # Block the user if they exceed the threshold
-            hu = await message.reply_text(f"**{message.from_user.mention} ᴘʟᴇᴀsᴇ ᴅᴏɴᴛ ᴅᴏ sᴘᴀᴍ, ᴀɴᴅ ᴛʀʏ ᴀɢᴀɪɴ ᴀғᴛᴇʀ 5 sᴇᴄ**")
-            await asyncio.sleep(3)
-            await hu.delete()
-            return 
-    else:
-        # If more than the spam window time has passed, reset the command count and update the message timestamp
-        user_command_count[user_id] = 1
-        user_last_message_time[user_id] = current_time
+        title = results[0]["title"][:40]
+        thumbnail = results[0]["thumbnails"][0]
+        thumb_name = f"{title}.jpg"
+        # Replace invalid characters in the filename
+        thumb_name = thumb_name.replace("/", "")
+        thumb = requests.get(thumbnail, allow_redirects=True)
+        open(thumb_name, "wb").write(thumb.content)
+        duration = results[0]["duration"]
 
-    query = " ".join(message.command[1:])  
-    print(query)
-    m = await message.reply("**🔄 sᴇᴀʀᴄʜɪɴɢ... **")
-    ydl_ops = {"format": "bestaudio[ext=m4a]"}
+    except Exception as ex:
+        error_message = f"- فشل .\n\n**السبب :** `{ex}`"
+        return await m.edit_text(error_message)
+
+    await m.edit_text("**🥤| تم الرفع انتظر قليلاً .**")
+
+    try:
+        with yt_dlp.YoutubeDL(ydl_opts) as ydl:
+            info_dict = ydl.extract_info(link, download=False)
+            audio_file = ydl.prepare_filename(info_dict)
+            ydl.process_info(info_dict)
+
+        rep = f"**🥤| الأسم :** [{title[:23]}]({link})\n**🥤| الوقت :** `{duration}`\n**🥤| بواسطة  :** {message.from_user.first_name}"
+
+        secmul, dur, dur_arr = 1, 0, duration.split(":")
+        for i in range(len(dur_arr) - 1, -1, -1):
+            dur += int(dur_arr[i]) * secmul
+            secmul *= 60
+
+        visit_butt = InlineKeyboardMarkup(
+    [
+        [InlineKeyboardButton(text="‹ الـدعم ›", url=SUPPORT_CHAT)],
+    ]
+)
+        # Reply to the user who initiated the search
+        await message.reply_audio(
+            audio=audio_file,
+            caption=rep,
+            thumb=thumb_name,
+            title=title,
+            duration=dur,
+            reply_markup=visit_butt,
+        )
+
+        await m.delete()
+
+    except Exception as ex:
+        error_message = f"**🥤| فشل في تحميل الفيديو من YouTube.** \n\n**🥤| السبب :** `{ex}`"
+        await m.edit_text(error_message)
+
+    # Remove temporary files after audio upload
+    try:
+        os.remove(audio_file)
+        os.remove(thumb_name)
+    except Exception as ex:
+        error_message = f"**🥤| فشل في حذف الملفات المؤقتة.** \n\n**🥤| السبب :** `{ex}`"
+        await m.edit_text(error_message)
+
+@app.on_message(command(["فيديو", "video"], prefixes=["/", "!", "%", ",", "", ".", "@", "#"]))
+async def video_search(client, message):
+    ydl_opts = {
+        "format": "best",
+        "keepvideo": True,
+        "prefer_ffmpeg": False,
+        "geo_bypass": True,
+        "outtmpl": "%(title)s.%(ext)s",
+        "quite": True,
+    }
+    query = " ".join(message.command[1:])
     try:
         results = YoutubeSearch(query, max_results=1).to_dict()
         link = f"https://youtube.com{results[0]['url_suffix']}"
         title = results[0]["title"][:40]
         thumbnail = results[0]["thumbnails"][0]
-        thumb_name = f"{title}.jpg"
+        # إزالة الأحرف غير الصحيحة من اسم الملف
+        title = re.sub(r'[\\/*?:"<>|]', '', title)
+        thumb_name = f"thumb{title}.jpg"
         thumb = requests.get(thumbnail, allow_redirects=True)
-        open(thumb_name, "wb").write(thumb.content)
-        duration = results[0]["duration"]
-
-        # Add these lines to define views and channel_name
-        views = results[0]["views"]
-        channel_name = results[0]["channel"]
-
-    except Exception as e:
-        await m.edit("**⚠️ ɴᴏ ʀᴇsᴜʟᴛs ᴡᴇʀᴇ ғᴏᴜɴᴅ. ᴍᴀᴋᴇ sᴜʀᴇ ʏᴏᴜ ᴛʏᴘᴇᴅ ᴛʜᴇ ᴄᴏʀʀᴇᴄᴛ sᴏɴɢ ɴᴀᴍᴇ**")
-        print(str(e))
-        return
-    await m.edit("**📥 ᴅᴏᴡɴʟᴏᴀᴅɪɴɢ...**")
-    try:
-        with yt_dlp.YoutubeDL(ydl_ops) as ydl:
-            info_dict = ydl.extract_info(link, download=False)
-            audio_file = ydl.prepare_filename(info_dict)
-            ydl.process_info(info_dict)
-        secmul, dur, dur_arr = 1, 0, duration.split(":")
-        for i in range(len(dur_arr) - 1, -1, -1):
-            dur += int(float(dur_arr[i])) * secmul
-            secmul *= 60
-        await m.edit("**📤 ᴜᴘʟᴏᴀᴅɪɴɢ...**")
-
-        await message.reply_audio(
-            audio_file,
-            thumb=thumb_name,
-            title=title,
-            caption=f"{title}\nRᴇǫᴜᴇsᴛᴇᴅ ʙʏ ➪{message.from_user.mention}\nVɪᴇᴡs➪ {views}\nCʜᴀɴɴᴇʟ➪ {channel_name}",
-            duration=dur
-        )
-        await m.delete()
-    except Exception as e:
-        await m.edit(" - An error !!")
-        print(e)
-
-    try:
-        os.remove(audio_file)
-        os.remove(thumb_name)
+        with open(thumb_name, "wb") as file:
+            file.write(thumb.content)
+        results[0]["duration"]
+        results[0]["url_suffix"]
+        results[0]["views"]
+        message.from_user.mention
     except Exception as e:
         print(e)
-
-        
-        
-
-# ------------------------------------------------------------------------------- #
-
-###### INSTAGRAM REELS DOWNLOAD
-
-
-@app.on_message(filters.command(["ig"], ["/", "!", "."]))
-async def download_instareels(c: app, m: Message):
-    user_id = message.from_user.id
-    current_time = time()
-    # Update the last message timestamp for the user
-    last_message_time = user_last_message_time.get(user_id, 0)
-
-    if current_time - last_message_time < SPAM_WINDOW_SECONDS:
-        # If less than the spam window time has passed since the last message
-        user_last_message_time[user_id] = current_time
-        user_command_count[user_id] = user_command_count.get(user_id, 0) + 1
-        if user_command_count[user_id] > SPAM_THRESHOLD:
-            # Block the user if they exceed the threshold
-            hu = await message.reply_text(f"**{message.from_user.mention} ᴘʟᴇᴀsᴇ ᴅᴏɴᴛ ᴅᴏ sᴘᴀᴍ, ᴀɴᴅ ᴛʀʏ ᴀɢᴀɪɴ ᴀғᴛᴇʀ 5 sᴇᴄ**")
-            await asyncio.sleep(3)
-            await hu.delete()
-            return 
-    else:
-        # If more than the spam window time has passed, reset the command count and update the message timestamp
-        user_command_count[user_id] = 1
-        user_last_message_time[user_id] = current_time
-
     try:
-        reel_ = m.command[1]
-    except IndexError:
-        await m.reply_text("Give me an link to download it...")
-        return
-    if not reel_.startswith("https://www.instagram.com/reel/"):
-        await m.reply_text("In order to obtain the requested reel, a valid link is necessary. Kindly provide me with the required link.")
-        return
-    OwO = reel_.split(".",1)
-    Reel_ = ".dd".join(OwO)
+        msg = await message.reply("**🥤| يتم البحث الان .**")
+        with yt_dlp.YoutubeDL(ydl_opts) as ytdl:
+            ytdl_data = ytdl.extract_info(link, download=True)
+            file_name = ytdl.prepare_filename(ytdl_data)
+    except Exception as e:
+        return await msg.edit(f"🚫 **error:** {e}")
+    thumb_path = f"thumb{title}.jpg"
+    if not os.path.exists(thumb_path):
+        return await msg.edit(f"🚫 **error:** Thumb file not found!")
+    
+    await msg.edit("**🥤| تم الرفع انتضر قليلاً .**")
+    await message.reply_video(
+        file_name,
+        duration=int(ytdl_data["duration"]),
+        thumb=thumb_path,
+        caption=ytdl_data["title"],
+    )
     try:
-        await m.reply_video(Reel_)
-        return
-    except Exception:
-        try:
-            await m.reply_photo(Reel_)
-            return
-        except Exception:
-            try:
-                await m.reply_document(Reel_)
-                return
-            except Exception:
-                await m.reply_text("I am unable to reach to this reel.")
-
-
-
-######
-
-@app.on_message(filters.command(["reel"], ["/", "!", "."]))
-async def instagram_reel(client, message):
-    user_id = message.from_user.id
-    current_time = time()
-    # Update the last message timestamp for the user
-    last_message_time = user_last_message_time.get(user_id, 0)
-
-    if current_time - last_message_time < SPAM_WINDOW_SECONDS:
-        # If less than the spam window time has passed since the last message
-        user_last_message_time[user_id] = current_time
-        user_command_count[user_id] = user_command_count.get(user_id, 0) + 1
-        if user_command_count[user_id] > SPAM_THRESHOLD:
-            # Block the user if they exceed the threshold
-            hu = await message.reply_text(f"**{message.from_user.mention} ᴘʟᴇᴀsᴇ ᴅᴏɴᴛ ᴅᴏ sᴘᴀᴍ, ᴀɴᴅ ᴛʀʏ ᴀɢᴀɪɴ ᴀғᴛᴇʀ 5 sᴇᴄ**")
-            await asyncio.sleep(3)
-            await hu.delete()
-            return 
-    else:
-        # If more than the spam window time has passed, reset the command count and update the message timestamp
-        user_command_count[user_id] = 1
-        user_last_message_time[user_id] = current_time
-
-    if len(message.command) == 2:
-        url = message.command[1]
-        response = requests.post(f"https://lexica-api.vercel.app/download/instagram?url={url}")
-        data = response.json()
-
-        if data['code'] == 2:
-            media_urls = data['content']['mediaUrls']
-            if media_urls:
-                video_url = media_urls[0]['url']
-                await message.reply_video(f"{video_url}")
-            else:
-                await message.reply("No video found in the response. may be accountbis private.")
-        else:
-            await message.reply("Request was not successful.")
-    else:
-        await message.reply("Please provide a valid Instagram URL using the /reels command.")
+        os.remove(file_name)
+        os.remove(thumb_path)
+        await msg.delete()
+    except Exception as ex:
+        print(f"- فشل : {ex}")
