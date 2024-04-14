@@ -6,7 +6,7 @@ from VIPMUSIC.utils.database import add_off, add_on
 from VIPMUSIC.utils.decorators.language import language
 
 
-@app.on_message(filters.command([""]) & SUDOERS)
+@app.on_message(filters.command(["add"]) & SUDOERS)
 @language
 async def logger(client, message, _):
     usage = _["log_1"]
