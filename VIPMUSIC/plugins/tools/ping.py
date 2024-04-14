@@ -68,45 +68,35 @@ async def ping_com(client, message: Message, _):
         user_last_message_time[user_id] = current_time
 
     PING_IMG_URL = "https://telegra.ph/file/37b57c6aaaa793bba055a.jpg"
-    captionss = "↯︙بدء قياس سرعة استجابة البوت..."
+    captionss = "**🥤|بدء قياس سرعة استجابة البوت...**"
     response = await message.reply_photo(PING_IMG_URL, caption=(captionss))
     await asyncio.sleep(1)
-    await response.edit_caption("↯︙انتظر قليلا جاࢪي تجهيز البيانات.")
+    await response.edit_caption("**🥤| انتظر قليلا جاࢪي تجهيز البيانات...**")
     await asyncio.sleep(1)
-    await response.edit_caption("↯︙انتظر قليلا جاࢪي تجهيز البيانات..**")
-    await asyncio.sleep(1)
-    await response.edit_caption("↯︙انتظر قليلا جاࢪي تجهيز البيانات...")
-    await asyncio.sleep(1.5)
-    await response.edit_caption("↯︙انتظر قليلا جاࢪي تجهيز البيانات..")
-    await asyncio.sleep(2)
-    await response.edit_caption("↯︙انتظر قليلا جاࢪي تجهيز البيانات...")
-    await asyncio.sleep(2)
-    await response.edit_caption("↯︙جاࢪي رفع بيانات البوت...")
-    await asyncio.sleep(3)
-    await response.edit_caption("↯︙جاࢪي تحميل بيانات البوت...")
+    await response.edit_caption("**🥤| انتظر قليلا جاࢪي تجهيز البيانات...**")
     start = datetime.now()
     pytgping = await VIP.ping()
     UP, CPU, RAM, DISK = await bot_sys_stats()
     resp = (datetime.now() - start).microseconds / 1000
     text =  _["ping_2"].format(resp, app.name, UP, RAM, CPU, DISK, pytgping)
     carbon = await make_carbon(text)
-    captions = "**↯︙اليك بيانات سرعة استجابة البوت للاوامر. ⚡❤**"
+    captions = "**🥤| اليك بيانات سرعة استجابة البوت للاوامر. ⚡❤**"
     await message.reply_photo((carbon), caption=captions,
     reply_markup=InlineKeyboardMarkup(
             [
                 [
             InlineKeyboardButton(
-                text=_["S_B_5"],
+                text=_["S_B_1"],
                 url=f"https://t.me/{app.username}?startgroup=true",
             )
         
         ],
         [
             InlineKeyboardButton(
-                        " الدعم ", url=config.SUPPORT_CHAT
+                        "‹ الـدعم ›", url=config.SUPPORT_CHAT
                     ),
                     InlineKeyboardButton(
-                        " القناة ", url=config.SUPPORT_CHANNEL),
+                        "‹ قـناة الـبوت ›", url=config.SUPPORT_CHANNEL),
                 ],
                 [
                     InlineKeyboardButton(
@@ -118,7 +108,7 @@ async def ping_com(client, message: Message, _):
         )
     await response.delete()
 
-    close_button = InlineKeyboardButton("๏ ᴄʟᴏsᴇ ๏", callback_data="close_data")
+    close_button = InlineKeyboardButton("◍ اغلاق 🌐", callback_data="close_data")
     inline_keyboard = InlineKeyboardMarkup([[close_button]])
 
 @app.on_callback_query(filters.regex("^close_data"))
