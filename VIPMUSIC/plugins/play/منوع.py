@@ -229,7 +229,8 @@ async def game_6(client, message):
     )
 
 
-@app.on_message(filters.command(["كتب","كتاب","كتاب اسلامي"], prefixes=["/", "!", "%", ",", "", ".", "@", "#"]))
+@app.on_message(filters.regex("^كتاب$") & filters.group)
+@app.on_edited_message(filters.regex("^كتاب$") & filters.group)
 async def game_5(client, message):
    f = "kotobeslameah"
    t = message.chat.id
@@ -248,7 +249,8 @@ async def game_5(client, message):
       )
    )
 
-@app.on_message(filters.command(["اقتباس"], prefixes=["/", "!", "%", ",", "", ".", "@", "#"]))
+@app.on_message(filters.regex("^اقتباس$") & filters.group)
+@app.on_edited_message(filters.regex("^اقتباس$") & filters.group)
 async def game_4(client, message):
    f = "quotes555v"
    t = message.chat.id
