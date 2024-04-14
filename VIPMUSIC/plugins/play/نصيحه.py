@@ -2,7 +2,7 @@ import asyncio
 
 import random
 
-from MatrixMusic import app
+from VIPMUSIC import app
 
 from pyrogram.types import (InlineKeyboardButton,
 
