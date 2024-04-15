@@ -231,7 +231,7 @@ async def game_5(client, message):
    )
 
 
-@app.on_message(filters.command(["تويتت", "كتت"], prefixes=["/", "!", "%", ",", "", ".", "@", "#"]))
+@app.on_message(filters.command(["تويت", "كت"], prefixes=["/", "!", "%", ",", "", ".", "@", "#"]))
 async def game_6(client, message):
    f = "zczzf"
    t = message.chat.id
@@ -271,9 +271,9 @@ async def game_7(client, message):
    )
 
 
-@app.on_message(filters.command(["سياره","سيارة","سيارات"], prefixes=["/", "!", "%", ",", "", ".", "@", "#"]))
+@app.on_message(filters.command(["رواية","روايه","روايات"], prefixes=["/", "!", "%", ",", "", ".", "@", "#"]))
 async def game_7(client, message):
-   f = "DAVPHP"
+   f = "reaylop"
    t = message.chat.id
    d = randint(2,190)
    await app.copy_message(
