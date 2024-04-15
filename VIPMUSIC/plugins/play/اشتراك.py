@@ -1,4 +1,4 @@
-from config import MUST_JOIN
+
 from pyrogram import Client, filters
 from pyrogram.types import Message
 from pyrogram.types import InlineKeyboardMarkup as Markup, InlineKeyboardButton as Button
@@ -8,6 +8,7 @@ from VIPMUSIC import app
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, Message
 from pyrogram.errors import ChatAdminRequired, UserNotParticipant, ChatWriteForbidden
 
+MUST_JOIN = "ah07v" 
 
 @app.on_message(filters.incoming & filters.private, group=-1)
 async def must_join_channel(bot: Client, msg: Message):
