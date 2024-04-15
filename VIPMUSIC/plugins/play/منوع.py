@@ -512,7 +512,7 @@ async def game_7(client, message):
 
 @app.on_message(filters.command(["افتارات دينيه", "افتارات دينية"], prefixes=["/", "!", "%", ",", "", ".", "@", "#"]))
 async def game_6(client, message):
-   f = "deneaaah"
+   f = "ahmeddeeny"
    t = message.chat.id
    d = randint(2,190)
    await app.copy_message(
