@@ -24,12 +24,12 @@
       },
       "START_IMG_URL": {
         "description": "رابط تلجراف لصورة الستارت البوت😆",
-        "value": "",
+        "value": "https://te.legra.ph/file/b18c0782dfa638ba7a8a6.png",
         "required": false
       },
       "BOT_TOKEN": {
         "description": "تـوكن الـبوب😒",
-        "value": "",
+        "value": "6824095145:AAHBH5vORkhjbF2nblwEDuXOK731-BXJDU4",
         "required": true
       },
       "OWNER_ID": {
@@ -39,12 +39,12 @@
       },        
       "MUSIC_BOT_NAME": {
         "description": "اسـم الـبوت🙂",
-        "value": "",
+        "value": "قُِࢪْاެٰنِــِيَ‌ّ",
         "required": true
       },
       "STRING_SESSION": {
         "description": "جـلسة بايـروجـرام😕",
-        "value": "",
+        "value": "AgFZiQsAXSHLzcLhup3EKMiG47WVC_JJNEQuPFtcQCzzZJxo2u-_Ko_rG2ZWCgUEtnCCY_2hCW8ylLGFdfOEqeulnETzd90sOUzZ4NZNWzspwCSIxaRhqKKo2XVR4T9-xOJV6pVSH-O7HR3C8koGKM0WohwR9KxdUIlPcdqfXsj57gHU-3K6kW8TkMvJZiM0ASxWogQeSiftX6DtW_9djcj_b9PRd-82Mk9NDO7PK8NoX8xyGUolb2o8Db4L9-K8_UMvECMllCe_07O8vt1ikaU1C3g2Ocli-HLfR68qga2-3rB3NBjK5xhKbr41nfPe_oS3OatAutkTCAVCOCizvXSrBjWVBAAAAAFymADLAA",
         "required": true
       },
       "HEROKU_API_KEY": {
@@ -59,7 +59,7 @@
       },
       "LOGGER_ID": {
         "description": "ايـدي الگروب😑",
-        "value": "",
+        "value": "-1001420714100",
         "required": true
       },
       "SUPPORT_CHANNEL": {
@@ -72,7 +72,7 @@
         "value": "https://t.me/ah07v",
         "required": true
       },
-      "chaanel": {
+      "MUST_JOIN": {
         "description": "قـناة الاشتراك😶",
         "value": "ah07v",
         "required": true
