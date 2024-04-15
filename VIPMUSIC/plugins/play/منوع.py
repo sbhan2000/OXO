@@ -211,8 +211,7 @@ async def ihd(client: Client, message: Message):
 
 
 
-@app.on_message(filters.regex("^كتب$") & filters.group)
-@app.on_edited_message(filters.regex("^كتب$") & filters.group)
+@app.on_message(filters.command(["كتاب اسلامي", "كتاب"], prefixes=["/", "!", "%", ",", "", ".", "@", "#"]))
 async def game_5(client, message):
    f = "kotobeslameah"
    t = message.chat.id
@@ -225,9 +224,48 @@ async def game_5(client, message):
       reply_markup=InlineKeyboardMarkup(
       [
       [
-      InlineKeyboardButton("Dev", user_id=1748768168)
+      InlineKeyboardButton(message.from_user.first_name, url=f"https://t.me/{message.from_user.username}")
       ]
       ]
       )
    )
 
+
+@app.on_message(filters.command(["تويتت", "كتت"], prefixes=["/", "!", "%", ",", "", ".", "@", "#"]))
+async def game_5(client, message):
+   f = "zczzf"
+   t = message.chat.id
+   d = randint(2,190)
+   await app.copy_message(
+      t,
+      f,
+      d,
+      reply_to_message_id=message.id,
+      reply_markup=InlineKeyboardMarkup(
+      [
+      [
+      InlineKeyboardButton(message.from_user.first_name, url=f"https://t.me/{message.from_user.username}")
+      ]
+      ]
+      )
+   )
+
+
+@app.on_message(filters.command(["اقتباس"], prefixes=["/", "!", "%", ",", "", ".", "@", "#"]))
+async def game_5(client, message):
+   f = "quotes555v"
+   t = message.chat.id
+   d = randint(2,190)
+   await app.copy_message(
+      t,
+      f,
+      d,
+      reply_to_message_id=message.id,
+      reply_markup=InlineKeyboardMarkup(
+      [
+      [
+      InlineKeyboardButton(message.from_user.first_name, url=f"https://t.me/{message.from_user.username}")
+      ]
+      ]
+      )
+   )
