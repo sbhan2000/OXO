@@ -335,7 +335,7 @@ async def game_7(client, message):
 
 
 
-@app.on_message(filters.command(["كت بالصوره","تويت بالصورة","كت بالصورة","تويت بالصوره","كتص"], prefixes=["/", "!", "%", ",", "", ".", "@", "#"]))
+@app.on_message(filters.command(["كت بالصوره","تويت بالصورة","كت بالصورة","تويت بالصوره","كتص","كتص"], prefixes=["/", "!", "%", ",", "", ".", "@", "#"]))
 async def game_7(client, message):
    f = "cat_tuet"
    t = message.chat.id
