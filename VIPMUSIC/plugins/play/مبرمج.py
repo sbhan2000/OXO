@@ -43,7 +43,7 @@ async def yas(client, message):
     usr = await client.get_chat("ah_2_v")
     name = usr.first_name
     photo = await app.download_media(usr.photo.big_file_id)
-    await message.reply_photo(photo,       caption=f"<b>⦗ الـمبرمج ⦘<b>\n<b>↯︙𝖣𝖾𝗏 ↬ ⦗ {name} ⦘<b>\n<b>↯︙𝖴𝗌𝖤𝗋 ↬ ⦗ @{usr.username} ⦘<b>\n<b>↯︙𝖨𝖣 ↬ ⦗ {usr.id} ⦘<b>\n<b>↯︙𝖡𝗂𝖮 ↬ ⦗ {usr.bio} ⦘<b>",  
+    await message.reply_photo(photo,       caption=f"<b>⦗ الـمبرمج ⦘</b>\n<b>𝖣𝖾𝗏 ↬ ⦗ {name} ⦘</b>\n<b>𝖴𝗌𝖤𝗋 ↬ ⦗ @{usr.username} ⦘</b>\n<b>𝖨𝖣 ↬ ⦗ {usr.id} ⦘</b>\n<b>𝖡𝗂𝖮 ↬ ⦗ {usr.bio} ⦘</b>",  
     reply_markup=InlineKeyboardMarkup(
             [
                 [
@@ -64,19 +64,19 @@ async def yas(client, message):
     usr = await client.get_chat("ah07v")
     name = usr.first_name
     photo = await app.download_media(usr.photo.big_file_id)
-    await message.reply_photo(photo,       caption=f"<b>𝘛𝘏𝘌 𝘉𝘌𝘚𝘛 𝘚𝘖𝘜𝘙𝘊𝘌 𝘖𝘕 𝘛𝘌𝘓𝘌𝘎𝘙𝘈𝘔<b>",  
+    await message.reply_photo(photo,       caption=f"<b>𝘛𝘏𝘌 𝘉𝘌𝘚𝘛 𝘚𝘖𝘜𝘙𝘊𝘌 𝘖𝘕 𝘛𝘌𝘓𝘌𝘎𝘙𝘈𝘔</b>",  
     reply_markup=InlineKeyboardMarkup(
             [
                 [
                     InlineKeyboardButton(
-                        "𝙶𝚛𝚘𝚞𝚙", url=f"https://t.me/ah_1_v"
+                        "◜ᘜᖇOᑌᑭ◞", url=f"https://t.me/ah_1_v"
                     ),
                     InlineKeyboardButton(
-                        "𝙲𝚑𝚊𝚗𝚗𝚎𝚕", url=f"https://t.me/ah07v"),
+                        "◜ ᥉᥆υᖇᥴᥱ◞", url=f"https://t.me/ah07v"),
                 ],
                 [
                     InlineKeyboardButton(
-                        "𝙳𝚎𝚟𝚎𝚕𝚘𝚙𝚎𝚛", url=f"https://t.me/ah_2_v" )
+                        "◜ ꪔY ժᥱ᥎◞", url=f"https://t.me/ah_2_v" )
                 ],
             ]
         ),
