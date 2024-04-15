@@ -104,10 +104,10 @@ async def get_thumb(videoid):
         para = textwrap.wrap(clear(title), width=32) 
         j = 0
         draw.text(
-            (6, 6), f"ahmed", fill="Yellow", font=name_font
+            (6, 6), f"dev ➛ @ah_2_v", fill="Yellow", font=name_font
         )
         draw.text(
-            (600, 300),
+            (600, 150),
             f"NOW PLAYING",
             fill="white",
             stroke_width=2,
@@ -118,7 +118,7 @@ async def get_thumb(videoid):
             if j == 1:
                 j += 1
                 draw.text(
-                    (600, 400),
+                    (600, 200),
                     f"Tɪᴛʟᴇ : {line}",
                     fill="white",
                     stroke_width=1,
@@ -128,7 +128,7 @@ async def get_thumb(videoid):
             if j == 0:
                 j += 1
                 draw.text(
-                    (600, 380),
+                    (600, 250),
                     f"{line}",
                     fill="white",
                     stroke_width=1,
@@ -137,7 +137,7 @@ async def get_thumb(videoid):
                 )
 
         draw.text(
-            (600, 500),
+            (600, 300),
             f"Views : {views[:23]}",
             fill="white",
             stroke_width=1,
@@ -145,7 +145,7 @@ async def get_thumb(videoid):
             font=font,
         )
         draw.text(
-            (600, 550),
+            (600, 350),
             f"Duration : {duration[:23]} Mins",
             fill="white",
             stroke_width=1,
@@ -153,7 +153,7 @@ async def get_thumb(videoid):
             font=font,
         )
         draw.text(
-            (600, 580),
+            (600, 400),
             f"Channel : {channel}",
             fill="white",
             stroke_width=1,
