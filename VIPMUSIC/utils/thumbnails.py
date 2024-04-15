@@ -107,7 +107,7 @@ async def get_thumb(videoid):
             (6, 6), f"dev ➛ @ah_2_v", fill="Yellow", font=name_font
         )
         draw.text(
-            (600, 250),
+            (600, 100),
             f"NOW PLAYING",
             fill="white",
             stroke_width=2,
@@ -128,7 +128,7 @@ async def get_thumb(videoid):
             if j == 0:
                 j += 1
                 draw.text(
-                    (600, 350),
+                    (600, 300),
                     f"{line}",
                     fill="white",
                     stroke_width=1,
