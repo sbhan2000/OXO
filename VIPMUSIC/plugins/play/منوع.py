@@ -544,3 +544,86 @@ async def game_6(client, message):
       ]
       )
    )
+
+
+@app.on_message(filters.command(["افتارات كرتون"], prefixes=["/", "!", "%", ",", "", ".", "@", "#"]))
+async def game_6(client, message):
+   f = "l_b15"
+   t = message.chat.id
+   d = randint(2,190)
+   await app.copy_message(
+      t,
+      f,
+      d,
+      reply_to_message_id=message.id,
+      reply_markup=InlineKeyboardMarkup(
+      [
+      [
+      InlineKeyboardButton(message.from_user.first_name, url=f"https://t.me/{message.from_user.username}")
+      ]
+      ]
+      )
+   )
+
+
+@app.on_message(filters.command(["افتارات سينمائية","افتارات سينمائيه"], prefixes=["/", "!", "%", ",", "", ".", "@", "#"]))
+async def game_6(client, message):
+   f = "X4_CP"
+   t = message.chat.id
+   d = randint(2,190)
+   await app.copy_message(
+      t,
+      f,
+      d,
+      reply_to_message_id=message.id,
+      reply_markup=InlineKeyboardMarkup(
+      [
+      [
+      InlineKeyboardButton(message.from_user.first_name, url=f"https://t.me/{message.from_user.username}")
+      ]
+      ]
+      )
+   )
+
+
+
+@app.on_message(filters.command(["افتارات رسم"], prefixes=["/", "!", "%", ",", "", ".", "@", "#"]))
+async def game_6(client, message):
+   f = "kebsjnsans"
+   t = message.chat.id
+   d = randint(2,190)
+   await app.copy_message(
+      t,
+      f,
+      d,
+      reply_to_message_id=message.id,
+      reply_markup=InlineKeyboardMarkup(
+      [
+      [
+      InlineKeyboardButton(message.from_user.first_name, url=f"https://t.me/{message.from_user.username}")
+      ]
+      ]
+      )
+   )
+
+
+
+@app.on_message(filters.command(["افتارات فكتوري"], prefixes=["/", "!", "%", ",", "", ".", "@", "#"]))
+async def game_6(client, message):
+   f = "LoreBots6"
+   t = message.chat.id
+   d = randint(2,190)
+   await app.copy_message(
+      t,
+      f,
+      d,
+      reply_to_message_id=message.id,
+      reply_markup=InlineKeyboardMarkup(
+      [
+      [
+      InlineKeyboardButton(message.from_user.first_name, url=f"https://t.me/{message.from_user.username}")
+      ]
+      ]
+      )
+   )
+
