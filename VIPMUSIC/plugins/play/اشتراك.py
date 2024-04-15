@@ -1,4 +1,4 @@
-
+from config import MUST_JOIN
 from pyrogram import Client, filters
 from pyrogram.types import Message
 from pyrogram.types import InlineKeyboardMarkup as Markup, InlineKeyboardButton as Button
@@ -6,7 +6,6 @@ from pyrogram.enums import ChatType
 from pyrogram.errors import UserNotParticipant
 from VIPMUSIC import app
 
-MUST_JOIN = "ah07v" 
 
 async def subscription(_, __: Client, message: Message):
     user_id = message.from_user.id
