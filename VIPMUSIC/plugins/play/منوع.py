@@ -483,9 +483,30 @@ async def game_7(client, message):
 
 
 
-@app.on_message(filters.command(["افتارات تطقيم","افتار تطقيم","تطقيم"], prefixes=["/", "!", "%", ",", "", ".", "@", "#"]))
+@app.on_message(filters.command(["افتارات قران","افتار قران"], prefixes=["/", "!", "%", ",", "", ".", "@", "#"]))
 async def game_7(client, message):
    f = "tatqem"
+   t = message.chat.id
+   d = randint(2,190)
+   await app.copy_message(
+      t,
+      f,
+      d,
+      reply_to_message_id=message.id,
+      reply_markup=InlineKeyboardMarkup(
+      [
+      [
+      InlineKeyboardButton(message.from_user.first_name, url=f"https://t.me/{message.from_user.username}")
+      ]
+      ]
+      )
+   )
+
+
+
+@app.on_message(filters.command(["افتارات رمضان","افتار رمضان","رمضان"], prefixes=["/", "!", "%", ",", "", ".", "@", "#"]))
+async def game_7(client, message):
+   f = "ramad_any"
    t = message.chat.id
    d = randint(2,190)
    await app.copy_message(
