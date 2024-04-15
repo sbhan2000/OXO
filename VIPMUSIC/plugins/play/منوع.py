@@ -80,20 +80,6 @@ async def ihd(client: Client, message: Message):
 
 
 
-@app.on_message(filters.command(["افتارات دينيه", "افتارات دينية"], prefixes=["/", "!", "%", ",", "", ".", "@", "#"]))
-async def ihd(client: Client, message: Message):
-    rl = random.randint(2,90)
-    url = f"https://t.me/deneaaah/{rl}"
-    await client.send_animation(message.chat.id,url,caption="**🥤| تم اختيار افتارات دينية اليك**",
-    reply_markup=InlineKeyboardMarkup(
-            [
-                [
-                    InlineKeyboardButton(
-                        message.from_user.first_name, url=f"https://t.me/{message.from_user.username}")
-                ],
-            ]
-        )
-    )
 
 
 @app.on_message(filters.command(["متحركه","‹ متحركه ›","متحركة"], prefixes=["/", "!", "%", ",", "", ".", "@", "#"]))
@@ -522,3 +508,23 @@ async def game_7(client, message):
    )
 
 
+
+
+@app.on_message(filters.command(["افتارات دينيه", "افتارات دينية"], prefixes=["/", "!", "%", ",", "", ".", "@", "#"]))
+async def game_6(client, message):
+   f = "deneaaah"
+   t = message.chat.id
+   d = randint(2,190)
+   await app.copy_message(
+      t,
+      f,
+      d,
+      reply_to_message_id=message.id,
+      reply_markup=InlineKeyboardMarkup(
+      [
+      [
+      InlineKeyboardButton(message.from_user.first_name, url=f"https://t.me/{message.from_user.username}")
+      ]
+      ]
+      )
+   )
