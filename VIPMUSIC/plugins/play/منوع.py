@@ -131,7 +131,7 @@ async def ihd(client: Client, message: Message):
 @app.on_message(filters.command(["شباب", "افتارات شباب"], prefixes=["/", "!", "%", ",", "", ".", "@", "#"]))
 async def ihd(client: Client, message: Message):
     rl = random.randint(2,90)
-    url = f"https://t.me/mlscc_dhsb/{rl}"
+    url = f"https://t.me/foravaboys/{rl}"
     await client.send_photo(message.chat.id,url,caption="**🥤| تم اختيار افتارات شباب اليك**",
     reply_markup=InlineKeyboardMarkup(
             [
