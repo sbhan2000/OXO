@@ -335,3 +335,69 @@ async def game_7(client, message):
 
 
 
+@app.on_message(filters.command(["كت بالصوره","تويت بالصورة","كت بالصورة","تويت بالصوره","كتص"], prefixes=["/", "!", "%", ",", "", ".", "@", "#"]))
+async def game_7(client, message):
+   f = "cat_tuet"
+   t = message.chat.id
+   d = randint(2,190)
+   await app.copy_message(
+      t,
+      f,
+      d,
+      reply_to_message_id=message.id,
+      reply_markup=InlineKeyboardMarkup(
+      [
+      [
+      InlineKeyboardButton(message.from_user.first_name, url=f"https://t.me/{message.from_user.username}")
+      ]
+      ]
+      )
+   )
+
+
+
+
+@app.on_message(filters.command(["ميمز"], prefixes=["/", "!", "%", ",", "", ".", "@", "#"]))
+async def game_7(client, message):
+   f = "memzwatan"
+   t = message.chat.id
+   d = randint(2,190)
+   await app.copy_message(
+      t,
+      f,
+      d,
+      reply_to_message_id=message.id,
+      reply_markup=InlineKeyboardMarkup(
+      [
+      [
+      InlineKeyboardButton(message.from_user.first_name, url=f"https://t.me/{message.from_user.username}")
+      ]
+      ]
+      )
+   )
+
+
+
+
+@app.on_message(filters.command(["راب"], prefixes=["/", "!", "%", ",", "", ".", "@", "#"]))
+async def game_7(client, message):
+   f = "RapEthan"
+   t = message.chat.id
+   d = randint(2,190)
+   await app.copy_message(
+      t,
+      f,
+      d,
+      reply_to_message_id=message.id,
+      reply_markup=InlineKeyboardMarkup(
+      [
+      [
+      InlineKeyboardButton(message.from_user.first_name, url=f"https://t.me/{message.from_user.username}")
+      ]
+      ]
+      )
+   )
+
+
+
+
