@@ -357,7 +357,7 @@ async def game_7(client, message):
 
 
 
-@app.on_message(filters.command(["ميمز"], prefixes=["/", "!", "%", ",", "", ".", "@", "#"]))
+@app.on_message(filters.command(["ميمز","ميمز"], prefixes=["/", "!", "%", ",", "", ".", "@", "#"]))
 async def game_7(client, message):
    f = "memzwatan"
    t = message.chat.id
@@ -379,7 +379,7 @@ async def game_7(client, message):
 
 
 
-@app.on_message(filters.command(["راب"], prefixes=["/", "!", "%", ",", "", ".", "@", "#"]))
+@app.on_message(filters.command(["راب","راب"], prefixes=["/", "!", "%", ",", "", ".", "@", "#"]))
 async def game_7(client, message):
    f = "RapEthan"
    t = message.chat.id
