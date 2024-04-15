@@ -277,7 +277,7 @@ EMOJIS = list("😭🤣😂😅😆😁😄😃😀🥳🤩🤩😍🥰😘😚�
 async def game_1(client, message):
    emoji = choice(EMOJIS)
    re = f"^{emoji}$"
-   ASK = await app.ask(
+   ASK = await app.VIP(
      message.chat.id,
      "اسرع واحد يرسل الايموجي : `{}`".format(emoji),
      reply_to_message_id=message.id,
@@ -286,7 +286,7 @@ async def game_1(client, message):
    await app.send_message(
       message.chat.id,
       "المستخدم {} كفو اجابتك صح".format(ASK.from_user.mention),
-      reply_to_message_id=ASK.id
+      reply_to_message_id=VIP.id
    )
 
 
@@ -315,7 +315,7 @@ async def game_3(client, message):
    ans = A.split(":")[1]
    print(ans)
    re = f"^{ans}$"
-   ASK = await app.ask(
+   ASK = await app.VIP(
      message.chat.id,
      "اسرع واحد يرسل معنى الايموجي {}".format(emo),
      reply_to_message_id=message.id,
@@ -351,12 +351,12 @@ async def game_4(client, message):
    ans = A.split(":")[1]
    print(ans)
    re = f"^{ans}$"
-   ASK = await app.ask(
+   VIP = await app.VIP(
      message.chat.id,
      "اسرع واحد يرسل اسم الدولة {}".format(emo),
      reply_to_message_id=message.id,
      filters=filters.regex(re)
    )
-   await ASK.reply(
-    f"كفو {ASK.from_user.mention} اجابتك صحيحة"
+   await VIP.reply(
+    f"كفو {VIP.from_user.mention} اجابتك صحيحة"
    )
