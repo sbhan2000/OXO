@@ -17,7 +17,7 @@ async def random_reader(client, message):
     url_reciter = available_urls[num_reciter]
     rand_surah = random.choice(dict_souar)
     num_surah = data_souar[rand_surah]
-    msg = await message.reply_text(f"`لقد اخترنا لك {rand_surah} من القارئ {available_reciters[num_reciter]} برواية حفص عن عاصم - مرتل , ستصل لك في لحظات ..`")
+    msg = await message.reply_text(f"`لقد اخترنا لك سورة {rand_surah} من القارئ {available_reciters[num_reciter]} برواية حفص عن عاصم - مرتل , ستصل لك في لحظات ..`")
     link = "{}{}.mp3".format(url_reciter, num_surah)
     try: 
         await client.send_audio(message.chat.id, audio=link)
