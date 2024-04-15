@@ -41,7 +41,7 @@ GIT_TOKEN = getenv(
 
 SUPPORT_CHANNEL = getenv("SUPPORT_CHANNEL", "https://t.me/ah07v")
 SUPPORT_CHAT = getenv("SUPPORT_CHAT", "https://t.me/ah07v")
-channel = getenv("channel", "")
+MUST_JOIN = getenv("MUST_JOIN", "")
 
 # Maximum Limit Allowed for users to save playlists on bot's server
 SERVER_PLAYLIST_LIMIT = int(getenv("SERVER_PLAYLIST_LIMIT", "3000"))
