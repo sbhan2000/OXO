@@ -514,7 +514,7 @@ async def game_7(client, message):
 async def game_6(client, message):
    f = "ahmeddeeny"
    t = message.chat.id
-   d = randint(2,190)
+   d = randint(2,140)
    await app.copy_message(
       t,
       f,
