@@ -140,6 +140,23 @@ async def ihd(client: Client, message: Message):
         )
     )
 
+
+@app.on_message(filters.command(["اطفال", "افتار اطفال"], prefixes=["/", "!", "%", ",", "", ".", "@", "#"]))
+async def ihd(client: Client, message: Message):
+    rl = random.randint(2,90)
+    url = f"https://t.me/N_Z_23/{rl}"
+    await client.send_photo(message.chat.id,url,caption="**🥤| تم اختيار افتار اطفال اليك**",
+    reply_markup=InlineKeyboardMarkup(
+            [
+                [
+                    InlineKeyboardButton(
+                        message.from_user.first_name, url=f"https://t.me/{message.from_user.username}")
+                ],
+            ]
+        )
+    )
+
+
 @app.on_message(filters.command(["‹ قران ›", "قران"], prefixes=["/", "!", "%", ",", "", ".", "@", "#"]))
 async def ihd(client: Client, message: Message):
     rl = random.randint(1,90)
