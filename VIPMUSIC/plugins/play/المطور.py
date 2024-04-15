@@ -27,14 +27,14 @@ async def devid(client: Client, message: Message):
        
     await message.reply_photo(
         photo="downloads/developer.jpg",
-        caption=f"""<b> ⦗ 𝐃𝒆𝒗𝒆𝒍𝒐𝒑𝒆𝒓 ⦘<b>\n<b>↯︙𝖣𝖾𝗏 ↬ :</b> ⦗ <a href='tg://user?id={uid}'>{name}</a> ⦘\n\n<b>↯︙𝖴𝗌𝖤𝗋 ↬</b> ⦗ @{usrnam} ⦘""",
+        caption=f"""<b> ⦗ 𝐃𝒆𝒗𝒆𝒍𝒐𝒑𝒆𝒓 ⦘</b>\n<b>𝖣𝖾𝗏 ↬ :</b> ⦗ <a href='tg://user?id={uid}'>{name}</a> ⦘\n\n<b>𝖴𝗌𝖤𝗋 ↬</b> ⦗ @{usrnam} ⦘""",
         reply_markup=InlineKeyboardMarkup(
             [
                 [
                     InlineKeyboardButton(name, url=f"tg://user?id={uid}"),
                 ],[
                     InlineKeyboardButton(
-                        " القناة ", url=config.SUPPORT_CHANNEL)
+                        "‹ قـناة الـبوت ›", url=config.SUPPORT_CHANNEL)
                 ],
             ]
         ),
