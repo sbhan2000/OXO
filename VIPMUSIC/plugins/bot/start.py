@@ -48,7 +48,7 @@ YUMI_PICS = [
 
 
 
-@app.on_message(filters.regex("^/start"), group=39))
+@app.on_message(filters.command(["start"]))
 @LanguageStart
 async def start_pm(client, message: Message, _):
     user_mention = message.from_user.mention if message.from_user else "المشـرف"
@@ -122,7 +122,7 @@ async def start_pm(client, message: Message, _):
 
     
 
-@app.on_message(filters.regex("^/start"), group=39))
+@app.on_message(filters.command(["start"]))
 @LanguageStart
 async def start_gp(client, message: Message, _):
     out = start_panel(_)
