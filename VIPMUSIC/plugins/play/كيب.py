@@ -5,7 +5,6 @@ from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, Message, 
 from VIPMUSIC import (Apple, Resso, SoundCloud, Spotify, Telegram, YouTube, app)
 from random import choice
 from pyrogram import filters
-from strings import get_command
 from config import BANNED_USERS
 from config import OWNER_ID
 from pyrogram.types import Message, InlineKeyboardMarkup, InlineKeyboardButton
