@@ -232,7 +232,7 @@ async def game_5(client, message):
 
 
 @app.on_message(filters.command(["تويتت", "كتت"], prefixes=["/", "!", "%", ",", "", ".", "@", "#"]))
-async def game_5(client, message):
+async def game_6(client, message):
    f = "zczzf"
    t = message.chat.id
    d = randint(2,190)
@@ -252,7 +252,7 @@ async def game_5(client, message):
 
 
 @app.on_message(filters.command(["اقتباس"], prefixes=["/", "!", "%", ",", "", ".", "@", "#"]))
-async def game_5(client, message):
+async def game_7(client, message):
    f = "quotes555v"
    t = message.chat.id
    d = randint(2,190)
