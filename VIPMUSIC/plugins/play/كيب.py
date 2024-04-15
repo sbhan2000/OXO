@@ -14,68 +14,6 @@ from typing import Union
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, ReplyKeyboardMarkup, ReplyKeyboardRemove, Message, ChatJoinRequest
 
 
-REPLY_MESSAGE = "**صلي علي النبي وتبسم ♥️🌿**"
-REPLY_MESSAGE_BUTTONS = [
-    [
-             ("القسم الديني"),
-              ("قسم السورس")
-          ],
-          [
-             ("قسم الالعاب المتطورة")
-          ],
-          [
-             ("قسم الرمزيات"),
-              ("قسم التسلية")
-          ],
-          [
-             ("اخفاء الكيبورد")
-    ]
-]
-
-@app.on_message(filters.regex("^/start"), group=39)
-async def cpanel(_, message: Message):             
-        text = REPLY_MESSAGE
-        reply_markup = ReplyKeyboardMarkup(REPLY_MESSAGE_BUTTONS, resize_keyboard=True, selective=True)
-        await message.reply(
-              text=text,
-              reply_markup=reply_markup
-        )
-
-@app.on_message(filters.command(["اخفاء الكيبورد"], prefixes=["/", "!", "%", ",", "", ".", "@", "#"]))
-async def upbkgt(client: Client, message: Message):
-    await message.reply_text(
-        text="""**🥤| تم اخفاء الكيبورد بنحاح\n\n🥤| لعرض الكيبورد مرة اخرى ارسل /start **""",
-        reply_markup=ReplyKeyboardRemove(selective=True))
-
-
-REPLY_MESSAGE = "**صلي علي النبي وتبسم ♥️🌿**"
-REPLY_MESSAGE_BUTTONS = [
-    [
-             ("القسم الديني"),
-              ("قسم السورس")
-          ],
-          [
-             ("قسم الالعاب المتطورة")
-          ],
-          [
-             ("قسم الرمزيات"),
-              ("قسم التسلية")
-          ],
-          [
-             ("اخفاء الكيبورد")
-    ]
-]
-
-@app.on_message(filters.regex("^رجوع"))
-async def cpanel(_, message: Message):             
-        text = REPLY_MESSAGE
-        reply_markup = ReplyKeyboardMarkup(REPLY_MESSAGE_BUTTONS, resize_keyboard=True, selective=True)
-        await message.reply(
-              text=text,
-              reply_markup=reply_markup
-        )
-
-
 
 REPLY_MESSAGE = "**🥤| اهلا بك عزيزي العضو في القسم الديني**"
 REPLY_MESSAGE_BUTTONS = [
@@ -265,3 +203,65 @@ async def cpanel(_, message: Message):
               text=text,
               reply_markup=reply_markup
         )
+
+REPLY_MESSAGE = "**صلي علي النبي وتبسم ♥️🌿**"
+REPLY_MESSAGE_BUTTONS = [
+    [
+             ("القسم الديني"),
+              ("قسم السورس")
+          ],
+          [
+             ("قسم الالعاب المتطورة")
+          ],
+          [
+             ("قسم الرمزيات"),
+              ("قسم التسلية")
+          ],
+          [
+             ("اخفاء الكيبورد")
+    ]
+]
+
+@app.on_message(filters.regex("^/start"), group=39)
+async def cpanel(_, message: Message):             
+        text = REPLY_MESSAGE
+        reply_markup = ReplyKeyboardMarkup(REPLY_MESSAGE_BUTTONS, resize_keyboard=True, selective=True)
+        await message.reply(
+              text=text,
+              reply_markup=reply_markup
+        )
+
+@app.on_message(filters.command(["اخفاء الكيبورد"], prefixes=["/", "!", "%", ",", "", ".", "@", "#"]))
+async def upbkgt(client: Client, message: Message):
+    await message.reply_text(
+        text="""**🥤| تم اخفاء الكيبورد بنحاح\n\n🥤| لعرض الكيبورد مرة اخرى ارسل /start **""",
+        reply_markup=ReplyKeyboardRemove(selective=True))
+
+
+REPLY_MESSAGE = "**صلي علي النبي وتبسم ♥️🌿**"
+REPLY_MESSAGE_BUTTONS = [
+    [
+             ("القسم الديني"),
+              ("قسم السورس")
+          ],
+          [
+             ("قسم الالعاب المتطورة")
+          ],
+          [
+             ("قسم الرمزيات"),
+              ("قسم التسلية")
+          ],
+          [
+             ("اخفاء الكيبورد")
+    ]
+]
+
+@app.on_message(filters.regex("^رجوع"))
+async def cpanel(_, message: Message):             
+        text = REPLY_MESSAGE
+        reply_markup = ReplyKeyboardMarkup(REPLY_MESSAGE_BUTTONS, resize_keyboard=True, selective=True)
+        await message.reply(
+              text=text,
+              reply_markup=reply_markup
+        )
+
