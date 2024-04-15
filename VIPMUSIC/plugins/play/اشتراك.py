@@ -24,7 +24,7 @@ async def checker(_: Client, message: Message):
         [Button("•اشترك من هنا•", url=f"https://t.me/{MUST_JOIN}")]
     ])
     await message.reply(
-        f"<b>• عذرا عزيزي : {user} \n•- لايمكنك ارسال اي رسالة هنا لانك غير مشترك في قناة المجموعة اشترك الان ؛ ✅  <b>",
+        f"<b>• عذرا عزيزي : {user} \n•- لايمكنك ارسال اي رسالة هنا لانك غير مشترك في قناة البوت اشترك الان ؛ ✅  <b>",
         reply_markup = markup
     )
     
