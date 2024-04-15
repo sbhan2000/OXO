@@ -47,7 +47,6 @@ async def upbkgt(client: Client, message: Message):
     await message.reply_text(
         text="""**🥤| تم اخفاء الكيبورد بنحاح\n\n🥤| لعرض الكيبورد مرة اخرى ارسل /start **""",
         reply_markup=ReplyKeyboardRemove(selective=True))
-    )
 
 
 REPLY_MESSAGE = "**صلي علي النبي وتبسم ♥️🌿**"
