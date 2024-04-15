@@ -72,12 +72,12 @@ async def get_thumb(videoid):
         
         # Check if the 'filter' attribute is available in the Image module
         if hasattr(Image, 'filter'):
-            background = image2.filter(filter=ImageFilter.BoxBlur(30))
+            background = image2.filter(filter=ImageFilter.BoxBlur(60))
             enhancer = ImageEnhance.Brightness(background)
             background = enhancer.enhance(0.9)
         else:
             # If 'filter' attribute is not available, use a different approach for blurring
-            background = image2.filter(ImageFilter.BoxBlur(30))
+            background = image2.filter(ImageFilter.BoxBlur(60))
             enhancer = ImageEnhance.Brightness(background)
             background = enhancer.enhance(0.9)
         
@@ -109,16 +109,16 @@ async def get_thumb(videoid):
         draw.text(
             (600, 150),
             f"NOW PLAYING",
-            fill="white",
+            fill="black",
             stroke_width=2,
-            stroke_fill="white",
+            stroke_fill="black",
             font=font2,
         )
         for line in para:
             if j == 1:
                 j += 1
                 draw.text(
-                    (600, 250),
+                    (600, 290),
                     f"Tɪᴛʟᴇ : {line}",
                     fill="white",
                     stroke_width=1,
