@@ -128,11 +128,11 @@ async def ihd(client: Client, message: Message):
     )
 
 
-@app.on_message(filters.command(["شباب", "افتار شباب"], prefixes=["/", "!", "%", ",", "", ".", "@", "#"]))
+@app.on_message(filters.command(["شباب", "افتارات شباب"], prefixes=["/", "!", "%", ",", "", ".", "@", "#"]))
 async def ihd(client: Client, message: Message):
     rl = random.randint(2,90)
     url = f"https://t.me/mlscc_dhsb/{rl}"
-    await client.send_photo(message.chat.id,url,caption="**🥤| تم اختيار افتار شباب اليك**",
+    await client.send_photo(message.chat.id,url,caption="**🥤| تم اختيار افتارات شباب اليك**",
     reply_markup=InlineKeyboardMarkup(
             [
                 [
@@ -144,11 +144,11 @@ async def ihd(client: Client, message: Message):
     )
 
 
-@app.on_message(filters.command(["اطفال", "افتار اطفال"], prefixes=["/", "!", "%", ",", "", ".", "@", "#"]))
+@app.on_message(filters.command(["اطفال", "افتارات اطفال"], prefixes=["/", "!", "%", ",", "", ".", "@", "#"]))
 async def ihd(client: Client, message: Message):
     rl = random.randint(2,90)
     url = f"https://t.me/N_Z_23/{rl}"
-    await client.send_photo(message.chat.id,url,caption="**🥤| تم اختيار افتار اطفال اليك**",
+    await client.send_photo(message.chat.id,url,caption="**🥤| تم اختيار افتارات اطفال اليك**",
     reply_markup=InlineKeyboardMarkup(
             [
                 [
@@ -211,11 +211,11 @@ async def ihd(client: Client, message: Message):
 
 
 
-@app.on_message(filters.command(["عيال","افتار عيال"], prefixes=["/", "!", "%", ",", "", ".", "@", "#"]))
+@app.on_message(filters.command(["عيال","افتارات عيال"], prefixes=["/", "!", "%", ",", "", ".", "@", "#"]))
 async def ihd(client: Client, message: Message):
     rl = random.randint(2,50)
     url = f"https://t.me/foravaboys/{rl}"
-    await client.send_photo(message.chat.id,url,caption="**🥤| تم اختيار افتار عيال اليك**",
+    await client.send_photo(message.chat.id,url,caption="**🥤| تم اختيار افتارات عيال اليك**",
     reply_markup=InlineKeyboardMarkup(
             [
                 [
