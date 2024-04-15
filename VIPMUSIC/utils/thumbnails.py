@@ -72,12 +72,12 @@ async def get_thumb(videoid):
         
         # Check if the 'filter' attribute is available in the Image module
         if hasattr(Image, 'filter'):
-            background = image2.filter(filter=ImageFilter.BoxBlur(50))
+            background = image2.filter(filter=ImageFilter.BoxBlur(30))
             enhancer = ImageEnhance.Brightness(background)
             background = enhancer.enhance(0.9)
         else:
             # If 'filter' attribute is not available, use a different approach for blurring
-            background = image2.filter(ImageFilter.BoxBlur(50))
+            background = image2.filter(ImageFilter.BoxBlur(30))
             enhancer = ImageEnhance.Brightness(background)
             background = enhancer.enhance(0.9)
         
@@ -89,7 +89,7 @@ async def get_thumb(videoid):
         y2 = Ycenter + 250
         logo = youtube.crop((x1, y1, x2, y2))
         logo.thumbnail((520, 520), Image.ANTIALIAS)
-        logo = ImageOps.expand(logo, border=17, fill="pink")
+        logo = ImageOps.expand(logo, border=17, fill="white")
         background.paste(logo, (50, 100))
         draw = ImageDraw.Draw(background)
         
@@ -107,18 +107,18 @@ async def get_thumb(videoid):
             (6, 6), f"ahmed", fill="Yellow", font=name_font
         )
         draw.text(
-            (600, 200),
+            (600, 300),
             f"NOW PLAYING",
             fill="white",
             stroke_width=2,
-            stroke_fill="yellow",
+            stroke_fill="white",
             font=font2,
         )
         for line in para:
             if j == 1:
                 j += 1
                 draw.text(
-                    (600, 390),
+                    (600, 400),
                     f"Tɪᴛʟᴇ : {line}",
                     fill="white",
                     stroke_width=1,
@@ -128,7 +128,7 @@ async def get_thumb(videoid):
             if j == 0:
                 j += 1
                 draw.text(
-                    (600, 330),
+                    (600, 380),
                     f"{line}",
                     fill="white",
                     stroke_width=1,
@@ -137,7 +137,7 @@ async def get_thumb(videoid):
                 )
 
         draw.text(
-            (600, 450),
+            (600, 500),
             f"Views : {views[:23]}",
             fill="white",
             stroke_width=1,
@@ -145,7 +145,7 @@ async def get_thumb(videoid):
             font=font,
         )
         draw.text(
-            (600, 500),
+            (600, 550),
             f"Duration : {duration[:23]} Mins",
             fill="white",
             stroke_width=1,
@@ -153,7 +153,7 @@ async def get_thumb(videoid):
             font=font,
         )
         draw.text(
-            (600, 550),
+            (600, 580),
             f"Channel : {channel}",
             fill="white",
             stroke_width=1,
