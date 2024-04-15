@@ -271,92 +271,24 @@ async def game_7(client, message):
    )
 
 
-EMOJIS = list("😭🤣😂😅😆😁😄😃😀🥳🤩🤩😍🥰😘😚😙😗😉🤪😜😝😛😋🥲🙂🙃😶😐😑🫣🤭")
-@app.on_message(filters.regex("^الاسرع$") & filters.group)
-@app.on_edited_message(filters.regex("^الاسرع$") & filters.group)
-async def game_1(client, message):
-   emoji = choice(EMOJIS)
-   re = f"^{emoji}$"
-   ASK = await app.vip(
-     message.chat.id,
-     "اسرع واحد يرسل الايموجي : `{}`".format(emoji),
-     reply_to_message_id=message.id,
-     filters=filters.regex(re)
-   )
-   await app.send_message(
-      message.chat.id,
-      "المستخدم {} كفو اجابتك صح".format(ASK.from_user.mention),
-      reply_to_message_id=vip.id
-   )
-
-
-EMO = [
-  "👞:حذاء",
-  "⭐:نجمة",
-  "🕞:ساعة",
-  "🍑:خوخ",
-  "🛢️:نفط",
-  "🎂:كيكة",
-  "⚽:كورة",
-  "🩳:شورت",
-  "📒:دفتر",
-  "🌹:وردة",
-  "✏️:قلم",
-  "🔥:نار",
-  "💸:فلوس",
-  "💻:لاب"
-]
-@app.on_message(filters.regex("^معاني$") & filters.group)
-@app.on_edited_message(filters.regex("^معاني$") & filters.group)
-async def game_3(client, message):
-   A = choice(EMO)
-   emo = A.split(":")[0]
-   print(emo)
-   ans = A.split(":")[1]
-   print(ans)
-   re = f"^{ans}$"
-   ASK = await app.vip(
-     message.chat.id,
-     "اسرع واحد يرسل معنى الايموجي {}".format(emo),
-     reply_to_message_id=message.id,
-     filters=filters.regex(re)
-   )
-   await VIP.reply(
-    f"كفو {ASK.from_user.mention} اجابتك صحيحة"
+@app.on_message(filters.command(["سياره","سيارة","سيارات"], prefixes=["/", "!", "%", ",", "", ".", "@", "#"]))
+async def game_7(client, message):
+   f = "DAVPHP"
+   t = message.chat.id
+   d = randint(2,190)
+   await app.copy_message(
+      t,
+      f,
+      d,
+      reply_to_message_id=message.id,
+      reply_markup=InlineKeyboardMarkup(
+      [
+      [
+      InlineKeyboardButton(message.from_user.first_name, url=f"https://t.me/{message.from_user.username}")
+      ]
+      ]
+      )
    )
 
 
-FLAGS = [
-  "🇦🇪:الامارات",
-  "🇧🇭:البحرين",
-  "🇪🇬:مصر",
-  "🇮🇶:العراق",
-  "🇱🇧️:لبنان",
-  "🇱🇺:لوكسمبورغ",
-  "🇵🇰:باكستان",
-  "🇹🇷:تركيا",
-  "🇾🇪:اليمن",
-  "🇸🇩:السودان",
-  "🇸🇦:السعودية",
-  "🇵🇸:فلسطين",
-  "🇴🇲:سلطنة عمان",
-  "🇯🇵:اليابان"
-]
-@app.on_message(filters.regex("^اعلام دول$") & filters.group)
-@app.on_edited_message(filters.regex("^اعلام دول$") & filters.group)
-async def game_4(client, message):
-   A = choice(FLAGS)
-   emo = A.split(":")[0]
-   print(emo)
-   ans = A.split(":")[1]
-   print(ans)
-   re = f"^{ans}$"
-   VIP = await app.vip(
-     message.chat.id,
-     "اسرع واحد يرسل اسم الدولة {}".format(emo),
-     reply_to_message_id=message.id,
-     filters=filters.regex(re)
-   )
-   await VIP.reply(
-    f"كفو {VIP.from_user.mention} اجابتك صحيحة"
-   )
+
