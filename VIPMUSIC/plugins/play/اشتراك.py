@@ -5,7 +5,7 @@ from pyrogram.types import Message
 from pyrogram.types import InlineKeyboardMarkup as Markup, InlineKeyboardButton as Button
 from pyrogram.enums import ChatType
 from pyrogram.errors import UserNotParticipant
-from MatrixMusic import app
+from VIPMUSIC import app
 
 
 async def subscription(_, __: Client, message: Message):
