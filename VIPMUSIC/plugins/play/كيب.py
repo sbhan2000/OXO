@@ -26,9 +26,12 @@ from gtts import gTTS
 from io import BytesIO
 admin_id = ['1748768168']
 block_id=[]
+import langdetect
+if os.getenv('TOKEN')!=None:
+    def texttosp(text):
+     lang = langdetect.detect(text)
 
 
-    
      audio = gTTS(text=text, lang=lang)
      audio_file = BytesIO()
      audio.write_to_fp(audio_file)
