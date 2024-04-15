@@ -31,6 +31,7 @@ from VIPMUSIC.utils.database import (
 )
 from VIPMUSIC.utils.logger import play_logs
 from config import BANNED_USERS, lyrical
+from config import LOGGER_ID as LOG_GROUP_ID
 from time import time
 from VIPMUSIC.utils.extraction import extract_user
 from VIPMUSIC.utils.thumbnails import get_thumb
