@@ -143,6 +143,22 @@ async def ihd(client: Client, message: Message):
         )
     )
 
+@app.on_message(filters.command(["بنات", "افتارات بنات"], prefixes=["/", "!", "%", ",", "", ".", "@", "#"]))
+async def ihd(client: Client, message: Message):
+    rl = random.randint(2,90)
+    url = f"https://t.me/vvyuol/{rl}"
+    await client.send_photo(message.chat.id,url,caption="**🥤| تم اختيار افتارات بنات اليك**",
+    reply_markup=InlineKeyboardMarkup(
+            [
+                [
+                    InlineKeyboardButton(
+                        message.from_user.first_name, url=f"https://t.me/{message.from_user.username}")
+                ],
+            ]
+        )
+    )
+
+
 
 @app.on_message(filters.command(["اطفال", "افتارات اطفال"], prefixes=["/", "!", "%", ",", "", ".", "@", "#"]))
 async def ihd(client: Client, message: Message):
