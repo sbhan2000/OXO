@@ -1,32 +1,35 @@
+
+
+
+from config import MUST_JOIN
 from pyrogram import Client, filters
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, Message
 from pyrogram.errors import ChatAdminRequired, UserNotParticipant, ChatWriteForbidden
-from VIPMUSIC import app
-from config import channel 
 
-@app.on_message(filters.incoming & filters.private, group=-1)
-async def must_join_channel(app: Client, msg: Message):
-    if not channel:
+
+@Client.on_message(filters.incoming & filters.private, group=-1)
+async def must_join_channel(bot: Client, msg: Message):
+    if not MUST_JOIN:  # Not compulsory
         return
     try:
         try:
-            await app.get_chat_member(channel, msg.from_user.id)
+            await bot.get_chat_member(MUST_JOIN, msg.from_user.id)
         except UserNotParticipant:
-            if channel.isalpha():
-                link = "https://t.me/" + channel
+            if MUST_JOIN.isalpha():
+                link = "https://t.me/" + MUST_JOIN
             else:
-                chat_info = await app.get_chat(channel)
+                chat_info = await bot.get_chat(MUST_JOIN)
                 link = chat_info.invite_link
             try:
                 await msg.reply(
-                    f"**🥤| عزيزي {msg.from_user.mention} \n🥤| عليك الأشتراك في قناة البوت \n🥤| قناة البوت :** @{channel}.",
+                    f"**🥤| عـليكـ الاشـتراك في [قـناة الـبوت]({link}) اولا\n\n🥤| ثـم اضـغط عـلى /start **",
                     disable_web_page_preview=True,
-                    reply_markup=InlineKeyboardMarkup([
-                        [InlineKeyboardButton("‹ قـناة الـبوت ›", url=link)]
-                    ])
+                    reply_markup=InlineKeyboardMarkup(
+                        [[InlineKeyboardButton("‹ قـناة الـبوت ›", url=link)]]
+                    ),
                 )
                 await msg.stop_propagation()
             except ChatWriteForbidden:
                 pass
     except ChatAdminRequired:
-        print(f"🥤| ارفع البوت مشرف في قناة {channel}!")
+        print(f"ارفع البوت في القناة : {MUST_JOIN} !")
