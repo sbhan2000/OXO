@@ -103,7 +103,7 @@ async def loclkword(client: app, message):
      if not chek.status in ["administrator", "creator"] : return await message.reply_text(f"**ليس لديك صلاحيات كافيه**")
     if not message.chat.id in words: words.append(message.chat.id)
     return await message.reply_text(f"**تم قفل الاسائه*")
-@app.on_message(command(["فتحح الاسائه"]) & ~filters.private)
+@app.on_message(filters.command(["فتحح الاسائه"]) & ~filters.private)
 async def openword(client: app, message):
     if not message.from_user.id in sudo:
      chek = await client.get_chat_member(message.chat.id, message.from_user.id)
