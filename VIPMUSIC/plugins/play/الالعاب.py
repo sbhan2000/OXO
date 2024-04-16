@@ -87,12 +87,12 @@ async def kophvc(client, message):
   await message.reply_text(f"**🥤| تم تنزيل العضو\n\n🥤| بواسطة** : {message.reply_to_message.from_user.mention}")
   
   
-@app.on_message(filters.command(["رفع كلب"], prefixes=["/", "!", "%", ",", "", ".", "@", "#"])) 
+@app.on_message(filters.command(["رفع حبيبي"], prefixes=["/", "!", "%", ",", "", ".", "@", "#"])) 
 async def roky(client, message):
-  await message.reply_text(f"**🥤|تم رفع العضو كلب\n\n🥤| بواسطة** : {message.reply_to_message.from_user.mention}")
+  await message.reply_text(f"**🥤| تم رفع العضو حبيبي\n\n🥤| بواسطة** : {message.reply_to_message.from_user.mention}")
 
 
-@app.on_message(filters.command(["تنزيل كلب"], prefixes=["/", "!", "%", ",", "", ".", "@", "#"])) 
+@app.on_message(filters.command(["تنزيل حبيبي"], prefixes=["/", "!", "%", ",", "", ".", "@", "#"])) 
 async def zerso(client, message):
   await message.reply_text(f"**🥤| تم تنزيل العضو\n\n🥤| بواسطة** : {message.reply_to_message.from_user.mention}")
   
@@ -270,12 +270,12 @@ async def vvvuu(client, message):
   await message.reply_text(f"**🥤| تم تنزيل العضو\n\n🥤| بواسطة** : {message.reply_to_message.from_user.mention}")  
   
   
-@app.on_message(filters.command(["رفع كلبه"], prefixes=["/", "!", "%", ",", "", ".", "@", "#"])) 
+@app.on_message(filters.command(["رفع حبيبتي"], prefixes=["/", "!", "%", ",", "", ".", "@", "#"])) 
 async def mmmuy(client, message):
-  await message.reply_text(f"**🥤| تم رفع العضو كلبه\n\n🥤| بواسطة** : {message.reply_to_message.from_user.mention}")
+  await message.reply_text(f"**🥤| تم رفع العضو حبيبتي\n\n🥤| بواسطة** : {message.reply_to_message.from_user.mention}")
 
 
-@app.on_message(filters.command(["تنزيل كلبه"], prefixes=["/", "!", "%", ",", "", ".", "@", "#"])) 
+@app.on_message(filters.command(["تنزيل حبيبتي"], prefixes=["/", "!", "%", ",", "", ".", "@", "#"])) 
 async def dfrewq(client, message):
   await message.reply_text(f"**🥤| تم تنزيل العضو\n\n🥤| بواسطة** : {message.reply_to_message.from_user.mention}")  
   
