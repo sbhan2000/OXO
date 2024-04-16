@@ -1,7 +1,7 @@
 import asyncio, random, re
 from pyrogram import Client, filters
 from pyrogram.types import Message, InlineKeyboardMarkup, InlineKeyboardButton, CallbackQuery, ChatPermissions
-from ElNqYbMusic import (Apple, Resso, SoundCloud, Spotify, Telegram, YouTube, app)
+from VIPMUSIC import (Apple, Resso, SoundCloud, Spotify, Telegram, YouTube, app)
 from config import OWNER_ID
 from VIPMUSIC.misc import SUDOERS as sudo
 from VIPMUSIC.utils.database import (add_served_chat,
