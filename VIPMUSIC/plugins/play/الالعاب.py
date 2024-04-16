@@ -354,7 +354,7 @@ async def callback_query(client, CallbackQuery):
                          InlineKeyboardButton ('◍ رجوع 🔙', callback_data= 'GAME')
                     ]
                ]
-             await await CallbackQuery.edit_message_text( 
+               await CallbackQuery.edit_message_text( 
                  GAME1_MESSAGE ,
                  reply_markup = InlineKeyboardMarkup(GAME1_BUTTONS) 
               )
