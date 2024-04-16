@@ -364,9 +364,9 @@ async def callback_query(client, CallbackQuery):
               )
           elif CallbackQuery.data == "GAME":
                
-               RETURN_GAME = "**🥤| مرحبا بك عزيزي\n🥤| في قسم اللعاب اختر ما تريد**" 
+               RETURN1_GAME = "**🥤| مرحبا بك عزيزي\n🥤| في قسم اللعاب اختر ما تريد**" 
 
-               RETURN_BUTTON = [
+               RETURN1_BUTTON = [
                     [ 
                       InlineKeyboardButton ('اللعاب المتطورة', callback_data= 'GAME1'),
                       InlineKeyboardButton ('العاب البوت', callback_data= 'GAME2')
