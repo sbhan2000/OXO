@@ -342,14 +342,14 @@ async def callback_query(client, CallbackQuery):
                     ]
                ]
              await CallbackQuery.edit_message_text( 
-                 GAME2_MESSAGE ,
-                 reply_markup = InlineKeyboardMarkup(GAME2_BUTTONS) 
+                 GAME1_MESSAGE ,
+                 reply_markup = InlineKeyboardMarkup(GAME1_BUTTONS) 
               )
           elif CallbackQuery.data == "GAME":
                
-               RETURN_GAME = "**🥤| مرحبا بك عزيزي\n🥤| في قسم اللعاب اختر ما تريد**" 
+               HMD_AHMED = "**🥤| مرحبا بك عزيزي\n🥤| في قسم اللعاب اختر ما تريد**" 
 
-               RETURN_BUTTON = [
+               AMED_BUTTONS = [
                     [ 
                       InlineKeyboardButton ('اللعاب المتطورة', callback_data= 'GAME1'),
                       InlineKeyboardButton ('العاب البوت', callback_data= 'GAME2')
@@ -386,14 +386,14 @@ async def callback_query(client, CallbackQuery):
           ]
                
                await CallbackQuery.edit_message_text( 
-                 RETURN_GAME ,
-                 reply_markup = InlineKeyboardMarkup(RETURN_BUTTON) 
+                 HMD_AHMED ,
+                 reply_markup = InlineKeyboardMarkup(AMED_BUTTONS) 
                     )
           elif CallbackQuery.data == "GAME3":
                
-               GAME2_MESSAGE = "**<u>🏮 العاب التسلية</u>\n🥤| رفع/تنزيل\n- نمله\n- حرامي\n- حبيبي\n- حبيبتي\n- ابني\n- بنتي\n- زوجي\n- زوجتي\n- مرتي\n- خاين\n- خاينه\n- قلبي\n- صاك\n- صاكه\n- حرامي\n- خادم\n- خدامه\n- قرد\n- حمار\n- بقره\n- نجس\n- صرصار\n- رقاصه\n-ارمله\n- زبال\n- غبي**" 
+               SOURCE_GAME = "**<u>🏮 العاب التسلية</u>\n🥤| رفع/تنزيل\n- نمله\n- حرامي\n- حبيبي\n- حبيبتي\n- ابني\n- بنتي\n- زوجي\n- زوجتي\n- مرتي\n- خاين\n- خاينه\n- قلبي\n- صاك\n- صاكه\n- حرامي\n- خادم\n- خدامه\n- قرد\n- حمار\n- بقره\n- نجس\n- صرصار\n- رقاصه\n-ارمله\n- زبال\n- غبي**" 
 
-               GAME2_BUTTONS = [
+               SORGAM_BUTTON = [
                     [ 
                       InlineKeyboardButton ('‹ قـناة الـبوت ›', url=config.SUPPORT_CHANNEL)
                       ],[
