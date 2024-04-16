@@ -345,9 +345,9 @@ async def callback_query(client, CallbackQuery):
 async def callback_query(client, CallbackQuery):
           if CallbackQuery.data == "GAME3":
             
-             HMD_AHMED = "**<u>🏮 العاب التسلية</u>\n🥤| رفع/تنزيل\n- نمله\n- حرامي\n- حبيبي\n- حبيبتي\n- ابني\n- بنتي\n- زوجي\n- زوجتي\n- مرتي\n- خاين\n- خاينه\n- قلبي\n- صاك\n- صاكه\n- حرامي\n- خادم\n- خدامه\n- قرد\n- حمار\n- بقره\n- نجس\n- صرصار\n- رقاصه\n-ارمله\n- زبال\n- غبي**" 
+             GAME1_MESSAGE = "**<u>🏮 العاب التسلية</u>\n🥤| رفع/تنزيل\n- نمله\n- حرامي\n- حبيبي\n- حبيبتي\n- ابني\n- بنتي\n- زوجي\n- زوجتي\n- مرتي\n- خاين\n- خاينه\n- قلبي\n- صاك\n- صاكه\n- حرامي\n- خادم\n- خدامه\n- قرد\n- حمار\n- بقره\n- نجس\n- صرصار\n- رقاصه\n-ارمله\n- زبال\n- غبي**" 
 
-             AMED_BUTTONS = [
+             GAME1_BUTTONS = [
                     [ 
                       InlineKeyboardButton ('‹ قـناة الـبوت ›', url=config.SUPPORT_CHANNEL)
                       ],[
@@ -357,10 +357,6 @@ async def callback_query(client, CallbackQuery):
              await CallbackQuery.edit_message_text( 
                  GAME1_MESSAGE ,
                  reply_markup = InlineKeyboardMarkup(GAME1_BUTTONS) 
-              )
-          elif CallbackQuery.edit_message_text( 
-                 HMD_AHMED ,
-                 reply_markup = InlineKeyboardMarkup(AMED_BUTTONS) 
               )
           elif CallbackQuery.data == "GAME":
                
