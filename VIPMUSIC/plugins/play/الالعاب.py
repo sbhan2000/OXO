@@ -24,7 +24,7 @@ GAME_BUTTONS = [
         InlineKeyboardButton ('‹ قـناة الـبوت ›', url=config.SUPPORT_CHANNEL)              
                  ],[
                 InlineKeyboardButton(
-                        "◍ اغلاق 🌐", callback_data=f"close"),
+                        "◍ اغلاق 🌐", callback_data="close"),
                ],
           ]
     
@@ -414,7 +414,7 @@ async def callback_query(client, CallbackQuery):
         InlineKeyboardButton ('‹ قـناة الـبوت ›', url=config.SUPPORT_CHANNEL)              
                  ],[
                 InlineKeyboardButton(
-                        "◍ اغلاق 🌐", callback_data=f"close"),
+                        "◍ اغلاق 🌐", callback_data="close"),
                ],
           ]
                await CallbackQuery.edit_message_text( 
