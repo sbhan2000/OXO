@@ -118,7 +118,7 @@ async def loclklinks(client: app, message):
      if not chek.status in ["administrator", "creator"]: return await message.reply_text(f"**ليس لديك صلاحيات كافيه**")
     if not message.chat.id in links: links.append(message.chat.id)
     return await message.reply_text(f"**تم قفل الروابط*")
-@app.on_message(command(["فتحح الروابط"]) & ~filters.private)
+@app.on_message(filters.command(["فتحح الروابط"]) & ~filters.private)
 async def openlinks(client: app, message):
     if not message.from_user.id in sudo:
      chek = await client.get_chat_member(message.chat.id, message.from_user.id)
