@@ -352,9 +352,9 @@ async def callback_query(client, CallbackQuery):
                       InlineKeyboardButton ('‹ قـناة الـبوت ›', url=config.SUPPORT_CHANNEL)
                       ],[
                          InlineKeyboardButton ('◍ رجوع 🔙', callback_data= 'GAME')
-                    ]
-               ]
-               await CallbackQuery.edit_message_text( 
+                  ],
+             ]
+             await CallbackQuery.edit_message_text( 
                  GAME1_MESSAGE ,
                  reply_markup = InlineKeyboardMarkup(GAME1_BUTTONS) 
               )
