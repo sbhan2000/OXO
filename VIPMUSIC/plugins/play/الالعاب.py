@@ -35,14 +35,14 @@ nmla = []
 async def rf3nmla(client, message):
   if not message.reply_to_message.from_user.mention in nmla:
     nmla.append(message.reply_to_message.from_user.mention)
-  await message.reply_text(f"**🥤| تم رفع العضو نملهn\n🥤| بواسطة** : {message.reply_to_message.from_user.mention}")
+  await message.reply_text(f"**🥤| تم رفع العضو {message.reply_to_message.from_user.mention} نمله 😂🐜**")
 
 
 @app.on_message(filters.command(["تنزيل نمله"], prefixes=["/", "!", "%", ",", "", ".", "@", "#"])) 
 async def tnzelnmla(client, message):
   if message.reply_to_message.from_user.mention in nmla:
     nmla.remove(message.reply_to_message.from_user.mention)
-  await message.reply_text(f"**🥤| تم تنزيل العضو\n\n🥤| بواسطة** : {message.reply_to_message.from_user.mention}")
+  await message.reply_text(f"**🥤| تم تنزيل العضو **{message.reply_to_message.from_user.mention}")
 
 
 @app.on_message(filters.command(["المرفوعين نمل"], prefixes=["/", "!", "%", ",", "", ".", "@", "#"])) 
@@ -56,175 +56,230 @@ async def nml(client, message):
 
 
 
-@app.on_message(filters.command(["رفع صرصار"], prefixes=["/", "!", "%", ",", "", ".", "@", "#"])) 
+@app.on_message(filters.command(["رفع صرصور"], prefixes=["/", "!", "%", ",", "", ".", "@", "#"])) 
 async def rf3srsar(client, message):
-  await message.reply_text(f"**🥤| تم رفع العضو صرصار\n\n🥤| بواسطة** : {message.reply_to_message.from_user.mention}")
+  await message.reply_text(f"**🥤| تم رفع العضو {message.reply_to_message.from_user.mention} صرصور😂**")
 
+@app.on_message(filters.command(["المرفوعين صرصور"], prefixes=["/", "!", "%", ",", "", ".", "@", "#"])) 
+async def nml(client, message):
+  nq = ""
+  for n in nmla:
+      nq += n + "\n"
+  await message.reply_text(nq)
 
-@app.on_message(filters.command(["تنزيل صرصار"], prefixes=["/", "!", "%", ",", "", ".", "@", "#"])) 
+@app.on_message(filters.command(["تنزيل صرصور"], prefixes=["/", "!", "%", ",", "", ".", "@", "#"])) 
 async def tnzelsrar(client, message):
-  await message.reply_text(f"**🥤| تم تنزيل العضو\n\n🥤| بواسطة** : {message.reply_to_message.from_user.mention}")
+  await message.reply_text(f"**🥤| تم تنزيل العضو** {message.reply_to_message.from_user.mention}")
 
 
 @app.on_message(filters.command(["رفع رقاصه"], prefixes=["/", "!", "%", ",", "", ".", "@", "#"])) 
 async def yasooo(client, message):
-  await message.reply_text(f"**🥤| تم رفع العضو رقاصه\n\n🥤| بواسطة** : {message.reply_to_message.from_user.mention}")
+  await message.reply_text(f"**🥤| تم رفع العضو {message.reply_to_message.from_user.mention} رقاصه 💃😂**")
 
+@app.on_message(filters.command(["المرفوعين رقاصات"], prefixes=["/", "!", "%", ",", "", ".", "@", "#"])) 
+async def nml(client, message):
+  nq = ""
+  for n in nmla:
+      nq += n + "\n"
+  await message.reply_text(nq)
 
 @app.on_message(filters.command(["تنزيل رقاصه"], prefixes=["/", "!", "%", ",", "", ".", "@", "#"])) 
 async def yaso(client, message):
-  await message.reply_text(f"**🥤| تم تنزيل العضو\n\n🥤| بواسطة** : {message.reply_to_message.from_user.mention}")
+  await message.reply_text(f"**🥤| تم تنزيل العضو** {message.reply_to_message.from_user.mention}")
   
   
   
 @app.on_message(filters.command(["رفع نجس"], prefixes=["/", "!", "%", ",", "", ".", "@", "#"])) 
 async def fdsa(client, message):
-  await message.reply_text(f"**🥤| تم رفع العضو نجس\n\n🥤| بواسطة** : {message.reply_to_message.from_user.mention}")
+  await message.reply_text(f"**🥤| تم رفع العضو {message.reply_to_message.from_user.mention} نجس😐😂**")
 
+@app.on_message(filters.command(["المرفوعين نجس"], prefixes=["/", "!", "%", ",", "", ".", "@", "#"])) 
+async def nml(client, message):
+  nq = ""
+  for n in nmla:
+      nq += n + "\n"
+  await message.reply_text(nq)
 
 @app.on_message(filters.command(["تنزيل نجس"], prefixes=["/", "!", "%", ",", "", ".", "@", "#"])) 
 async def kophvc(client, message):
-  await message.reply_text(f"**🥤| تم تنزيل العضو\n\n🥤| بواسطة** : {message.reply_to_message.from_user.mention}")
+  await message.reply_text(f"**🥤| تم تنزيل العضو** {message.reply_to_message.from_user.mention}")
   
   
 @app.on_message(filters.command(["رفع حبيبي"], prefixes=["/", "!", "%", ",", "", ".", "@", "#"])) 
 async def roky(client, message):
-  await message.reply_text(f"**🥤| تم رفع العضو حبيبي\n\n🥤| بواسطة** : {message.reply_to_message.from_user.mention}")
+  await message.reply_text(f"**🥤| تم رفع العضو {message.reply_to_message.from_user.mention} حبيبي♥😂")
 
+@app.on_message(filters.command(["المرفوعين حبيبي"], prefixes=["/", "!", "%", ",", "", ".", "@", "#"])) 
+async def nml(client, message):
+  nq = ""
+  for n in nmla:
+      nq += n + "\n"
+  await message.reply_text(nq)
 
 @app.on_message(filters.command(["تنزيل حبيبي"], prefixes=["/", "!", "%", ",", "", ".", "@", "#"])) 
 async def zerso(client, message):
-  await message.reply_text(f"**🥤| تم تنزيل العضو\n\n🥤| بواسطة** : {message.reply_to_message.from_user.mention}")
+  await message.reply_text(f"**🥤| تم تنزيل العضو** {message.reply_to_message.from_user.mention}")
   
   
 @app.on_message(filters.command(["رفع بقره"], prefixes=["/", "!", "%", ",", "", ".", "@", "#"])) 
 async def vvvtyy(client, message):
-  await message.reply_text(f"**🥤| تم رفع العضو بقره\n\n🥤| بواسطة** : {message.reply_to_message.from_user.mention}")
+  await message.reply_text(f"**🥤| تم رفع العضو {message.reply_to_message.from_user.mention} بقره🐮😂**")
 
+@app.on_message(filters.command(["المرفوعين بقر"], prefixes=["/", "!", "%", ",", "", ".", "@", "#"])) 
+async def nml(client, message):
+  nq = ""
+  for n in nmla:
+      nq += n + "\n"
+  await message.reply_text(nq)
 
 @app.on_message(filters.command(["تنزيل بقره"], prefixes=["/", "!", "%", ",", "", ".", "@", "#"])) 
 async def tttryuh(client, message):
-  await message.reply_text(f"**🥤| تم تنزيل العضو\n\n🥤| بواسطة** : {message.reply_to_message.from_user.mention}")
+  await message.reply_text(f"**🥤| تم تنزيل العضو** {message.reply_to_message.from_user.mention}")
   
   
 @app.on_message(filters.command(["رفع قرد"], prefixes=["/", "!", "%", ",", "", ".", "@", "#"])) 
 async def uiipppl(client, message):
-  await message.reply_text(f"**🥤| تم رفع العضو قرد\n\n🥤| بواسطة** : {message.reply_to_message.from_user.mention}")
+  await message.reply_text(f"**🥤| تم رفع العضو {message.reply_to_message.from_user.mention} قرد🐒😂**")
 
+@app.on_message(filters.command(["المرفوعين قرد"], prefixes=["/", "!", "%", ",", "", ".", "@", "#"])) 
+async def nml(client, message):
+  nq = ""
+  for n in nmla:
+      nq += n + "\n"
+  await message.reply_text(nq)
 
 @app.on_message(filters.command(["تنزيل قرد"], prefixes=["/", "!", "%", ",", "", ".", "@", "#"])) 
 async def bjhupq(client, message):
-  await message.reply_text(f"**🥤| تم تنزيل العضو\n\n🥤| بواسطة** : {message.reply_to_message.from_user.mention}")
+  await message.reply_text(f"**🥤| تم تنزيل العضو** {message.reply_to_message.from_user.mention}")
   
   
 @app.on_message(filters.command(["رفع قلبي"], prefixes=["/", "!", "%", ",", "", ".", "@", "#"])) 
 async def pooiejh(client, message):
-  await message.reply_text(f"**🥤| تم رفع العضو قلبي\n\n🥤| بواسطة** : {message.reply_to_message.from_user.mention}")
+  await message.reply_text(f"**🥤| تم رفع العضو {message.reply_to_message.from_user.mention} قلبي♥😂")
 
+@app.on_message(filters.command(["المرفوعين قلبي"], prefixes=["/", "!", "%", ",", "", ".", "@", "#"])) 
+async def nml(client, message):
+  nq = ""
+  for n in nmla:
+      nq += n + "\n"
+  await message.reply_text(nq)
 
 @app.on_message(filters.command(["تنزيل قلبي"], prefixes=["/", "!", "%", ",", "", ".", "@", "#"])) 
 async def ttrqew(client, message):
-  await message.reply_text(f"**🥤| تم تنزيل العضو\n\n🥤| بواسطة** : {message.reply_to_message.from_user.mention}")
+  await message.reply_text(f"**🥤| تم تنزيل العضو** {message.reply_to_message.from_user.mention}")
   
   
 @app.on_message(filters.command(["رفع خادم"], prefixes=["/", "!", "%", ",", "", ".", "@", "#"])) 
 async def qyui(client, message):
-  await message.reply_text(f"**🥤| تم رفع العضو خادم\n\n🥤| بواسطة** : {message.reply_to_message.from_user.mention}")
+  await message.reply_text(f"**🥤| تم رفع العضو {message.reply_to_message.from_user.mention} خادم 👲😂**")
+
+@app.on_message(filters.command(["المرفوعين خادم"], prefixes=["/", "!", "%", ",", "", ".", "@", "#"])) 
+async def nml(client, message):
+  nq = ""
+  for n in nmla:
+      nq += n + "\n"
+  await message.reply_text(nq)
 
 
 @app.on_message(filters.command(["تنزيل خادم"], prefixes=["/", "!", "%", ",", "", ".", "@", "#"])) 
 async def klhj(client, message):
-  await message.reply_text(f"**🥤| تم تنزيل العضو\n\n🥤| بواسطة** : {message.reply_to_message.from_user.mention}")
+  await message.reply_text(f"**🥤| تم تنزيل العضو** {message.reply_to_message.from_user.mention}")
   
   
 @app.on_message(filters.command(["رفع كذاب"], prefixes=["/", "!", "%", ",", "", ".", "@", "#"])) 
 async def wqew(client, message):
-  await message.reply_text(f"**🥤| تم رفع العضو كذاب\n\n🥤| بواسطة** : {message.reply_to_message.from_user.mention}")
+  await message.reply_text(f"**🥤| تم رفع العضو {message.reply_to_message.from_user.mention} كذاب🤥😂**")
 
+@app.on_message(filters.command(["المرفوعين كذابين"], prefixes=["/", "!", "%", ",", "", ".", "@", "#"])) 
+async def nml(client, message):
+  nq = ""
+  for n in nmla:
+      nq += n + "\n"
+  await message.reply_text(nq)
 
 @app.on_message(filters.command(["تنزيل كذاب"], prefixes=["/", "!", "%", ",", "", ".", "@", "#"])) 
 async def ohho(client, message):
-  await message.reply_text(f"**🥤| تم تنزيل العضو\n\n🥤| بواسطة** : {message.reply_to_message.from_user.mention}")
+  await message.reply_text(f"**🥤| تم تنزيل العضو** {message.reply_to_message.from_user.mention}")
   
   
 @app.on_message(filters.command(["رفع ارمله"], prefixes=["/", "!", "%", ",", "", ".", "@", "#"])) 
 async def drsss(client, message):
-  await message.reply_text(f"**🥤| تم رفع العضو ارمله\n\n🥤| بواسطة** : {message.reply_to_message.from_user.mention}")
+  await message.reply_text(f"**🥤| تم رفع العضو {message.reply_to_message.from_user.mention} ارمله😂**")
 
 
 @app.on_message(filters.command(["تنزيل ارمله"], prefixes=["/", "!", "%", ",", "", ".", "@", "#"])) 
 async def gkvdr(client, message):
-  await message.reply_text(f"**🥤| تم تنزيل العضو\n\n🥤| بواسطة** : {message.reply_to_message.from_user.mention}")
+  await message.reply_text(f"**🥤| تم تنزيل العضو** {message.reply_to_message.from_user.mention}")
   
   
 @app.on_message(filters.command(["رفع صاكه"], prefixes=["/", "!", "%", ",", "", ".", "@", "#"])) 
 async def cgfyu6f(client, message):
-  await message.reply_text(f"**🥤| تم رفع العضو صاكه\n\n🥤| بواسطة** : {message.reply_to_message.from_user.mention}")
+  await message.reply_text(f"**🥤| تم رفع العضو {message.reply_to_message.from_user.mention} صاكه🤤😂**")
 
 
 @app.on_message(filters.command(["تنزيل صاكه"], prefixes=["/", "!", "%", ",", "", ".", "@", "#"])) 
 async def hhhhug(client, message):
-  await message.reply_text(f"**🥤| تم تنزيل العضو\n\n🥤| بواسطة** : {message.reply_to_message.from_user.mention}")
+  await message.reply_text(f"**🥤| تم تنزيل العضو** {message.reply_to_message.from_user.mention}")
   
   
 @app.on_message(filters.command(["رفع ابني"], prefixes=["/", "!", "%", ",", "", ".", "@", "#"])) 
 async def cbky(client, message):
-  await message.reply_text(f"**🥤| تم رفع العضو ابني\n\n🥤| بواسطة** : {message.reply_to_message.from_user.mention}")
+  await message.reply_text(f"**🥤| تم رفع العضو {message.reply_to_message.from_user.mention} ابني🥹♥😂**")
 
 
 @app.on_message(filters.command(["تنزيل ابني"], prefixes=["/", "!", "%", ",", "", ".", "@", "#"])) 
 async def ccgy(client, message):
-  await message.reply_text(f"**🥤| تم تنزيل العضو\n\n🥤| بواسطة** : {message.reply_to_message.from_user.mention} ")
+  await message.reply_text(f"**🥤| تم تنزيل العضو** {message.reply_to_message.from_user.mention} ")
   
   
 @app.on_message(filters.command(["رفع خاينه"], prefixes=["/", "!", "%", ",", "", ".", "@", "#"])) 
 async def mkloo(client, message):
-  await message.reply_text(f"**🥤| تم رفع العضو خاينه\n\n🥤| بواسطة** : {message.reply_to_message.from_user.mention}")
+  await message.reply_text(f"**🥤| تم رفع العضو {message.reply_to_message.from_user.mention} خاينه🙂😂**")
 
 
 @app.on_message(filters.command(["تنزيل خاينه"], prefixes=["/", "!", "%", ",", "", ".", "@", "#"])) 
 async def fkijbh(client, message):
-  await message.reply_text(f"**🥤| تم تنزيل العضو\n\n🥤| بواسطة** : {message.reply_to_message.from_user.mention}")  
+  await message.reply_text(f"**🥤| تم تنزيل العضو** {message.reply_to_message.from_user.mention}")  
   
   
 @app.on_message(filters.command(["رفع بنتي"], prefixes=["/", "!", "%", ",", "", ".", "@", "#"])) 
 async def yuhhss(client, message):
-  await message.reply_text(f"**🥤| تم رفع العضو بنتي\n\n🥤| بواسطة** : {message.reply_to_message.from_user.mention}")
+  await message.reply_text(f"**🥤| تم رفع العضو {message.reply_to_message.from_user.mention} بنتي💕😂**")
 
 
 @app.on_message(filters.command(["تنزيل بنتي"], prefixes=["/", "!", "%", ",", "", ".", "@", "#"])) 
 async def hloih(client, message):
-  await message.reply_text(f"**🥤| تم تنزيل العضو\n\n🥤| بواسطة** : {message.reply_to_message.from_user.mention}")  
+  await message.reply_text(f"**🥤| تم تنزيل العضو** {message.reply_to_message.from_user.mention}")  
   
   
 @app.on_message(filters.command(["رفع خاين"], prefixes=["/", "!", "%", ",", "", ".", "@", "#"])) 
 async def kloss(client, message):
-  await message.reply_text(f"**🥤| تم رفع العضو خاين\n\n🥤| بواسطة** : {message.reply_to_message.from_user.mention}")
+  await message.reply_text(f"**🥤| تم رفع العضو {message.reply_to_message.from_user.mention} خاين😒😂**")
 
 
 @app.on_message(filters.command(["تنزيل خاين"], prefixes=["/", "!", "%", ",", "", ".", "@", "#"])) 
 async def fiihug(client, message):
-  await message.reply_text(f"**🥤| تم تنزيل العضو\n\n🥤| بواسطة** : {message.reply_to_message.from_user.mention}")
+  await message.reply_text(f"**🥤| تم تنزيل العضو** {message.reply_to_message.from_user.mention}")
   
   
 @app.on_message(filters.command(["رفع صاك"], prefixes=["/", "!", "%", ",", "", ".", "@", "#"])) 
 async def dadr(client, message):
-  await message.reply_text(f"**🥤| تم رفع العضو صاك\n│ \n└ʙʏ : {message.reply_to_message.from_user.mention}")
+  await message.reply_text(f"**🥤| تم رفع العضو {message.reply_to_message.from_user.mention} صاك🙈😂**")
 
 
 @app.on_message(filters.command(["تنزيل صاك"], prefixes=["/", "!", "%", ",", "", ".", "@", "#"])) 
 async def hjj7gv(client, message):
-  await message.reply_text(f"**🥤| تم تنزيل العضو\n\n🥤| بواسطة** : {message.reply_to_message.from_user.mention}")
+  await message.reply_text(f"**🥤| تم تنزيل العضو** {message.reply_to_message.from_user.mention}")
   
   
 @app.on_message(filters.command(["رفع حمار"], prefixes=["/", "!", "%", ",", "", ".", "@", "#"])) 
 async def cgfyu6f(client, message):
-  await message.reply_text(f"**🥤| تم رفع العضو حمار\n\n🥤| بواسطة** : {message.reply_to_message.from_user.mention}")
+  await message.reply_text(f"**🥤| تم رفع العضو {message.reply_to_message.from_user.mention} حمار🦓😂**")
 
 
 @app.on_message(filters.command(["تنزيل حمار"], prefixes=["/", "!", "%", ",", "", ".", "@", "#"])) 
 async def cxxv(client, message):
-  await message.reply_text(f"**🥤| تم تنزيل العضو\n\n🥤| بواسطة** : {message.reply_to_message.from_user.mention}")
+  await message.reply_text(f"**🥤| تم تنزيل العضو** {message.reply_to_message.from_user.mention}")
   
   
 
@@ -232,62 +287,62 @@ async def cxxv(client, message):
 
 @app.on_message(filters.command(["رفع غبي"], prefixes=["/", "!", "%", ",", "", ".", "@", "#"])) 
 async def polkij(client, message):
-  await message.reply_text(f"**🥤| تم رفع العضو غبي\n\n🥤| بواسطة** : {message.reply_to_message.from_user.mention}")
+  await message.reply_text(f"**🥤| تم رفع العضو {message.reply_to_message.from_user.mention} غبي😂**")
 
 
 @app.on_message(filters.command(["تنزيل غبي"], prefixes=["/", "!", "%", ",", "", ".", "@", "#"])) 
 async def nbvcc(client, message):
-  await message.reply_text(f"**🥤| تم تنزيل العضو\n\n🥤| بواسطة** : {message.reply_to_message.from_user.mention}")
+  await message.reply_text(f"**🥤| تم تنزيل العضو** {message.reply_to_message.from_user.mention}")
   
   
 @app.on_message(filters.command(["رفع مرتي"], prefixes=["/", "!", "%", ",", "", ".", "@", "#"])) 
 async def ttttuhyp(client, message):
-  await message.reply_text(f"**🥤| تم رفع العضو مرتي\n\n🥤| بواسطة** : {message.reply_to_message.from_user.mention}")
+  await message.reply_text(f"**🥤| تم رفع العضو {message.reply_to_message.from_user.mention} مرتي👰‍♀️😂**")
 
 
 @app.on_message(filters.command(["تنزيل مرتي"], prefixes=["/", "!", "%", ",", "", ".", "@", "#"])) 
 async def xxxxt(client, message):
-  await message.reply_text(f"**🥤| تم تنزيل العضو\n\n🥤| بواسطة** : {message.reply_to_message.from_user.mention}")  
+  await message.reply_text(f"**🥤| تم تنزيل العضو** {message.reply_to_message.from_user.mention}")  
   
   
 @app.on_message(filters.command(["رفع زبال"], prefixes=["/", "!", "%", ",", "", ".", "@", "#"])) 
 async def oooph(client, message):
-  await message.reply_text(f"**🥤| تم رفع العضو زبال\n\n🥤| بواسطة** : {message.reply_to_message.from_user.mention}")
+  await message.reply_text(f"**🥤| تم رفع العضو {message.reply_to_message.from_user.mention} زبال😂**")
 
 
 @app.on_message(filters.command(["تنزيل زبال"], prefixes=["/", "!", "%", ",", "", ".", "@", "#"])) 
 async def zzzas(client, message):
-  await message.reply_text(f"**🥤| تم تنزيل العضو\n\n🥤| بواسطة** : {message.reply_to_message.from_user.mention}")  
+  await message.reply_text(f"**🥤| تم تنزيل العضو** {message.reply_to_message.from_user.mention}")  
   
   
 @app.on_message(filters.command(["رفع خدامه"], prefixes=["/", "!", "%", ",", "", ".", "@", "#"])) 
 async def ggggop(client, message):
-  await message.reply_text(f"**🥤| تم رفع العضو خدامه\n\n🥤| بواسطة** : {message.reply_to_message.from_user.mention}")
+  await message.reply_text(f"**🥤| تم رفع العضو  {message.reply_to_message.from_user.mention} خدامه🙇‍♀️😂**")
 
 
 @app.on_message(filters.command(["تنزيل خدامه"], prefixes=["/", "!", "%", ",", "", ".", "@", "#"])) 
 async def vvvuu(client, message):
-  await message.reply_text(f"**🥤| تم تنزيل العضو\n\n🥤| بواسطة** : {message.reply_to_message.from_user.mention}")  
+  await message.reply_text(f"**🥤| تم تنزيل العضو** {message.reply_to_message.from_user.mention}")  
   
   
 @app.on_message(filters.command(["رفع حبيبتي"], prefixes=["/", "!", "%", ",", "", ".", "@", "#"])) 
 async def mmmuy(client, message):
-  await message.reply_text(f"**🥤| تم رفع العضو حبيبتي\n\n🥤| بواسطة** : {message.reply_to_message.from_user.mention}")
+  await message.reply_text(f"**🥤| تم رفع العضو {message.reply_to_message.from_user.mention} حبيبتي♥😂**")
 
 
 @app.on_message(filters.command(["تنزيل حبيبتي"], prefixes=["/", "!", "%", ",", "", ".", "@", "#"])) 
 async def dfrewq(client, message):
-  await message.reply_text(f"**🥤| تم تنزيل العضو\n\n🥤| بواسطة** : {message.reply_to_message.from_user.mention}")  
+  await message.reply_text(f"**🥤| تم تنزيل العضو** {message.reply_to_message.from_user.mention}")  
   
   
 @app.on_message(filters.command(["رفع حرامي"], prefixes=["/", "!", "%", ",", "", ".", "@", "#"])) 
 async def llok(client, message):
-  await message.reply_text(f"**🥤| تم رفع العضو حرامي\n\n🥤| بواسطة : {message.reply_to_message.from_user.mention}")
+  await message.reply_text(f"**🥤| تم رفع العضو  {message.reply_to_message.from_user.mention} حرامي😮😂**")
 
 
 @app.on_message(filters.command(["تنزيل حرامي"], prefixes=["/", "!", "%", ",", "", ".", "@", "#"])) 
 async def kaompj(client, message):
-  await message.reply_text(f"**🥤| تم تنزيل العضو\n\n🥤| بواسطة** : {message.reply_to_message.from_user.mention}")
+  await message.reply_text(f"**🥤| تم تنزيل العضو** {message.reply_to_message.from_user.mention}")
   
 
 @app.on_message(
