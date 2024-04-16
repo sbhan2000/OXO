@@ -335,8 +335,32 @@ async def callback_query(client, CallbackQuery):
                 ],[
                     InlineKeyboardButton (
                         "◍ رجوع 🔙" , callback_data= 'GAME')
-                  ],
-             ]
+                    ]
+               ]
+             await CallbackQuery.edit_message_text( 
+                 GAME1_MESSAGE ,
+                 reply_markup = InlineKeyboardMarkup(GAME1_BUTTONS) 
+              )
+          elif CallbackQuery.data == "GAME":
+               
+               RETURN1_GAME = "**🥤| مرحبا بك عزيزي\n🥤| في قسم اللعاب اختر ما تريد**" 
+
+               RETURN1_BUTTON = [
+                    [ 
+                      InlineKeyboardButton ('اللعاب المتطورة', callback_data= 'GAME1'),
+                      InlineKeyboardButton ('العاب البوت', callback_data= 'GAME2')
+        ],[
+        InlineKeyboardButton ('العاب التسلية', callback_data= 'GAME3')
+                      ],[
+        InlineKeyboardButton ('‹ قـناة الـبوت ›', url=config.SUPPORT_CHANNEL)              
+                 ],[
+                InlineKeyboardButton(
+                        "◍ اغلاق 🌐", callback_data="close"),
+               ],
+          ]
+
+
+              
              await CallbackQuery.edit_message_text( 
                  GAME1_MESSAGE ,
                  reply_markup = InlineKeyboardMarkup(GAME1_BUTTONS) 
@@ -380,8 +404,8 @@ async def callback_query(client, CallbackQuery):
               
      
                await CallbackQuery.edit_message_text( 
-                 GAME2_MESSAGE ,
-                 reply_markup = InlineKeyboardMarkup(GAME2_BUTTONS) 
+                 RETURN1_GAME ,
+                 reply_markup = InlineKeyboardMarkup(RETURN1_BUTTON) 
                     )
           elif CallbackQuery.data == "GAME3":
                
