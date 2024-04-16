@@ -380,8 +380,8 @@ async def callback_query(client, CallbackQuery):
               
      
                await CallbackQuery.edit_message_text( 
-                 RETURN_GAME ,
-                 reply_markup = InlineKeyboardMarkup(GAME3_BUTTONS) 
+                 GAME2_MESSAGE ,
+                 reply_markup = InlineKeyboardMarkup(GAME2_BUTTONS) 
                     )
           elif CallbackQuery.data == "GAME3":
                
