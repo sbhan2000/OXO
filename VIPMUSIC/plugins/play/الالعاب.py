@@ -358,7 +358,7 @@ async def callback_query(client, CallbackQuery):
                  GAME1_MESSAGE ,
                  reply_markup = InlineKeyboardMarkup(GAME1_BUTTONS) 
               )
-          elif await CallbackQuery.edit_message_text( 
+          elif CallbackQuery.edit_message_text( 
                  HMD_AHMED ,
                  reply_markup = InlineKeyboardMarkup(AMED_BUTTONS) 
               )
