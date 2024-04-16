@@ -355,10 +355,10 @@ async def callback_query(client, CallbackQuery):
         InlineKeyboardButton ('‹ قـناة الـبوت ›', url=config.SUPPORT_CHANNEL)              
                  ],[
                 InlineKeyboardButton(
-                        "◍ اغلاق 🌐", callback_data="close"), 
-                    ], 
-               ]
-             await CallbackQuery.edit_message_text( 
+                        "◍ اغلاق 🌐", callback_data="close"),
+               ],
+          ]
+               await CallbackQuery.edit_message_text( 
                  GAME1_MESSAGE ,
                  reply_markup = InlineKeyboardMarkup(GAME1_BUTTONS) 
               )
@@ -379,9 +379,6 @@ async def callback_query(client, CallbackQuery):
                         "◍ اغلاق 🌐", callback_data="close"),
                ],
           ]
-
-              
-     
                await CallbackQuery.edit_message_text( 
                  RETURN_GAME ,
                  reply_markup = InlineKeyboardMarkup(RETURN_BUTTON) 
