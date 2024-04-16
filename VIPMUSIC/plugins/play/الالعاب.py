@@ -358,6 +358,8 @@ async def callback_query(client, CallbackQuery):
                         "◍ اغلاق 🌐", callback_data="close"),
                ],
           ]
+
+              
      
                await CallbackQuery.edit_message_text( 
                  RETURN_GAME ,
@@ -374,7 +376,10 @@ async def callback_query(client, CallbackQuery):
                          InlineKeyboardButton ('◍ رجوع 🔙', callback_data= 'GAME')
                     ]
                ]
-              await CallbackQuery.edit_message_text( 
+
+              
+     
+               await CallbackQuery.edit_message_text( 
                  RETURN_GAME ,
                  reply_markup = InlineKeyboardMarkup(RETURN_BUTTON) 
                     )
@@ -394,3 +399,6 @@ async def callback_query(client, CallbackQuery):
                  reply_markup = InlineKeyboardMarkup(SORGAM_BUTTON) 
                     )
     
+
+    
+              
