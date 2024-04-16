@@ -13,7 +13,9 @@ GAME_MESSAGE = "**🥤| مرحبا بك عزيزي\n🥤| في قسم العاب
 GAME_BUTTONS = [
     [ 
         InlineKeyboardButton ('اللعاب المتطورة', callback_data= 'GAME1'),
-        InlineKeyboardButton ('اللعاب البوت', callback_data= 'GAME2'),
+        InlineKeyboardButton ('العاب البوت', callback_data= 'GAME2')
+        ],[
+        InlineKeyboardButton ('العاب التسلية', callback_data= 'GAME3')           
         ],[
         InlineKeyboardButton ('‹ قـناة الـبوت ›', url=config.SUPPORT_CHANNEL)              
                  ],[
@@ -297,7 +299,7 @@ async def zohary(client: Client, message: Message):
 async def callback_query(client, CallbackQuery):
           if CallbackQuery.data == "GAME1":
             
-             GAME1_MESSAGE = "**🥤| مرحبا بك في قسم اللعاب المتطورة**"
+             GAME1_MESSAGE = "**<u>🏮 اللعاب المتطورة</u>\n🥤| مرحبا بك في قسم اللعاب المتطورة**"
 
              GAME1_BUTTONS = [
                  [
@@ -346,7 +348,9 @@ async def callback_query(client, CallbackQuery):
                RETURN_BUTTON = [
                     [ 
                       InlineKeyboardButton ('اللعاب المتطورة', callback_data= 'GAME1'),
-                      InlineKeyboardButton ('اللعاب البوت', callback_data= 'GAME2')
+                      InlineKeyboardButton ('العاب البوت', callback_data= 'GAME2')
+        ],[
+        InlineKeyboardButton ('العاب التسلية', callback_data= 'GAME3')
                       ],[
         InlineKeyboardButton ('‹ قـناة الـبوت ›', url=config.SUPPORT_CHANNEL)              
                  ],[
@@ -361,7 +365,27 @@ async def callback_query(client, CallbackQuery):
                     )
           elif CallbackQuery.data == "GAME2":
                
-               SOURCE_GAME = "**- افتارات شباب\n- افتارات بنات\n- افتارات عيال\n- افتارات كرتون\n- افتارات سينمائية\n- افتارات اطفال\n- افتارات رسم\n- افتارات فكتوري\n- افتارات دينية\n- افتارات رمضان\n- غنيلي\n- شعر\n- مزاج\n- ميمز\n- راب\n- افتاري\n- افتاره\n- كت\n- كتص\n- اذكار\n- دعاء\n- اقتباس\n- اقتبس\n- قران\n- حديث\n- رواية\n- اية\n- خطبة\n- كتاب اسلامي\n- لو خيروك\n- نصيحه\n- نكته\n- متحركه\n- ستوري\n- هيدرات\n- جداريات\n- بايو\n- صوره\n- انمي\n- صراحه\n- حروف**" 
+               SOURCE_GAME = "**<u>🏮 العاب البوت</u>\n- افتارات شباب\n- افتارات بنات\n- افتارات عيال\n- افتارات كرتون\n- افتارات سينمائية\n- افتارات اطفال\n- افتارات رسم\n- افتارات فكتوري\n- افتارات دينية\n- افتارات رمضان\n- غنيلي\n- شعر\n- مزاج\n- ميمز\n- راب\n- افتاري\n- افتاره\n- كت\n- كتص\n- اذكار\n- دعاء\n- اقتباس\n- اقتبس\n- قران\n- حديث\n- رواية\n- اية\n- خطبة\n- كتاب اسلامي\n- لو خيروك\n- نصيحه\n- نكته\n- متحركه\n- ستوري\n- هيدرات\n- جداريات\n- بايو\n- صوره\n- انمي\n- صراحه\n- حروف**" 
+
+               SORGAM_BUTTON = [
+                    [ 
+                      InlineKeyboardButton ('‹ قـناة الـبوت ›', url=config.SUPPORT_CHANNEL)
+                      ],[
+                         InlineKeyboardButton ('◍ رجوع 🔙', callback_data= 'GAME')
+                    ]
+               ]    
+               await CallbackQuery.edit_message_text( 
+                 SOURCE_GAME ,
+                 reply_markup = InlineKeyboardMarkup(SORGAM_BUTTON) 
+                    )
+    
+await CallbackQuery.edit_message_text( 
+                 RETURN_GAME ,
+                 reply_markup = InlineKeyboardMarkup(RETURN_BUTTON) 
+                    )
+          elif CallbackQuery.data == "GAME3":
+               
+               SOURCE_GAME = "**<u>🏮 العاب التسلية</u>\n🥤| رفع/تنزيل\n- نمله\n- حرامي\n- حبيبي\n- حبيبتي\n- ابني\n- بنتي\n- زوجي\n- زوجتي\n- \n- مرتي\n- خاين\n- خاينه\n- قلبي\n- صاك\n- صاكه\n- حرامي\n- خادم\n- خدامه\n- قرد\n- حمار\n- بقره\n- نجس\n- صرصار\n- رقاصه\n-ارمله\n- زبال\n- غبي**" 
 
                SORGAM_BUTTON = [
                     [ 
