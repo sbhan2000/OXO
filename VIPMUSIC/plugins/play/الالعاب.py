@@ -6,6 +6,10 @@ from VIPMUSIC import app
 import re
 import sys
 import config
+from pyrogram.types import InlineKeyboardButton, CallbackQuery, InlineKeyboardMarkup, Message
+from VIPMUSIC.misc import HAPP, SUDOERS, XCB
+from config import OWNER_ID
+
 
 
 
@@ -381,4 +385,22 @@ async def callback_query(client, CallbackQuery):
     
 
     
-              
+
+
+
+@app.on_callback_query(filters.regex("GAME3") & SUDOERS)
+async def mpdtsf(_, query: CallbackQuery):
+   await query.edit_message_text(
+       f"""**<u>🏮 العاب التسلية</u>\n🥤| رفع/تنزيل\n- نمله\n- حرامي\n- حبيبي\n- حبيبتي\n- ابني\n- بنتي\n- زوجي\n- زوجتي\n- مرتي\n- خاين\n- خاينه\n- قلبي\n- صاك\n- صاكه\n- حرامي\n- خادم\n- خدامه\n- قرد\n- حمار\n- بقره\n- نجس\n- صرصار\n- رقاصه\n-ارمله\n- زبال\n- غبي**""",
+        reply_markup=InlineKeyboardMarkup(
+            [
+                [
+                    InlineKeyboardButton(
+                        "‹ قـناة الـبوت ›", url=config.SUPPORT_CHANNEL),
+                ],[
+                    InlineKeyboardButton(
+                        "◍ رجوع 🔙", callback_data="GAME"),
+                ],
+            ]
+        ),
+    )
