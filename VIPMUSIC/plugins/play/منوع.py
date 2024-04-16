@@ -649,11 +649,11 @@ async def game_6(client, message):
    )
 
 
-@app.on_message(filters.command(["خلفيات"], prefixes=["/", "!", "%", ",", "", ".", "@", "#"]))
+@app.on_message(filters.command(["خلفيات","خلفيات"], prefixes=["/", "!", "%", ",", "", ".", "@", "#"]))
 async def game_6(client, message):
-   f = "P_S_0_0"
+   f = "X4_WX"
    t = message.chat.id
-   d = randint(2,80)
+   d = randint(2,190)
    await app.copy_message(
       t,
       f,
