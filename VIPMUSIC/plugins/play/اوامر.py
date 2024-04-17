@@ -32,7 +32,7 @@ from VIPMUSIC.utils.database import (add_served_chat,
 @app.on_message(filters.command(["الاوامر","اوامر"], prefixes=["/", "!", "%", ",", "", ".", "@", "#"]))
 async def mpdtsf(c,msg):
    await msg.reply_photo(
-        photo=f"https://te.legra.ph/file/4cd1170965414e0e53882.mp4",
+        photo=f"https://gra.ph/file/4cd1170965414e0e53882.mp4",
         caption=f"""**<u>صلي علي النبي وتبسم ♥️🌿</u>**""",
         reply_markup=InlineKeyboardMarkup(
             [
