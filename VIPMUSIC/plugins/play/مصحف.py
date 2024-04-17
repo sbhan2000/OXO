@@ -20,9 +20,6 @@ import asyncio, redis, requests, datetime, random
 
 
 @app.on_message(filters.regex("^ختمة"))
-        voic = ["مرحبا بك في قسم المصحف الرجاء ارسال رقم الصفحة لتصفح صفحات القرآن الكريم للرجوع ارسل /start",]
-        bot.send_message(call.message.chat.id,voic)
-@bot.message_handler(func=lambda message: True)
 def all(message):
     try:
             num = int(message.text)
