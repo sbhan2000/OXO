@@ -43,7 +43,7 @@ def start(message):
 ✓ 🔍 انقر على الزر ادناة لارسال ماتريد
 """, reply_markup=private)
         
-@bot.callback_query_handler(func=lambda call: True)
+@app.on_callback_query(func=lambda call: True)
 def tylaoa(call):
     if call.data == "quran":
         voices = "https://t.me/ALMORTAGELRSK/" + str(random.randint(7, 276))
@@ -84,7 +84,7 @@ def tylaoa(call):
     elif call.data == "starttt":
         voic = ["مرحبا بك في قسم المصحف الرجاء ارسال رقم الصفحة لتصفح صفحات القرآن الكريم للرجوع ارسل /start",]
         bot.send_message(call.message.chat.id,voic)
-@bot.message_handler(func=lambda message: True)
+@app.on_callback_query(func=lambda message: True)
 def all(message):
     try:
             num = int(message.text)
@@ -103,7 +103,7 @@ def all(message):
             pass
             bot.reply_to(message,'error')
 
-@bot.callback_query_handler(func=lambda call: True)
+@app.on_callback_query(func=lambda call: True)
 def alll(call):
     if call.data == 'couu':
      bot.answer_callback_query(call.id, text='هذا زر يعرض فيه العدد فقط')
