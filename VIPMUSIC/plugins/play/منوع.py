@@ -669,3 +669,127 @@ async def game_6(client, message):
    )
 
 
+@app.on_message(filters.command(["حالات","حالات واتس"], prefixes=["/", "!", "%", ",", "", ".", "@", "#"]))
+async def game_6(client, message):
+   f = "RSHDO5"
+   t = message.chat.id
+   d = randint(2,190)
+   await app.copy_message(
+      t,
+      f,
+      d,
+      reply_to_message_id=message.id,
+      reply_markup=InlineKeyboardMarkup(
+      [
+      [
+      InlineKeyboardButton(message.from_user.first_name, url=f"https://t.me/{message.from_user.username}")
+      ]
+      ]
+      )
+   )
+
+
+
+@app.on_message(filters.command(["رمادي","افتارات رمادي"], prefixes=["/", "!", "%", ",", "", ".", "@", "#"]))
+async def game_6(client, message):
+   f = "shababbbbR"
+   t = message.chat.id
+   d = randint(2,190)
+   await app.copy_message(
+      t,
+      f,
+      d,
+      reply_to_message_id=message.id,
+      reply_markup=InlineKeyboardMarkup(
+      [
+      [
+      InlineKeyboardButton(message.from_user.first_name, url=f"https://t.me/{message.from_user.username}")
+      ]
+      ]
+      )
+   )
+
+
+
+@app.on_message(filters.command(["رماديه","افتارات رماديه"], prefixes=["/", "!", "%", ",", "", ".", "@", "#"]))
+async def game_6(client, message):
+   f = "banatttR"
+   t = message.chat.id
+   d = randint(2,190)
+   await app.copy_message(
+      t,
+      f,
+      d,
+      reply_to_message_id=message.id,
+      reply_markup=InlineKeyboardMarkup(
+      [
+      [
+      InlineKeyboardButton(message.from_user.first_name, url=f"https://t.me/{message.from_user.username}")
+      ]
+      ]
+      )
+   )
+
+
+
+@app.on_message(filters.command(["تطقيم","تطقيم بنات"], prefixes=["/", "!", "%", ",", "", ".", "@", "#"]))
+async def game_6(client, message):
+   f = "Tatkkkkkim"
+   t = message.chat.id
+   d = randint(2,190)
+   await app.copy_message(
+      t,
+      f,
+      d,
+      reply_to_message_id=message.id,
+      reply_markup=InlineKeyboardMarkup(
+      [
+      [
+      InlineKeyboardButton(message.from_user.first_name, url=f"https://t.me/{message.from_user.username}")
+      ]
+      ]
+      )
+   )
+
+
+
+@app.on_message(filters.command(["حب","افتارات حب"], prefixes=["/", "!", "%", ",", "", ".", "@", "#"]))
+async def game_6(client, message):
+   f = "tatkkkkkimh"
+   t = message.chat.id
+   d = randint(2,190)
+   await app.copy_message(
+      t,
+      f,
+      d,
+      reply_to_message_id=message.id,
+      reply_markup=InlineKeyboardMarkup(
+      [
+      [
+      InlineKeyboardButton(message.from_user.first_name, url=f"https://t.me/{message.from_user.username}")
+      ]
+      ]
+      )
+   )
+
+
+@app.on_message(filters.command(["معلومات","معلومه"], prefixes=["/", "!", "%", ",", "", ".", "@", "#"]))
+async def game_6(client, message):
+   f = "A_l3l"
+   t = message.chat.id
+   d = randint(2,190)
+   await app.copy_message(
+      t,
+      f,
+      d,
+      reply_to_message_id=message.id,
+      reply_markup=InlineKeyboardMarkup(
+      [
+      [
+      InlineKeyboardButton(message.from_user.first_name, url=f"https://t.me/{message.from_user.username}")
+      ]
+      ]
+      )
+   )
+
+
