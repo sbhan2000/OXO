@@ -30,7 +30,7 @@ from VIPMUSIC.utils.database import (add_served_chat,
                                        
                                        
 @app.on_message(filters.command(["الاوامر","اوامر"], prefixes=["/", "!", "%", ",", "", ".", "@", "#"]))
-async def start_gp(client, message: Message, _):
+async def start_gp(c,Message):
    await message.reply_photo(
         photo=config.START_IMG_URL,
         caption=f"""**<u>صلي علي النبي وتبسم ♥️🌿</u>**""",
