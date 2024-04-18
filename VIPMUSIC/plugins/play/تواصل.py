@@ -716,9 +716,6 @@ def get_groups_backup() -> str:
 		f.write(text)
 	return 'groups.txt'
 
-if not r.get(f"bot_owner{bot_id}"):
-   owner = int(getenv("OWNER_ID", "1748768168"))
-   r.set(f"bot_owner{bot_id}", owner)
 
 
 @app.on_message(filters.command(["✨حذف حسابي"], ""))
