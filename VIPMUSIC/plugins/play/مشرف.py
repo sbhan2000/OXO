@@ -54,7 +54,7 @@ def promote_c_admin(client, message):
         if user:
             user_id = str(user.id)
         else:
-            message.reply_text(" مين هذا ما قدرت أتعرف على حسابه؟")
+            message.reply_text("**🥤| لا استطيع التعرف على الحساب**")
             return
     else:
         target = message.text.split()[1].strip("@")
@@ -62,7 +62,7 @@ def promote_c_admin(client, message):
         if user:
             user_id = str(user.id)
         else:
-            message.reply_text(" مين هذا ما قدرت أتعرف على حسابه؟")
+            message.reply_text("**🥤| لا استطيع التعرف على الحساب**")
             return
 
     
@@ -81,7 +81,7 @@ def promote_c_admin(client, message):
                 )
     chat_id = message.chat.id
     client.promote_chat_member(chat_id, user_id, ToM)
-    message.reply(f"↢ الحلو {user_id} صار مشرف...")
+    message.reply(f"**🥤| تم رفع {user.username} ({user.first_name})  مشرف بنجاح.**")
     
 
 
@@ -97,7 +97,7 @@ def promote_g_admin(client, message):
         if user:
             user_id = str(user.id)
         else:
-            message.reply_text("لا يمكن العثور على المستخدم")
+            message.reply_text("**🥤| لا استطيع التعرف على الحساب**")
             return
     else:
         target = message.text.split()[1].strip("@")
@@ -105,7 +105,7 @@ def promote_g_admin(client, message):
         if user:
             user_id = str(user.id)
         else:
-            message.reply_text("↢ مين هذا ما قدرت أتعرف على حسابه؟")
+            message.reply_text("**🥤| لا استطيع التعرف على الحساب**")
             return
 
     tom_id = message.from_user.id
@@ -127,7 +127,7 @@ def promote_g_admin(client, message):
     for tom in tooom:
     	if tom.user.id == tom_id and (tom.status == enums.ChatMemberStatus.OWNER or tom.status == enums.ChatMemberStatus.ADMINISTRATOR):
     		client.promote_chat_member(chat_id, user_id, ToM)
-    		message.reply(f"↢ الحلو {user_id} صار مشرف....")
+    		message.reply(f"**🥤| تم رفع {user.username} ({user.first_name})  مشرف بنجاح.**")
     		
     		
     		
