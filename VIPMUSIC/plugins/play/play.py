@@ -35,6 +35,32 @@ from config import LOGGER_ID as LOG_GROUP_ID
 from time import time
 from VIPMUSIC.utils.extraction import extract_user
 from VIPMUSIC.utils.thumbnails import get_thumb
+from pyrogram.enums import ChatType
+from config import MUST_JOIN
+from pyrogram import Client, filters
+from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, Message
+from pyrogram.errors import ChatAdminRequired, UserNotParticipant, ChatWriteForbidden
+from VIPMUSIC import app
+from ast import ExceptHandler
+
+
+force_btn = InlineKeyboardMarkup(
+    [
+        [
+            InlineKeyboardButton(   
+              text="قناة الاشتراك", url=f"{MUST_JOIN}",),                        
+        ],        
+    ]
+)
+async def check_is_joined(message):    
+    try:
+        userid = message.from_user.id
+        status = await app.get_chat_member(f"{MUST_JOIN}", userid)
+        return True
+    except Exception:
+        await message.reply_text("**⚠️︙عذراً، عليك الانضمام الى القناة أولاً :**",reply_markup=force_btn,parse_mode="markdown",disable_web_page_preview=False)
+        return False
+
 
 # Define a dictionary to track the last message timestamp for each user
 user_last_message_time = {}
