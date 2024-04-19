@@ -82,7 +82,7 @@ async def info_func(_, message: Message):
     os.remove(photo)
 
 
-@app.on_message(command("كشف") & filters.private & ~filters.edited)
+@app.on_message(filters.command(["كشف"], prefixes=["/", "!", "%", ",", "", ".", "@", "#"]))
 async def chat_info_func(_, message: Message):
     try:
         if len(message.command) > 2:
