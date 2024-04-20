@@ -11,7 +11,7 @@ if text == "الختمه" or text == "الختمة":
             ]
         ]
     }
-    return send(msg_chat_id, msg_id, '⇜ اختر احدى الازرار', 'md', False, False, False, False, reply_markup)
+    await message.reply_text(_["song_1"], reply_markup=upl)
 
 # callback
 
