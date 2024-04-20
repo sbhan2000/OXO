@@ -11,7 +11,7 @@ if text == "الختمه" or text == "الختمة":
             ]
         ]
     }
-    await message.reply_text(_["song_1"], reply_markup=upl)
+    return buttons
 
 # callback
 
