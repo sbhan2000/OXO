@@ -21,7 +21,11 @@ async def handle_message(client, message):
     chat_id = message.chat.id
     msg_id = message.message_id
 
-@app.on_message(filters.regex("^الختمه"))          
+@app.on_message(filters.regex("^الختمه"))
+async def handle_message(client, message):
+    text = message.text
+    chat_id = message.chat.id
+    msg_id = message.message_id
         keyboard = InlineKeyboardMarkup([
             [InlineKeyboardButton("البدء من جديد", callback_data="restart")],
             [InlineKeyboardButton("استئناف الختمه", callback_data="resume")]
