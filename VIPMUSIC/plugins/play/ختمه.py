@@ -3,7 +3,7 @@ import asyncio
 import os
 import time
 import requests
-from config 
+from config import Config
 from pyrogram import filters
 import random
 from pyrogram import Client
