@@ -34,7 +34,7 @@ async def handle(client, message):
             ]
         ]
     }
-    return send("اختر احدى الازرار", reply_markup)
+    await message.reply_text("اختر احدى الازرار", reply_markup)
 
 # callback
 
