@@ -9,8 +9,8 @@ import config
 from pyrogram import filters
 from pyrogram import Client
 from VIPMUSIC import app
-from pyrogram.types import Message, InlineKeyboardMarkup
-
+from pyrogram.types import Message, InlineKeyboardMarkup, InlineKeyboardButton, ReplyKeyboardMarkup
+from random import  choice, randint
 
 
 
