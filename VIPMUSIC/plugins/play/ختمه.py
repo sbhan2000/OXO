@@ -30,7 +30,7 @@ async def handle_message(client, message):
         ])
         await message.reply_text("اختر احدى الازرار", reply_markup=keyboard)
 
-@bot.on_callback_query()
+@app.on_callback_query()
 async def handle_callback(client, callback_query):
     data = callback_query.data
     chat_id = callback_query.message.chat.id
