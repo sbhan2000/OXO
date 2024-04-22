@@ -22,15 +22,12 @@ async def handle_message(client, message):
     msg_id = message.message_id
 
 @app.on_message(filters.regex("^الختمه"))
-async def handle_message(client, message):
-    text = message.text
-    chat_id = message.chat.id
-    msg_id = message.message_id
         keyboard = InlineKeyboardMarkup([
             [InlineKeyboardButton("البدء من جديد", callback_data="restart")],
             [InlineKeyboardButton("استئناف الختمه", callback_data="resume")]
         ])
         await message.reply_text("اختر احدى الازرار", reply_markup=keyboard)
+
 
 @app.on_callback_query()
 async def handle_callback(client, callback_query):
