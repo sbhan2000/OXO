@@ -11,6 +11,9 @@ from pyrogram import Client
 from VIPMUSIC import app
 from pyrogram.types import Message, InlineKeyboardMarkup
 
+api_id: int = config.API_ID
+api_hash: str = config.API_HASH
+bot_token: str = config.BOT_TOKEN
 
 
 bot = Client(
