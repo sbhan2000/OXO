@@ -3,11 +3,11 @@ import asyncio
 import os
 import time
 import requests
-from config import Config
+from config 
 from pyrogram import filters
 import random
 from pyrogram import Client
-import app
+from VIPMUSIC import app
 from pyrogram.types import Message, InlineKeyboardMarkup, InlineKeyboardButton, ReplyKeyboardMarkup
 from random import  choice, randint
 import json
