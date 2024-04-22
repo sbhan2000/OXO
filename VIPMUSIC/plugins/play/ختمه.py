@@ -15,7 +15,7 @@ from random import  choice, randint
 
 
 @app.on_message(filters.regex("^الختمه"))
-async def handle_message(client, message):
+async def handle(client, message):
         keyboard = InlineKeyboardMarkup([
             [InlineKeyboardButton("البدء من جديد", callback_data="restart")],
             [InlineKeyboardButton("استئناف الختمه", callback_data="resume")]
@@ -26,7 +26,6 @@ async def handle_message(client, message):
 async def handle_callback(client, callback_query):
     data = callback_query.data
     chat_id = callback_query.message.chat.id
-    msg_id = callback_query.message.message_id
 
     if data == "restart":
         readable = 0
