@@ -12,6 +12,15 @@ from VIPMUSIC import app
 from pyrogram.types import Message, InlineKeyboardMarkup, InlineKeyboardButton, ReplyKeyboardMarkup
 from random import  choice, randint
 
+api_id: int = config.API_ID
+api_hash: str = config.API_HASH
+bot_token: str = config.BOT_TOKEN
+
+bot = Client(
+    "QuranPlaybot",
+     api_id=api_id,
+     api_hash=api_hash,
+     bot_token=bot_token)
 
 
 @app.on_message(filters.regex("^الختمه"))
