@@ -11,7 +11,35 @@ from pyrogram import Client
 from VIPMUSIC import app
 from pyrogram.types import Message, InlineKeyboardMarkup, InlineKeyboardButton, ReplyKeyboardMarkup
 from random import  choice, randint
+import asyncio
+from pyrogram import Client, filters
+from pyrogram.types import Message, InlineKeyboardMarkup, InlineKeyboardButton
+from VIPMUSIC import (Apple, Resso, SoundCloud, Spotify, Telegram, YouTube, app)
+from pyrogram import filters
+from pyrogram.types import (InlineKeyboardButton,CallbackQuery,
+                            InlineKeyboardMarkup, Message)
+from youtubesearchpython.__future__ import VideosSearch
+from typing import Union
 
+from pyrogram.types import InlineKeyboardButton
+
+from config import SUPPORT_CHANNEL, SUPPORT_CHAT
+from VIPMUSIC import app
+import config
+from config import BANNED_USERS
+from config import OWNER_ID
+from strings import get_string
+from VIPMUSIC import Telegram, YouTube, app
+from VIPMUSIC.misc import SUDOERS
+from VIPMUSIC.plugins.play.playlist import del_plist_msg
+from VIPMUSIC.plugins.sudo.sudoers import sudoers_list
+from VIPMUSIC.utils.database import (add_served_chat,
+                                       add_served_user,
+                                       blacklisted_chats,
+                                       get_assistant, get_lang,
+                                       get_userss, is_on_off,
+                                       is_served_private_chat)
+                                       
 api_id: int = config.API_ID
 api_hash: str = config.API_HASH
 bot_token: str = config.BOT_TOKEN
@@ -23,18 +51,28 @@ bot = Client(
      bot_token=bot_token)
 
 
-@app.on_message(filters.regex("^الختمه"))
-async def handle(client, message):
-        reply_markup = {
-        "type": "inline",
-        "data": [
+                                       
+@app.on_message(filters.command(["ختمه"], prefixes=["/", "!", "%", ",", "", ".", "@", "#"]))
+async def mpdtsf(c,msg):
+   await msg.reply_photo(
+        photo=config.START_IMG_URL,
+        caption=f"""**<u>صلي علي النبي وتبسم ♥️🌿</u>**""",
+        reply_markup=InlineKeyboardMarkup(
             [
-                {"text": "البدء من جديد", "data": f"{msg.sender_id.user_id}/restas"},
-                {"text": "استئناف الختمه", "data": f"{msg.sender_id.user_id}/estisaf"}
+                [
+                    InlineKeyboardButton(
+                        "بدء", callback_data="{msg.sender_id.user_id}/restas""),
+                ],[
+                    InlineKeyboardButton(
+                        "استئناف", callback_data="{msg.sender_id.user_id}/estisaf"),                        
+                ],
             ]
-        ]
-    }
-    await message.reply_text("اختر احدى الازرار", reply_markup)
+        ),
+    )
+
+
+
+
 
 # callback
 
