@@ -5,7 +5,7 @@ import requests
 import json
 import urllib.parse
 import urllib.request
-from config import Config
+import Config
 from pyrogram import filters
 from pyrogram import Client
 from VIPMUSIC import app
