@@ -11,17 +11,7 @@ from pyrogram import Client
 from VIPMUSIC import app
 from pyrogram.types import Message, InlineKeyboardMarkup
 
-api_id: int = config.API_ID
-api_hash: str = config.API_HASH
-bot_token: str = config.BOT_TOKEN
 
-
-bot = Client(
-    "QuranPlaybot",
-    api_id=api_id,
-    api_hash=api_hash,
-    bot_token=bot_token
-)
 
 @app.on_message(filters.command(["hmd"]))
 async def start(client, message):
@@ -86,4 +76,3 @@ async def handle_callback(client, callback_query):
         ])
         await bot.send_photo(chat_id, photo, caption=caption, reply_markup=keyboard)
 
-bot.run()
