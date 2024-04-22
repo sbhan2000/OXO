@@ -31,8 +31,8 @@ async def handle_message(client, message):
             [InlineKeyboardButton("البدء من جديد", callback_data="restart")],
             [InlineKeyboardButton("استئناف الختمه", callback_data="resume")]
         ])
-        await message.reply_text("اختر احدى الازرار", reply_markup=keyboard)ccc
-
+        await message.reply_text("اختر احدى الازرار", reply_markup=keyboard)
+    
 @app.on_callback_query()
 async def handle_callback(client, callback_query):
     data = callback_query.data
