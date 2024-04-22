@@ -5,15 +5,15 @@ import requests
 import json
 import urllib.parse
 import urllib.request
-import Config
+import config
 from pyrogram import filters
 from pyrogram import Client
 from VIPMUSIC import app
 from pyrogram.types import Message, InlineKeyboardMarkup
 
-api_id: int = Config.API_ID
-api_hash: str = Config.API_HASH
-bot_token: str = Config.BOT_TOKEN
+api_id: int = API_ID
+api_hash: str = API_HASH
+bot_token: str = BOT_TOKEN
 
 bot = Client(
     "QuranPlaybot",
