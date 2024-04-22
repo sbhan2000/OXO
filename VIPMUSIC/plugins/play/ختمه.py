@@ -13,15 +13,7 @@ from pyrogram.types import Message, InlineKeyboardMarkup
 
 
 
-@app.on_message(filters.command(["hmd"]))
-async def start(client, message):
-    await message.reply_text("مرحبًا! للبدء اختر الختمة.")
 
-@app.on_message(filters.text & filters.private)
-async def handle_message(client, message):
-    text = message.text
-    chat_id = message.chat.id
-    msg_id = message.message_id
 
 @app.on_message(filters.regex("^الختمه"))
 async def cpanel(_, message: Message):
