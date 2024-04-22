@@ -61,7 +61,7 @@ async def mpdtsf(c,msg):
             [
                 [
                     InlineKeyboardButton(
-                        "بدء","callback_data": f"{msg.sender_id.user_id}/restas""),
+                        "بدء","callback_data": f"{msg.sender_id.user_id}/restas"),
                 ],[
                     InlineKeyboardButton(
                         "استئناف","callback_data": f"{msg.sender_id.user_id}/estisaf"),                        
