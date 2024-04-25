@@ -13,7 +13,6 @@ async def play_live_stream(client, CallbackQuery, _):
     callback_data = CallbackQuery.data.strip()
     callback_request = callback_data.split(None, 1)[1]
     vidid, user_id, mode, cplay, fplay = callback_request.split("|")
-    user_mention = message.from_user.mention if message.from_user else "المشـرف"
     if CallbackQuery.from_user.id != int(user_id):
         try:
             return await CallbackQuery.answer(_["playcb_1"], show_alert=True)
@@ -25,7 +24,6 @@ async def play_live_stream(client, CallbackQuery, _):
         return
     video = True if mode == "v" else None
     user_name = CallbackQuery.from_user.first_name
-    user_mention = message.from_user.mention if message.from_user else "المشـرف"
     await CallbackQuery.message.delete()
     try:
         await CallbackQuery.answer()
@@ -39,13 +37,12 @@ async def play_live_stream(client, CallbackQuery, _):
     except:
         return await mystic.edit_text(_["play_3"])
     ffplay = True if fplay == "f" else None
-    user_mention = message.from_user.mention if message.from_user else "المشـرف"
     if not details["duration_min"]:
         try:
             await stream(
                 _,
                 mystic,
-                user_id,
+                user_id = message.from_user.id if message.from_user else "1748768168"
                 details,
                 chat_id,
                 user_name,
