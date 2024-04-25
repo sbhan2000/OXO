@@ -13,7 +13,12 @@ async def play_live_stream(client, CallbackQuery, _):
     callback_data = CallbackQuery.data.strip()
     callback_request = callback_data.split(None, 1)[1]
     vidid, user_id, mode, cplay, fplay = callback_request.split("|")
+    user_mention = message.from_user.mention if message.from_user else "المشـرف"
     if CallbackQuery.from_user.id != int(user_id):
+        try:
+            return await CallbackQuery.answer(_["playcb_1"], show_alert=True)
+        except:
+            return
     try:
         chat_id, channel = await get_channeplayCB(_, cplay, CallbackQuery)
     except:
