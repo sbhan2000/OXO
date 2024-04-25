@@ -42,7 +42,7 @@ async def play_live_stream(client, CallbackQuery, _):
             await stream(
                 _,
                 mystic,
-                user_id = message.from_user.id if message.from_user else "1748768168"
+                user_id = message.from_user.id if message.from_user else "1748768168", 
                 details,
                 chat_id,
                 user_name,
