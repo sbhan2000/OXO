@@ -206,7 +206,7 @@ async def welcome(client, message: Message):
                     await message.edit_text(f"**Please make me admin to invite my [Assistant](tg://openmessage?user_id={userbot.id}) in this chat.**")
 
                 await message.reply_photo(
-                    random.choice(YUMI_PICS),
+                    random.choice(START_IMG_URL),
                     caption=_["start_3"].format(
                         message.from_user.first_name,
                         app.mention,
