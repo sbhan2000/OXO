@@ -202,4 +202,3 @@ async def handle_callback(client, callback_query):
         ])
         await bot.send_photo(chat_id, photo, caption=caption, reply_markup=keyboard)
 
-bot.run()
