@@ -14,6 +14,19 @@ import random
 from VIPMUSIC import (Apple, Resso, SoundCloud, Spotify, Telegram, YouTube, app)
 from VIPMUSIC import app
 from random import  choice, randint
+import asyncio
+import os
+import time
+import requests
+import json
+import urllib.parse
+import urllib.request
+from config
+from pyrogram import filters
+from pyrogram import Client
+from VIPMUSIC import app
+from pyrogram.types import Message, InlineKeyboardMarkup
+
 
 
 @app.on_message(filters.command(["المصحف"], prefixes=["/", "!", "%", ",", "", ".", "@", "#"]))
@@ -122,3 +135,82 @@ async def show_quran(c,cq):
     except:
         await VIP.skip_stream(cq.message.chat.id, quran[number]["sounds"][i]["url"])
         await cq.edit_message_reply_markup(ikm([[ikb("‹ ايقاف مؤقت ›", callback_data = f"ADMIN Pause|{cq.message.chat.id}"),ikb("‹ استئناف ›", callback_data=f"ADMIN Resume|{cq.message.chat.id}")],[ikb("‹ ايقاف ›", callback_data = f"ADMIN Stop|{cq.message.chat.id}")]]))
+
+
+
+
+api_id: int = config.API_ID
+api_hash: str = config.API_HASH
+bot_token: str = config.BOT_TOKEN
+
+bot = Client(
+    "QuranPlaybot",
+    api_id=api_id,
+    api_hash=api_hash,
+    bot_token=bot_token
+)
+
+@app.on_message(filters.command(["hmd"]))
+async def start(client, message):
+    await message.reply_text("مرحبًا! للبدء اختر الختمة.")
+
+@app.on_message(filters.text & filters.private)
+async def handle_message(client, message):
+    text = message.text
+    chat_id = message.chat.id
+    msg_id = message.message_id
+
+    if text == "الختمه" or text == "الختمة":
+        keyboard = InlineKeyboardMarkup([
+            [InlineKeyboardButton("البدء من جديد", callback_data="restart")],
+            [InlineKeyboardButton("استئناف الختمه", callback_data="resume")]
+        ])
+        await message.reply_text("اختر احدى الازرار", reply_markup=keyboard)
+
+@app.on_callback_query()
+async def handle_callback(client, callback_query):
+    data = callback_query.data
+    chat_id = callback_query.message.chat.id
+    msg_id = callback_query.message.message_id
+
+    if data == "restart":
+        readable = 0
+        photo = "https://quran.ksu.edu.sa/png_big/1.png"
+        caption = "الصفحه 1"
+        keyboard = InlineKeyboardMarkup([
+            [InlineKeyboardButton(" التالي ", callback_data="next")],
+            [InlineKeyboardButton(" السابق ", callback_data="prev")]
+        ])
+        await bot.send_photo(chat_id, photo, caption=caption, reply_markup=keyboard)
+
+    elif data == "next":
+        readable += 1
+        photo = f"https://quran.ksu.edu.sa/png_big/{readable}.png"
+        caption = f'الصفحه {readable}'
+        keyboard = InlineKeyboardMarkup([
+            [InlineKeyboardButton(" التالي ", callback_data="next")],
+            [InlineKeyboardButton(" السابق ", callback_data="prev")]
+        ])
+        await bot.send_photo(chat_id, photo, caption=caption, reply_markup=keyboard)
+
+    elif data == "prev":
+        readable -= 1
+        photo = f"https://quran.ksu.edu.sa/png_big/{readable}.png"
+        caption = f'الصفحه {readable}'
+        keyboard = InlineKeyboardMarkup([
+            [InlineKeyboardButton(" التالي ", callback_data="next")],
+            [InlineKeyboardButton(" السابق ", callback_data="prev")]
+        ])
+        await bot.send_photo(chat_id, photo, caption=caption, reply_markup=keyboard)
+
+    elif data == "resume":
+        readable = 0
+        photo = f"https://quran.ksu.edu.sa/png_big/{readable}.png"
+        caption = f'الصفحه {readable}'
+        keyboard = InlineKeyboardMarkup([
+            [InlineKeyboardButton(" التالي ", callback_data="next")],
+            [InlineKeyboardButton(" السابق ", callback_data="prev")]
+        ])
+        await bot.send_photo(chat_id, photo, caption=caption, reply_markup=keyboard)
+
+bot.run()
