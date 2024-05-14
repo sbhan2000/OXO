@@ -151,9 +151,6 @@ async def handle_message(client, message):
 
 @app.on_message(filters.command(["ختمه"], prefixes=["/", "!", "%", ",", "", ".", "@", "#"]))
 async def mpdtsf(c,msg):
-   await msg.reply_photo(
-        photo=config.START_IMG_URL,
-        caption=f"""**<u>صلي علي النبي وتبسم ♥️🌿</u>**""",
         keyboard = InlineKeyboardMarkup([
             [InlineKeyboardButton("البدء من جديد", callback_data="restart")],
             [InlineKeyboardButton("استئناف الختمه", callback_data="resume")]
